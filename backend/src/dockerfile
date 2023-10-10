@@ -1,0 +1,19 @@
+FROM node:16
+
+RUN yarn global add @strapi/strapi
+
+RUN mkdir /srv/app && chown 1000:1000 -R /srv/app
+
+WORKDIR /srv/app
+COPY ./package.json .
+COPY ./patches ./patches
+RUN ls & yarn
+
+COPY . .
+RUN strapi build
+
+EXPOSE 1337
+#CMD ["strapi", "configuration:restore", "-f", "dump.json", "&&", "strapi", "develop"]
+#CMD ["strapi", "develop"]
+CMD ["sh","-c","strapi configuration:restore -f dump.json && strapi start"]
+
