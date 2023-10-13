@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auto_statuses",
+  "info": {
+    "singularName": "auto-status",
+    "pluralName": "auto-statuses",
+    "displayName": "AutoStatus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Value": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "autos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auto.auto",
+      "mappedBy": "status"
+    }
+  }
+}
