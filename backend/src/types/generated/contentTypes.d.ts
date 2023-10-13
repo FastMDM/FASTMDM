@@ -677,6 +677,810 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAutoAuto extends Schema.CollectionType {
+  collectionName: 'autos';
+  info: {
+    singularName: 'auto';
+    pluralName: 'autos';
+    displayName: 'Auto';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Price: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    currency: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::currency.currency'
+    >;
+    City: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PostalCode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    VIN: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Odometer: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Make: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Model: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    ModelYear: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CryptoCurrency: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    DeliveryAvaliable: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    MoreAds: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    ContactEmail: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    PhoneNumber: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    ContactName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tenant: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::tenant.tenant'
+    >;
+    color: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-color.auto-color'
+    >;
+    condition: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-condition.auto-condition'
+    >;
+    cylinder: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-cylinder.auto-cylinder'
+    >;
+    drive: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-drive.auto-drive'
+    >;
+    fuel: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-fuel.auto-fuel'
+    >;
+    size: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-size.auto-size'
+    >;
+    status: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-status.auto-status'
+    >;
+    transmission: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-transmission.auto-transmission'
+    >;
+    type: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'api::auto-type.auto-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::auto.auto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::auto.auto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto.auto',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoColorAutoColor extends Schema.CollectionType {
+  collectionName: 'auto_colors';
+  info: {
+    singularName: 'auto-color';
+    pluralName: 'auto-colors';
+    displayName: 'AutoColor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-color.auto-color',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-color.auto-color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-color.auto-color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-color.auto-color',
+      'oneToMany',
+      'api::auto-color.auto-color'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoConditionAutoCondition extends Schema.CollectionType {
+  collectionName: 'auto_conditions';
+  info: {
+    singularName: 'auto-condition';
+    pluralName: 'auto-conditions';
+    displayName: 'AutoCondition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-condition.auto-condition',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-condition.auto-condition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-condition.auto-condition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-condition.auto-condition',
+      'oneToMany',
+      'api::auto-condition.auto-condition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoCylinderAutoCylinder extends Schema.CollectionType {
+  collectionName: 'auto_cylinders';
+  info: {
+    singularName: 'auto-cylinder';
+    pluralName: 'auto-cylinders';
+    displayName: 'AutoCylinder';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-cylinder.auto-cylinder',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-cylinder.auto-cylinder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-cylinder.auto-cylinder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-cylinder.auto-cylinder',
+      'oneToMany',
+      'api::auto-cylinder.auto-cylinder'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoDriveAutoDrive extends Schema.CollectionType {
+  collectionName: 'auto_drives';
+  info: {
+    singularName: 'auto-drive';
+    pluralName: 'auto-drives';
+    displayName: 'AutoDrive';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-drive.auto-drive',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-drive.auto-drive',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-drive.auto-drive',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-drive.auto-drive',
+      'oneToMany',
+      'api::auto-drive.auto-drive'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoFuelAutoFuel extends Schema.CollectionType {
+  collectionName: 'auto_fuels';
+  info: {
+    singularName: 'auto-fuel';
+    pluralName: 'auto-fuels';
+    displayName: 'AutoFuel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-fuel.auto-fuel',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-fuel.auto-fuel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-fuel.auto-fuel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-fuel.auto-fuel',
+      'oneToMany',
+      'api::auto-fuel.auto-fuel'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoSizeAutoSize extends Schema.CollectionType {
+  collectionName: 'auto_sizes';
+  info: {
+    singularName: 'auto-size';
+    pluralName: 'auto-sizes';
+    displayName: 'AutoSize';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-size.auto-size',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-size.auto-size',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-size.auto-size',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-size.auto-size',
+      'oneToMany',
+      'api::auto-size.auto-size'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoStatusAutoStatus extends Schema.CollectionType {
+  collectionName: 'auto_statuses';
+  info: {
+    singularName: 'auto-status';
+    pluralName: 'auto-statuses';
+    displayName: 'AutoStatus';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-status.auto-status',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-status.auto-status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-status.auto-status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-status.auto-status',
+      'oneToMany',
+      'api::auto-status.auto-status'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoTransmissionAutoTransmission
+  extends Schema.CollectionType {
+  collectionName: 'auto_transmissions';
+  info: {
+    singularName: 'auto-transmission';
+    pluralName: 'auto-transmissions';
+    displayName: 'AutoTransmission';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-transmission.auto-transmission',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-transmission.auto-transmission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-transmission.auto-transmission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-transmission.auto-transmission',
+      'oneToMany',
+      'api::auto-transmission.auto-transmission'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAutoTypeAutoType extends Schema.CollectionType {
+  collectionName: 'auto_types';
+  info: {
+    singularName: 'auto-type';
+    pluralName: 'auto-types';
+    displayName: 'AutoType';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Value: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::auto-type.auto-type',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auto-type.auto-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auto-type.auto-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto-type.auto-type',
+      'oneToMany',
+      'api::auto-type.auto-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCurrencyCurrency extends Schema.CollectionType {
+  collectionName: 'currencies';
+  info: {
+    singularName: 'currency';
+    pluralName: 'currencies';
+    displayName: 'Currency';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    autos: Attribute.Relation<
+      'api::currency.currency',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::currency.currency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::currency.currency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::currency.currency',
+      'oneToMany',
+      'api::currency.currency'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiTenantTenant extends Schema.CollectionType {
+  collectionName: 'tenants';
+  info: {
+    singularName: 'tenant';
+    pluralName: 'tenants';
+    displayName: 'Tenant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    menus: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToMany',
+      'api::menu.menu'
+    >;
+    autos: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    courses: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToMany',
+      'api::course.course'
+    >;
+    events: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToMany',
+      'api::event.event'
+    >;
+    houses: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToMany',
+      'api::house.house'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tenant.tenant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +1497,18 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::auto.auto': ApiAutoAuto;
+      'api::auto-color.auto-color': ApiAutoColorAutoColor;
+      'api::auto-condition.auto-condition': ApiAutoConditionAutoCondition;
+      'api::auto-cylinder.auto-cylinder': ApiAutoCylinderAutoCylinder;
+      'api::auto-drive.auto-drive': ApiAutoDriveAutoDrive;
+      'api::auto-fuel.auto-fuel': ApiAutoFuelAutoFuel;
+      'api::auto-size.auto-size': ApiAutoSizeAutoSize;
+      'api::auto-status.auto-status': ApiAutoStatusAutoStatus;
+      'api::auto-transmission.auto-transmission': ApiAutoTransmissionAutoTransmission;
+      'api::auto-type.auto-type': ApiAutoTypeAutoType;
+      'api::currency.currency': ApiCurrencyCurrency;
+      'api::tenant.tenant': ApiTenantTenant;
     }
   }
 }
