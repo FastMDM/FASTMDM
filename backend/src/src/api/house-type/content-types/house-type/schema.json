@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "house_types",
+  "info": {
+    "singularName": "house-type",
+    "pluralName": "house-types",
+    "displayName": "HouseType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "houses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::house.house",
+      "mappedBy": "type"
+    }
+  }
+}
