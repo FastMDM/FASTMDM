@@ -482,6 +482,189 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginTranslateBatchTranslateJob
+  extends Schema.CollectionType {
+  collectionName: 'translate_batch_translate_jobs';
+  info: {
+    singularName: 'batch-translate-job';
+    pluralName: 'batch-translate-jobs';
+    displayName: 'Translate Batch Translate Job';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contentType: Attribute.String;
+    sourceLocale: Attribute.String;
+    targetLocale: Attribute.String;
+    entityIds: Attribute.JSON;
+    status: Attribute.Enumeration<
+      [
+        'created',
+        'setup',
+        'running',
+        'paused',
+        'finished',
+        'cancelled',
+        'failed'
+      ]
+    > &
+      Attribute.DefaultTo<'created'>;
+    failureReason: Attribute.JSON;
+    progress: Attribute.Float & Attribute.DefaultTo<0>;
+    autoPublish: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMultiTenantOrganization extends Schema.CollectionType {
+  collectionName: 'organizations';
+  info: {
+    singularName: 'organization';
+    pluralName: 'organizations';
+    displayName: 'Organization';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    userGroups: Attribute.Relation<
+      'plugin::multi-tenant.organization',
+      'oneToMany',
+      'plugin::multi-tenant.user-group'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::multi-tenant.organization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::multi-tenant.organization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
+  collectionName: 'user_groups';
+  info: {
+    singularName: 'user-group';
+    pluralName: 'user-groups';
+    displayName: 'UserGroup';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    users: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    organization: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'manyToOne',
+      'plugin::multi-tenant.organization'
+    > &
+      Attribute.Required;
+    parent: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    >;
+    children: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'plugin::multi-tenant.user-group'
+    >;
+    workspaces: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::workspace.workspace'
+    >;
+    blogs: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    restaurants: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant.restaurant'
+    >;
+    restaurant_cuisines: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant-cuisine.restaurant-cuisine'
+    >;
+    restaurant_dishes: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant-dish.restaurant-dish'
+    >;
+    restaurant_features: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant-feature.restaurant-feature'
+    >;
+    restaurant_prices: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant-price.restaurant-price'
+    >;
+    restaurant_types: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant-type.restaurant-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -690,132 +873,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginMultiTenantOrganization extends Schema.CollectionType {
-  collectionName: 'organizations';
-  info: {
-    singularName: 'organization';
-    pluralName: 'organizations';
-    displayName: 'Organization';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    userGroups: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToMany',
-      'plugin::multi-tenant.user-group'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
-  collectionName: 'user_groups';
-  info: {
-    singularName: 'user-group';
-    pluralName: 'user-groups';
-    displayName: 'UserGroup';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    users: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
-    organization: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'manyToOne',
-      'plugin::multi-tenant.organization'
-    > &
-      Attribute.Required;
-    parent: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    >;
-    children: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'plugin::multi-tenant.user-group'
-    >;
-    workspaces: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::workspace.workspace'
-    >;
-    blogs: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::blog.blog'
-    >;
-    restaurants: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant.restaurant'
-    >;
-    restaurant_cuisines: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-cuisine.restaurant-cuisine'
-    >;
-    restaurant_dishes: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-dish.restaurant-dish'
-    >;
-    restaurant_features: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-feature.restaurant-feature'
-    >;
-    restaurant_prices: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-price.restaurant-price'
-    >;
-    restaurant_types: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-type.restaurant-type'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
       'oneToOne',
       'admin::user'
     > &
@@ -2535,12 +2592,13 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::translate.batch-translate-job': PluginTranslateBatchTranslateJob;
+      'plugin::multi-tenant.organization': PluginMultiTenantOrganization;
+      'plugin::multi-tenant.user-group': PluginMultiTenantUserGroup;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::multi-tenant.organization': PluginMultiTenantOrganization;
-      'plugin::multi-tenant.user-group': PluginMultiTenantUserGroup;
       'api::auto.auto': ApiAutoAuto;
       'api::auto-color.auto-color': ApiAutoColorAutoColor;
       'api::auto-condition.auto-condition': ApiAutoConditionAutoCondition;

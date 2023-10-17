@@ -14,7 +14,15 @@
     "@strapi/plugin-users-permissions": "4.14.3",
     "@strapi/strapi": "^4.14.4",
     "better-sqlite3": "8.6.0",
-    "strapi-plugin-multi-tenant": "^1.0.4"
+    "strapi-plugin-multi-tenant": "^1.0.4",
+    
+    "patch-package": "^8.0.0",
+    "pg": "^8.11.3",
+    "postinstall-postinstall": "^2.1.0",
+    "strapi-plugin-translate": "^1.2.2",
+    "strapi-provider-translate-libretranslate": "^1.0.9",
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.9",
+    "@offset-dev/strapi-calendar": "^0.0.10"  
   },
   "author": {
     "name": "A Strapi developer"
