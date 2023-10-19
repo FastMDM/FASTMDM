@@ -2451,6 +2451,77 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiRestaurantCuisineRestaurantCuisine
+  extends Schema.CollectionType {
+  collectionName: 'restaurant_cuisines';
+  info: {
+    singularName: 'restaurant-cuisine';
+    pluralName: 'restaurant-cuisines';
+    displayName: 'RestaurantCuisine';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurants: Attribute.Relation<
+      'api::restaurant-cuisine.restaurant-cuisine',
+      'manyToMany',
+      'api::restaurant.restaurant'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant-cuisine.restaurant-cuisine',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant-cuisine.restaurant-cuisine',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant-cuisine.restaurant-cuisine',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant-cuisine.restaurant-cuisine',
+      'oneToMany',
+      'api::restaurant-cuisine.restaurant-cuisine'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTenantTenant extends Schema.CollectionType {
   collectionName: 'tenants';
   info: {
@@ -2620,6 +2691,7 @@ declare module '@strapi/types' {
       'api::house.house': ApiHouseHouse;
       'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::menu.menu': ApiMenuMenu;
+      'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
       'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
     }
