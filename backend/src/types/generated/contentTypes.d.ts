@@ -2522,6 +2522,76 @@ export interface ApiRestaurantCuisineRestaurantCuisine
   };
 }
 
+export interface ApiRestaurantDishRestaurantDish extends Schema.CollectionType {
+  collectionName: 'restaurant_dishes';
+  info: {
+    singularName: 'restaurant-dish';
+    pluralName: 'restaurant-dishes';
+    displayName: 'RestaurantDish';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurants: Attribute.Relation<
+      'api::restaurant-dish.restaurant-dish',
+      'manyToMany',
+      'api::restaurant.restaurant'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant-dish.restaurant-dish',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant-dish.restaurant-dish',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant-dish.restaurant-dish',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant-dish.restaurant-dish',
+      'oneToMany',
+      'api::restaurant-dish.restaurant-dish'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTenantTenant extends Schema.CollectionType {
   collectionName: 'tenants';
   info: {
@@ -2692,6 +2762,7 @@ declare module '@strapi/types' {
       'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::menu.menu': ApiMenuMenu;
       'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
+      'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
       'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
     }
