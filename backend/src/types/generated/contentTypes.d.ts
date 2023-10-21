@@ -2592,6 +2592,146 @@ export interface ApiRestaurantDishRestaurantDish extends Schema.CollectionType {
   };
 }
 
+export interface ApiRestaurantFeatureRestaurantFeature
+  extends Schema.CollectionType {
+  collectionName: 'restaurant_features';
+  info: {
+    singularName: 'restaurant-feature';
+    pluralName: 'restaurant-features';
+    displayName: 'RestaurantFeature';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurants: Attribute.Relation<
+      'api::restaurant-feature.restaurant-feature',
+      'manyToMany',
+      'api::restaurant.restaurant'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant-feature.restaurant-feature',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant-feature.restaurant-feature',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant-feature.restaurant-feature',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant-feature.restaurant-feature',
+      'oneToMany',
+      'api::restaurant-feature.restaurant-feature'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiRestaurantPriceRestaurantPrice
+  extends Schema.CollectionType {
+  collectionName: 'restaurant_prices';
+  info: {
+    singularName: 'restaurant-price';
+    pluralName: 'restaurant-prices';
+    displayName: 'RestaurantPrice';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurants: Attribute.Relation<
+      'api::restaurant-price.restaurant-price',
+      'manyToMany',
+      'api::restaurant.restaurant'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant-price.restaurant-price',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant-price.restaurant-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant-price.restaurant-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant-price.restaurant-price',
+      'oneToMany',
+      'api::restaurant-price.restaurant-price'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTenantTenant extends Schema.CollectionType {
   collectionName: 'tenants';
   info: {
@@ -2763,6 +2903,8 @@ declare module '@strapi/types' {
       'api::menu.menu': ApiMenuMenu;
       'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
       'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
+      'api::restaurant-feature.restaurant-feature': ApiRestaurantFeatureRestaurantFeature;
+      'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
       'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
     }
