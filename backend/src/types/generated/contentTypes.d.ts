@@ -2732,6 +2732,76 @@ export interface ApiRestaurantPriceRestaurantPrice
   };
 }
 
+export interface ApiRestaurantTypeRestaurantType extends Schema.CollectionType {
+  collectionName: 'restaurant_types';
+  info: {
+    singularName: 'restaurant-type';
+    pluralName: 'restaurant-types';
+    displayName: 'RestaurantType';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+        i18n: {
+          localized: true;
+        };
+      }>;
+    restaurants: Attribute.Relation<
+      'api::restaurant-type.restaurant-type',
+      'manyToMany',
+      'api::restaurant.restaurant'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant-type.restaurant-type',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant-type.restaurant-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant-type.restaurant-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant-type.restaurant-type',
+      'oneToMany',
+      'api::restaurant-type.restaurant-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTenantTenant extends Schema.CollectionType {
   collectionName: 'tenants';
   info: {
@@ -2905,6 +2975,7 @@ declare module '@strapi/types' {
       'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
       'api::restaurant-feature.restaurant-feature': ApiRestaurantFeatureRestaurantFeature;
       'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
+      'api::restaurant-type.restaurant-type': ApiRestaurantTypeRestaurantType;
       'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
     }
