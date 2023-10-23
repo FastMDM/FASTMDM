@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "displayName": "Seo"
+  },
+  "options": {},
+  "attributes": {
+    "MetaTitle": {
+      "type": "string",
+      "maxLength": 60,
+      "required": true
+    },
+    "MetaDescription": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160,
+      "minLength": 50
+    },
+    "MetaImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "MetaSocial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.meta-social"
+    },
+    "Keywords": {
+      "type": "text",
+      "regex": "[^,]+"
+    },
+    "MetaRobots": {
+      "type": "string",
+      "regex": "[^,]+"
+    },
+    "StructuredData": {
+      "type": "json"
+    },
+    "MetaViewport": {
+      "type": "string"
+    },
+    "CanonicalURL": {
+      "type": "string"
+    }
+  }
+}
