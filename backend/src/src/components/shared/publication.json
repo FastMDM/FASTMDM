@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_publications",
+  "info": {
+    "displayName": "Publication"
+  },
+  "options": {},
+  "attributes": {
+    "Publish_at": {
+      "type": "datetime"
+    },
+    "Ready": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

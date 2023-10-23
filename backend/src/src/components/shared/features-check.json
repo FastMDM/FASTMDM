@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_features_checks",
+  "info": {
+    "displayName": "FeaturesCheck"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    }
+  }
+}
