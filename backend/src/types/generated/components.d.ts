@@ -138,6 +138,33 @@ export interface BlocksTestimonial extends Schema.Component {
   };
 }
 
+export interface GlobalFooter extends Schema.Component {
+  collectionName: 'components_global_footers';
+  info: {
+    displayName: 'footer';
+    icon: 'align-right';
+  };
+  attributes: {
+    footerColumns: Attribute.Component<'shared.footer-columns', true>;
+    socialNetworks: Attribute.Component<'shared.social-networks', true>;
+    button: Attribute.Component<'shared.button'>;
+    label: Attribute.String;
+  };
+}
+
+export interface GlobalNavigation extends Schema.Component {
+  collectionName: 'components_global_navigations';
+  info: {
+    displayName: 'navigation';
+    icon: 'location-arrow';
+  };
+  attributes: {
+    links: Attribute.Component<'shared.link', true>;
+    leftButton: Attribute.Component<'shared.link'>;
+    rightButton: Attribute.Component<'shared.link'>;
+  };
+}
+
 export interface SharedButton extends Schema.Component {
   collectionName: 'components_shared_buttons';
   info: {
@@ -335,6 +362,8 @@ declare module '@strapi/types' {
       'blocks.pricing': BlocksPricing;
       'blocks.team': BlocksTeam;
       'blocks.testimonial': BlocksTestimonial;
+      'global.footer': GlobalFooter;
+      'global.navigation': GlobalNavigation;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
       'shared.comment': SharedComment;
