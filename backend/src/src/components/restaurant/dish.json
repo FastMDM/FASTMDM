@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_restaurant_dishes",
+  "info": {
+    "displayName": "Dish",
+    "icon": "angle-double-right"
+  },
+  "options": {},
+  "attributes": {
+    "DishSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.dish-slider"
+    }
+  }
+}

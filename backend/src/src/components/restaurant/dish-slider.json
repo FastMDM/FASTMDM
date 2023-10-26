@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_restaurant_dish_sliders",
+  "info": {
+    "displayName": "DishSlider",
+    "icon": "angle-double-down"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Price": {
+      "type": "integer"
+    }
+  }
+}
