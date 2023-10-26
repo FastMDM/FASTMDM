@@ -2451,6 +2451,168 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiRestaurantRestaurant extends Schema.CollectionType {
+  collectionName: 'restaurants';
+  info: {
+    singularName: 'restaurant';
+    pluralName: 'restaurants';
+    displayName: 'Restaurant';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Blocks: Attribute.DynamicZone<
+      [
+        'restaurant.dish',
+        'common.rich-text',
+        'blocks.faq',
+        'blocks.cta',
+        'restaurant.related-restaurants'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant_cuisines: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToMany',
+      'api::restaurant-cuisine.restaurant-cuisine'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant_dishes: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToMany',
+      'api::restaurant-dish.restaurant-dish'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant_features: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToMany',
+      'api::restaurant-feature.restaurant-feature'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant_prices: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToMany',
+      'api::restaurant-price.restaurant-price'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant_types: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToMany',
+      'api::restaurant-type.restaurant-type'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    slug: Attribute.UID<'api::restaurant.restaurant', 'Name'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    information: Attribute.Component<'restaurant.information'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    socialNetworks: Attribute.Component<'shared.social-network', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant.restaurant'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiRestaurantCuisineRestaurantCuisine
   extends Schema.CollectionType {
   collectionName: 'restaurant_cuisines';
@@ -2971,6 +3133,7 @@ declare module '@strapi/types' {
       'api::house.house': ApiHouseHouse;
       'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::menu.menu': ApiMenuMenu;
+      'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
       'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
       'api::restaurant-feature.restaurant-feature': ApiRestaurantFeatureRestaurantFeature;
