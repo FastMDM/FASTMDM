@@ -165,6 +165,122 @@ export interface GlobalNavigation extends Schema.Component {
   };
 }
 
+export interface PricingPerks extends Schema.Component {
+  collectionName: 'components_shared_perks';
+  info: {
+    displayName: 'perks';
+    icon: 'adjust';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    included: Attribute.Boolean & Attribute.Required;
+  };
+}
+
+export interface PricingPricingCards extends Schema.Component {
+  collectionName: 'components_shared_pricing_cards';
+  info: {
+    displayName: 'pricingCards';
+    icon: 'file-invoice-dollar';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    price: Attribute.Integer & Attribute.Required;
+    perks: Attribute.Component<'pricing.perks', true>;
+  };
+}
+
+export interface RestaurantDishSlider extends Schema.Component {
+  collectionName: 'components_restaurant_dish_sliders';
+  info: {
+    displayName: 'DishSlider';
+    icon: 'angle-double-down';
+  };
+  attributes: {
+    name: Attribute.String;
+    Description: Attribute.Text;
+    Image: Attribute.Media;
+    Price: Attribute.Integer;
+  };
+}
+
+export interface RestaurantDish extends Schema.Component {
+  collectionName: 'components_restaurant_dishes';
+  info: {
+    displayName: 'Dish';
+    icon: 'angle-double-right';
+  };
+  attributes: {
+    DishSlider: Attribute.Component<'restaurant.dish-slider', true>;
+  };
+}
+
+export interface RestaurantInformation extends Schema.Component {
+  collectionName: 'components_restaurant_information';
+  info: {
+    displayName: 'information';
+    icon: 'align-center';
+  };
+  attributes: {
+    description: Attribute.Text;
+    opening_hours: Attribute.Component<'restaurant.opening-hours', true>;
+    location: Attribute.Component<'restaurant.location'>;
+  };
+}
+
+export interface RestaurantLocation extends Schema.Component {
+  collectionName: 'components_restaurant_more_information';
+  info: {
+    displayName: 'moreInformation';
+    icon: 'allergies';
+  };
+  attributes: {
+    address: Attribute.String;
+    website: Attribute.String;
+    phone: Attribute.String;
+  };
+}
+
+export interface RestaurantOpeningHours extends Schema.Component {
+  collectionName: 'components_opening_hours';
+  info: {
+    displayName: 'openingHours';
+    icon: 'calendar-alt';
+  };
+  attributes: {
+    day_interval: Attribute.String & Attribute.Required;
+    opening_hour: Attribute.String;
+    closing_hour: Attribute.String;
+  };
+}
+
+export interface RestaurantRelatedRestaurants extends Schema.Component {
+  collectionName: 'components_restaurant_related_restaurants';
+  info: {
+    displayName: 'RelatedRestaurants';
+  };
+  attributes: {
+    Header: Attribute.Component<'shared.header'>;
+    restaurants: Attribute.Relation<
+      'restaurant.related-restaurants',
+      'oneToMany',
+      'api::restaurant.restaurant'
+    >;
+  };
+}
+
+export interface RestaurantRichContent extends Schema.Component {
+  collectionName: 'components_restaurant_rich_contents';
+  info: {
+    displayName: 'richContent';
+    icon: 'asterisk';
+  };
+  attributes: {
+    content: Attribute.RichText;
+  };
+}
+
 export interface SharedButton extends Schema.Component {
   collectionName: 'components_shared_buttons';
   info: {
@@ -364,6 +480,15 @@ declare module '@strapi/types' {
       'blocks.testimonial': BlocksTestimonial;
       'global.footer': GlobalFooter;
       'global.navigation': GlobalNavigation;
+      'pricing.perks': PricingPerks;
+      'pricing.pricing-cards': PricingPricingCards;
+      'restaurant.dish-slider': RestaurantDishSlider;
+      'restaurant.dish': RestaurantDish;
+      'restaurant.information': RestaurantInformation;
+      'restaurant.location': RestaurantLocation;
+      'restaurant.opening-hours': RestaurantOpeningHours;
+      'restaurant.related-restaurants': RestaurantRelatedRestaurants;
+      'restaurant.rich-content': RestaurantRichContent;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
       'shared.comment': SharedComment;
