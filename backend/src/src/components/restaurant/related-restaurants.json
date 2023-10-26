@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_restaurant_related_restaurants",
+  "info": {
+    "displayName": "RelatedRestaurants"
+  },
+  "options": {},
+  "attributes": {
+    "Header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.header"
+    },
+    "restaurants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant.restaurant"
+    }
+  }
+}
