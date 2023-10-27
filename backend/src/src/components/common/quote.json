@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_common_quotes",
+  "info": {
+    "displayName": "Quote",
+    "icon": "angle-right"
+  },
+  "options": {},
+  "attributes": {
+    "Quote": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.quote-item"
+    }
+  }
+}

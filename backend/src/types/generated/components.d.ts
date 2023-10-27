@@ -138,6 +138,75 @@ export interface BlocksTestimonial extends Schema.Component {
   };
 }
 
+export interface CommonDictionaryItem extends Schema.Component {
+  collectionName: 'components_common_dictionary_items';
+  info: {
+    displayName: 'DictionaryItem';
+    icon: 'ad';
+  };
+  attributes: {
+    name: Attribute.String;
+  };
+}
+
+export interface CommonMetaItem extends Schema.Component {
+  collectionName: 'components_common_meta_items';
+  info: {
+    displayName: 'MetaItem';
+    icon: 'air-freshener';
+  };
+  attributes: {
+    name: Attribute.String;
+    value: Attribute.Text;
+  };
+}
+
+export interface CommonMeta extends Schema.Component {
+  collectionName: 'components_common_metas';
+  info: {
+    displayName: 'meta';
+    icon: 'address-card';
+    description: '';
+  };
+  attributes: {
+    Meta: Attribute.Component<'common.meta-item', true>;
+  };
+}
+
+export interface CommonQuoteItem extends Schema.Component {
+  collectionName: 'components_common_quote_items';
+  info: {
+    displayName: 'QuoteItem';
+    icon: 'angle-down';
+  };
+  attributes: {
+    Quote: Attribute.String;
+    Quoter: Attribute.String;
+  };
+}
+
+export interface CommonQuote extends Schema.Component {
+  collectionName: 'components_common_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'angle-right';
+  };
+  attributes: {
+    Quote: Attribute.Component<'common.quote-item', true>;
+  };
+}
+
+export interface CommonRichText extends Schema.Component {
+  collectionName: 'components_common_rich_texts';
+  info: {
+    displayName: 'RichText';
+    icon: 'align-justify';
+  };
+  attributes: {
+    RichText: Attribute.RichText;
+  };
+}
+
 export interface GlobalFooter extends Schema.Component {
   collectionName: 'components_global_footers';
   info: {
@@ -478,6 +547,12 @@ declare module '@strapi/types' {
       'blocks.pricing': BlocksPricing;
       'blocks.team': BlocksTeam;
       'blocks.testimonial': BlocksTestimonial;
+      'common.dictionary-item': CommonDictionaryItem;
+      'common.meta-item': CommonMetaItem;
+      'common.meta': CommonMeta;
+      'common.quote-item': CommonQuoteItem;
+      'common.quote': CommonQuote;
+      'common.rich-text': CommonRichText;
       'global.footer': GlobalFooter;
       'global.navigation': GlobalNavigation;
       'pricing.perks': PricingPerks;
