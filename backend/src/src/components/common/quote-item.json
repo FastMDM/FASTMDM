@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_quote_items",
+  "info": {
+    "displayName": "QuoteItem",
+    "icon": "angle-down"
+  },
+  "options": {},
+  "attributes": {
+    "Quote": {
+      "type": "string"
+    },
+    "Quoter": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_common_dictionary_items",
+  "info": {
+    "displayName": "DictionaryItem",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

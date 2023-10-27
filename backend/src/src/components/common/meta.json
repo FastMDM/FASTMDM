@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_metas",
+  "info": {
+    "displayName": "meta",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Meta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.meta-item"
+    }
+  }
+}
