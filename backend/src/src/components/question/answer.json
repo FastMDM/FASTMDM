@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_question_answers",
+  "info": {
+    "displayName": "Answer",
+    "icon": "ambulance"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "scor": {
+      "type": "integer"
+    },
+    "Votes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "question.vote"
+    },
+    "Comments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "question.comment"
+    }
+  }
+}

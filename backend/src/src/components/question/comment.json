@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_question_comments",
+  "info": {
+    "displayName": "Comment",
+    "icon": "american-sign-language-interpreting"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Body": {
+      "type": "richtext"
+    }
+  }
+}
