@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_question_votes",
+  "info": {
+    "displayName": "Vote",
+    "icon": "align-right"
+  },
+  "options": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Vote": {
+      "type": "integer"
+    }
+  }
+}

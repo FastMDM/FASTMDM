@@ -260,6 +260,57 @@ export interface PricingPricingCards extends Schema.Component {
   };
 }
 
+export interface QuestionAnswer extends Schema.Component {
+  collectionName: 'components_question_answers';
+  info: {
+    displayName: 'Answer';
+    icon: 'ambulance';
+  };
+  attributes: {
+    author: Attribute.Relation<
+      'question.answer',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    text: Attribute.RichText;
+    scor: Attribute.Integer;
+    Votes: Attribute.Component<'question.vote', true>;
+    Comments: Attribute.Component<'question.comment', true>;
+  };
+}
+
+export interface QuestionComment extends Schema.Component {
+  collectionName: 'components_question_comments';
+  info: {
+    displayName: 'Comment';
+    icon: 'american-sign-language-interpreting';
+  };
+  attributes: {
+    author: Attribute.Relation<
+      'question.comment',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    Body: Attribute.RichText;
+  };
+}
+
+export interface QuestionVote extends Schema.Component {
+  collectionName: 'components_question_votes';
+  info: {
+    displayName: 'Vote';
+    icon: 'align-right';
+  };
+  attributes: {
+    user: Attribute.Relation<
+      'question.vote',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    Vote: Attribute.Integer;
+  };
+}
+
 export interface RestaurantDishSlider extends Schema.Component {
   collectionName: 'components_restaurant_dish_sliders';
   info: {
@@ -557,6 +608,9 @@ declare module '@strapi/types' {
       'global.navigation': GlobalNavigation;
       'pricing.perks': PricingPerks;
       'pricing.pricing-cards': PricingPricingCards;
+      'question.answer': QuestionAnswer;
+      'question.comment': QuestionComment;
+      'question.vote': QuestionVote;
       'restaurant.dish-slider': RestaurantDishSlider;
       'restaurant.dish': RestaurantDish;
       'restaurant.information': RestaurantInformation;
