@@ -15,10 +15,10 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
+    "go": "cd apps/expo && npx expo start",
     "android": "cd apps/expo && npx expo run:android",
     "ios": "cd apps/expo && npx expo run:ios",
-    "web": "cd apps/next && yarn next",
-    "native": "cd apps/next && expo start"
+    "web": "cd apps/next && yarn next"
   },
   "resolutions": {
     "metro": "~0.76.7",
