@@ -23,10 +23,10 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "start": "npx expo start",
+    "android": "npx expo run:android",
+    "ios": "npx expo run:ios",
+    "web": "npx expo start --web"
   },
   "main": "index.js",
   "version": "1.0.0",
