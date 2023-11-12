@@ -11,7 +11,7 @@
     "ios": {
       "bundleIdentifier": "com.solito.nativewind"
     },
-    "android": {
+    "android1": {
       "package": "com.freemdm.android"
     }
   }
