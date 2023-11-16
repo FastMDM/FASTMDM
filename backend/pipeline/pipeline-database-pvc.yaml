@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-0-pv
+spec:
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-0-sc
+  capacity:
+    storage: 1000Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /zfs/fastmdm-#{Build.SourceBranchName}#-postgres-0-#{Release.ReleaseId}#
+    server: nfs
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-0-sc
+provisioner: nfs
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgdata-acid-postgres-cluster-0
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1000Gi
+  volumeName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-0-pv
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-0-sc
+  volumeMode: Filesystem
+---
+
+
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-1-pv
+spec:
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-1-sc
+  capacity:
+    storage: 1000Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /zfs/fastmdm-#{Build.SourceBranchName}#-postgres-1-#{Release.ReleaseId}#
+    server: nfs
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-1-sc
+provisioner: nfs
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name:  pgdata-acid-postgres-cluster-1
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1000Gi
+  volumeName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-1-pv
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-postgres-1-sc
+  volumeMode: Filesystem

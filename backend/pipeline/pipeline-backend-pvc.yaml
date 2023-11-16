@@ -1,0 +1,38 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-strapi-public-sc
+provisioner: nfs
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-fastmdm-#{Build.SourceBranchName}#-strapi-public-pv
+spec:
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-strapi-public-sc
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /zfs/fastmdm-#{Build.SourceBranchName}#-strapi-public-#{Release.ReleaseId}#
+    server: nfs
+  persistentVolumeReclaimPolicy: Retain
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: backend
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: nfs-fastmdm-#{Build.SourceBranchName}#-strapi-public-pv
+  storageClassName: nfs-fastmdm-#{Build.SourceBranchName}#-strapi-public-sc
+  volumeMode: Filesystem
+---

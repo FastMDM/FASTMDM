@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "700"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "700"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "700"
+spec:
+  tls:
+    - hosts:
+        - "#{backend-url}#"
+      secretName: fastmdm-com-prod-tls
+  rules:
+  - host: "#{backend-url}#"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80

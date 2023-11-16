@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: fastmdm
+    component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastmdm
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: fastmdm
+        component: backend
+    spec:
+      volumes:
+        - name: public-volume
+          persistentVolumeClaim:
+            claimName: backend
+      containers:
+      - name: backend
+        image: #{docker-server}#/fastmdm/#{Build.SourceBranchName}#/backend:#{Build.BuildId}#
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 1337
+        env:
+          - name: HOST
+            value: '0.0.0.0'
+          - name: PORT
+            value: '1337'
+          - name: DATABASE_HOST
+            value: '#{database-host}#'
+          - name: DATABASE_PORT
+            value: '#{database-port}#'
+          - name: DATABASE_NAME
+            value: '#{database-name}#'
+          - name: DATABASE_USERNAME
+            value: '#{database-username}#'
+          - name: DATABASE_PASSWORD
+            value: '#{database-password}#'
+          - name: DATABASE_SSL
+            value: 'false'
+          - name: ADMIN_JWT_SECRET
+            value: '#{admin-jwt-secret}#'
+          - name: URL
+            value: '#{backend-url-protocol}##{backend-url}#'
+          - name: API_TOKEN_SALT
+            value: '#{api-token-salt}#'
+        resources:
+          limits:
+            cpu: 1500m
+            memory: 1512Mi
+          requests:
+            cpu: 64m
+            memory: 64Mi			  
+        volumeMounts:
+          - name: public-volume
+            mountPath: /srv/app/public
+      imagePullSecrets:
+        - name: docker-registry-key
