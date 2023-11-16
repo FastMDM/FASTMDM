@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  ports:
+  - name: tcp-http
+    protocol: TCP
+    appProtocol: tcp
+    port: 80
+    targetPort: 1337
+  selector:
+    app: fastmdm
+    component: backend

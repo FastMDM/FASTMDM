@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: acid-postgres-cluster
+  labels:
+    application: spilo
+    cluster-name: acid-postgres-cluster
+    spilo-role: master
+    team: acid
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
