@@ -10,6 +10,8 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.9",
+    "@offset-dev/strapi-calendar": "^0.0.10",
     "@strapi/plugin-i18n": "^4.15.0",
     "@strapi/plugin-users-permissions": "^4.15.0",
     "@strapi/strapi": "^4.15.0",
@@ -19,9 +21,8 @@
     "pg": "^8.11.3",
     "postinstall-postinstall": "^2.1.0",
     "strapi-plugin-translate": "^1.2.2",
-    "strapi-provider-translate-libretranslate": "^1.0.9",
-    "@ckeditor/strapi-plugin-ckeditor": "^0.0.9",
-    "@offset-dev/strapi-calendar": "^0.0.10"  
+    "strapi-provider-translate-libretranslate": "^1.0.9"
+
   },
   "author": {
     "name": "A Strapi developer"
