@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: fastmdm
+    component: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastmdm
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: fastmdm
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: "#{docker-server}#/fastmdm/#{Build.SourceBranchName}#/frontend:#{Build.BuildId}#"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3000
+        env:
+          - name: NEXT_PUBLIC_API_URL
+            value: '#{backend-url-protocol}##{backend-url}#'
+      imagePullSecrets:
+        - name: docker-registry-key
