@@ -4992,6 +4992,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"design-system@workspace:packages/design-system":
+  version: 0.0.0-use.local
+  resolution: "design-system@workspace:packages/design-system"
+  languageName: unknown
+  linkType: soft
+
 "destroy@npm:1.2.0":
   version: 1.2.0
   resolution: "destroy@npm:1.2.0"
