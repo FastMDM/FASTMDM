@@ -5,6 +5,16 @@ RUN yarn global add next
 WORKDIR /usr/src/app
 COPY ./package.json ./
 COPY ./yarn.lock ./
+RUN mkdir apps 
+RUN mkdir apps/expo
+RUN mkdir apps/next
+RUN mkdir packages
+RUN mkdir packages/app
+RUN mkdir packages/design-system
+COPY ./apps/expo/package.json ./apps/expo
+COPY ./apps/next/package.json ./apps/next
+COPY ./packages/app/package.json ./packages/app
+COPY ./packages/design-system/package.json ./packages/design-system
 
 RUN yarn install --network-timeout 1000000
 
