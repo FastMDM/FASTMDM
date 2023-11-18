@@ -17,6 +17,7 @@ COPY ./packages/app/package.json ./packages/app
 COPY ./packages/design-system/package.json ./packages/design-system
 RUN yarn install --network-timeout 1000000
 COPY . .
+RUN yarn install --network-timeout 1000000
 RUN yarn build:next
 EXPOSE 3002
 CMD [ "yarn", "web"]
