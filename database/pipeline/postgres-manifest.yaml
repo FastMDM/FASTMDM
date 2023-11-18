@@ -1,0 +1,25 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: acid-postgres-cluster
+  namespace: fastmdm-prod
+spec:
+  teamId: "acid"
+  volume:
+    size: 100Gi
+  numberOfInstances: 2
+  users:
+    zalando:  # database owner
+    - superuser
+    - createdb
+  postgresql:
+    version: "14"
+  resources:
+    requests:
+      cpu: 10m
+      memory: 100Mi
+    limits:
+      cpu: 6000m
+      memory: 6Gi
+  podAnnotations:
+    backup.velero.io/backup-volumes: pgdata

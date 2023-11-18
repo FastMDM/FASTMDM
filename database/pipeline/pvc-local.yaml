@@ -1,0 +1,34 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgdata-acid-postgres-cluster-0
+  labels:
+    application: spilo
+    cluster-name: postgres-cluster
+  annotations:
+    volume.beta.kubernetes.io/storage-class: local-fastmdm-prod-zalando-0-sc
+spec:
+  storageClassName: local-fastmdm-prod-zalando-0-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgdata-acid-postgres-cluster-1
+  labels:
+    application: spilo
+    cluster-name: postgres-cluster
+  annotations:
+    volume.beta.kubernetes.io/storage-class: local-fastmdm-prod-zalando-1-sc
+spec:
+  storageClassName: local-fastmdm-prod-zalando-1-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+---
