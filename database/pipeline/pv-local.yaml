@@ -1,14 +1,14 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: local-meanmine-prod-zalando-0-sc
+  name: local-fastmdm-prod-zalando-0-sc
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-meanmine-prod-zalando-0-pv
+  name: local-fastmdm-prod-zalando-0-pv
 spec:
   capacity:
     storage: 100Gi
@@ -16,9 +16,9 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-meanmine-prod-zalando-0-sc
+  storageClassName: local-fastmdm-prod-zalando-0-sc
   local:
-    path: /mnt/ssd200gb/meanmine-prod-zalando-0
+    path: /mnt/ssd200gb/fastmdm-prod-zalando-0
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -31,14 +31,14 @@ spec:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: local-meanmine-prod-zalando-1-sc
+  name: local-fastmdm-prod-zalando-1-sc
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-meanmine-prod-zalando-1-pv
+  name: local-fastmdm-prod-zalando-1-pv
 spec:
   capacity:
     storage: 100Gi
@@ -46,9 +46,9 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-meanmine-prod-zalando-1-sc
+  storageClassName: local-fastmdm-prod-zalando-1-sc
   local:
-    path: /mnt/ssd200gb/meanmine-prod-zalando-1
+    path: /mnt/ssd200gb/fastmdm-prod-zalando-1
   nodeAffinity:
     required:
       nodeSelectorTerms:
