@@ -2,7 +2,6 @@ apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
   name: acid-postgres-cluster
-  namespace: fastmdm-prod
 spec:
   teamId: "acid"
   volume:
