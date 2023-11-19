@@ -10,11 +10,11 @@ COPY ./patches ./patches
 RUN ls & yarn
 
 COPY . .
-RUN strapi build
+RUN yarn build
 
 EXPOSE 1337
 #CMD ["strapi", "configuration:restore", "-f", "dump.json", "&&", "strapi", "develop"]
 #CMD ["strapi", "develop"]
 #CMD ["sh","-c","strapi configuration:restore -f dump.json && strapi start"]
-CMD ["sh","-c","strapi start"]
+CMD ["sh","-c","yarn start"]
 
