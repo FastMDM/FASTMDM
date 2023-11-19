@@ -42,8 +42,10 @@ spec:
             value: '#{database-username}#'
           - name: DATABASE_PASSWORD
             value: '#{database-password}#'
+          - name: DATABASE_CLIENT
+            value: '#{database-client}#'
           - name: DATABASE_SSL
-            value: 'false'
+            value: '#{database-ssl}#'
           - name: ADMIN_JWT_SECRET
             value: '#{admin-jwt-secret}#'
           - name: URL
