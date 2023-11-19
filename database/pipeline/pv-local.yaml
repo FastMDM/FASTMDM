@@ -15,7 +15,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: local-fastmdm-prod-zalando-0-sc
   local:
     path: /mnt/ssd200gb/fastmdm-prod-zalando-0
@@ -45,7 +45,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: local-fastmdm-prod-zalando-1-sc
   local:
     path: /mnt/ssd200gb/fastmdm-prod-zalando-1
