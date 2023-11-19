@@ -50,6 +50,8 @@ spec:
             value: '#{backend-url-protocol}##{backend-url}#'
           - name: API_TOKEN_SALT
             value: '#{api-token-salt}#'
+          - name: APP_KEYS
+            value: '#{app-keys}#'
         resources:
           limits:
             cpu: 1500m
