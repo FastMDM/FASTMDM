@@ -22,7 +22,6 @@
     "postinstall-postinstall": "^2.1.0",
     "strapi-plugin-translate": "^1.2.2",
     "strapi-provider-translate-libretranslate": "^1.0.9",
-
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^5.2.0",
