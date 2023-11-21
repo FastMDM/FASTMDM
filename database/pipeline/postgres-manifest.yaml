@@ -12,7 +12,7 @@ spec:
     - superuser
     - createdb
   postgresql:
-    version: "14"
+    version: "15"
   resources:
     requests:
       cpu: 10m
