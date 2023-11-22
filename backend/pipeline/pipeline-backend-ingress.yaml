@@ -7,7 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "700"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "700"
 spec:
-  ingressClassName: nginx
   tls:
     - hosts:
         - "#{backend-url}#"
