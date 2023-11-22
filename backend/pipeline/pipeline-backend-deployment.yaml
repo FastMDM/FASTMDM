@@ -54,6 +54,8 @@ spec:
             value: '#{api-token-salt}#'
           - name: APP_KEYS
             value: '#{app-keys}#'
+          - name: DATABASE_SSL_REJECT_UNAUTHORIZED
+            value: 'false'
         resources:
           limits:
             cpu: 1500m
