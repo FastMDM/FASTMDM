@@ -11,8 +11,13 @@
     "ios": {
       "bundleIdentifier": "com.solito.nativewind"
     },
-    "android1": {
-      "package": "com.freemdm.android"
+    "extra": {
+      "eas": {
+        "projectId": "4030b6bb-c9b9-4d5d-9ea6-afcdc632763a"
+      }
+    },
+    "android": {
+      "package": "com.fastmdm.android"
     }
   }
 }
