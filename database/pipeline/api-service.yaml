@@ -10,3 +10,24 @@ spec:
     targetPort: 8080
   selector:
     name: postgres-operator
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: acid-postgres-cluster-external
+  labels:
+    application: spilo
+    cluster-name: acid-postgres-cluster
+    spilo-role: master
+    team: acid
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: #{database-port-external}#
+      targetPort: 5432
+  type: ClusterIP
+  externalIPs:
+    - #{database-ip-external}#
+
+
