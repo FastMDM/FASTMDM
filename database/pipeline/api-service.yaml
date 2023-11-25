@@ -28,6 +28,6 @@ spec:
       targetPort: 5432
   type: ClusterIP
   externalIPs:
-    - 192.168.1.101
+    - #{database-ip-external}#
 
 
