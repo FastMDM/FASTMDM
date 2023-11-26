@@ -21,6 +21,11 @@ metadata:
     spilo-role: master
     team: acid
 spec:
+  selector:
+    application: spilo
+    cluster-name: acid-postgres-cluster
+    spilo-role: master
+    team: acid
   ports:
     - name: postgresql
       protocol: TCP
@@ -28,6 +33,6 @@ spec:
       targetPort: 5432
   type: ClusterIP
   externalIPs:
-    - #{database-ip-external}#
+    - #{database-host-external}#
 
 
