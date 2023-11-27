@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: acid-postgres-cluster-external
+  labels:
+    application: spilo
+    cluster-name: acid-postgres-cluster
+    spilo-role: master
+    team: acid
+spec:
+  selector:
+    application: spilo
+    cluster-name: acid-postgres-cluster
+    spilo-role: master
+    team: acid
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: #{database-port-external}#
+      targetPort: 5432
+  type: ClusterIP
+  externalIPs:
+    - #{database-host-external}#
+
+
