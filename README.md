@@ -9,4 +9,4 @@ Included:
 - [React 18.2.0](https://github.com/facebook/react/)
 - [Solito 4.0.1](https://github.com/nandorojo/solito)
 - [ShowTime 154.0.0](https://github.com/showtime-xyz/showtime-frontend/tree/staging)
-- [FoofAdvisor #130](https://github.com/strapi/foodadvisor)
+- [FoodAdvisor #130](https://github.com/strapi/foodadvisor)
