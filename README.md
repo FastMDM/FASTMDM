@@ -1,10 +1,10 @@
-FastMDM monorepo
+**FastMDM monorepo**
 
 Fast Master Data Management (FastMDM) is a comprehensive and efficient platform designed to streamline and optimize the management of master data for global users. 
 
 With FastMDM, businesses can effortlessly centralize, harmonize, and maintain accurate and consistent master data across various systems and applications. This powerful tool enables companies to gain a holistic view of their data, ensuring data integrity and providing a solid foundation for informed decision-making.
 
-Key features of FastMDM include:
+**Key features of FastMDM include:**
 
 1. Data Integration: FastMDM seamlessly integrates with existing systems to fetch and consolidate master data from multiple sources. This eliminates the need for manual data entry and reduces the risk of errors or duplications.
 
@@ -12,7 +12,7 @@ Key features of FastMDM include:
 
 3. Data Governance: FastMDM offers robust data governance capabilities, enabling organizations to define and enforce data policies, access controls, and data stewardship workflows. This promotes data accountability and compliance, enhancing data governance practices within the organization.
 
-Tech included:
+**Tech included:**
 - [Node.Js 18.18.2](https://github.com/nodejs/node)
 - [Strapi 4.15.0](https://github.com/strapi/strapi)
 - [Expo 49.0.0](https://github.com/expo/examples)
