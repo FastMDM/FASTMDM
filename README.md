@@ -19,5 +19,5 @@ With FastMDM, businesses can effortlessly centralize, harmonize, and maintain ac
 - [Next.JS 13.4.19](https://github.com/vercel/next.js)
 - [React 18.2.0](https://github.com/facebook/react/)
 - [Solito 4.0.1](https://github.com/nandorojo/solito)
-- [ShowTime 154.0.0](https://github.com/showtime-xyz/showtime-frontend/tree/staging)
+- [ShowTime Universal Design System 154.0.0](https://github.com/showtime-xyz/showtime-frontend/tree/staging)
 - [FoodAdvisor #130](https://github.com/strapi/foodadvisor)
