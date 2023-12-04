@@ -3,8 +3,8 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 
 1. Metadata as code. Centrally store a unified structure of data and relationships between data.
 2. Data quality. Data mapping, cleansing, deduplication and enrichment.
-3. Multitenancy. Authentication, authorization, policies, access control to user data.
-4. Multilanguage. Data storage in several languages, attended and unattended data translation.
+3. Multitenancy. Authentication, authorization, policies, access control to use data.
+4. Multilanguage. Data storage in many languages, attended and unattended data translation.
 5. Data integration. API eliminates the need for manual data entry and reduces the risk of errors or duplications.
 
 ## **FastMDM tech**
