@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./packages",
+    "module": "esnext",
+    "noUnusedLocals": true,        
+    "noImplicitAny": false,
     "strictNullChecks": true,
-    "noUncheckedIndexedAccess": true,
+    "noUncheckedIndexedAccess": true,  
     "paths": {
       "app/*": ["./packages/app/*"]
     },

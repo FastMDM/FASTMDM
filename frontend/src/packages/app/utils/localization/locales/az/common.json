@@ -1,0 +1,33 @@
+{
+    "about": "Haqqında",
+    "under-construction": "Tikinti",
+    "h1": "Saxlamaq",
+    "change-locale": "\"{{changeTo}}\"",
+    "to-second-page": "İkinci səhifə",
+    "error-with-status": "A {{statusCode}} hatası serverində meydana gəldi",
+    "error-without-status": "Server-da bir səhv meydana gəldi",
+    "title": "Home / next-i18 Next",
+    "knowledge-development-works": "İnformasiya işləri",
+    "1-cluster-of-knowledge-mining-wells": "1 informasiya məhsulları",
+    "database": "database",
+    "trouble": "narahatlıq",
+    "blog": {
+        "appDir": {
+            "question": "Yeni Next.js 13 proqram faylını istifadə edirik?",
+            "answer": "Sonra baxın <1>bu blog post</1>.",
+            "link": "https://locize.com/blog/ next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "Bütün yan optimize edilmiş çevirilər üçün bir super gücləri açmaq istəyirsiniz?",
+            "link": "https://locize.com/blog/ next-i18 next/",
+            "answer": "Sonra <1>bu blog post</1> baxa bilərsiniz."
+        },
+        "ssg": {
+            "question": "SSG istifadə etmək istəyirəniz?",
+            "answer": "Sonra <1>bu blog post</1> baxa bilərsiniz.",
+            "link": "https://locize.com/blog/ next-i18 next/"
+        }
+    },
+    "skeleton": "Bu layihə bir proqram iskeletidir. Bu layihələr üçün ReactJS webapp layihələri və həyata mühitindən istifadə edə bilərsiniz. Qiymət app çox şey deyil və xüsusiyyət ən çox mövcuddur ki, yalnız demo app nümunələri aşağıdakı kimi mövzu əlavə edə bilərsiniz.",
+    "home": "Home"
+}

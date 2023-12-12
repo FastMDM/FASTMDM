@@ -1,0 +1,33 @@
+{
+    "about": "Über",
+    "under-construction": "Im Bau",
+    "skeleton": "Dieses Projekt ist ein Anwendungsskelett. Sie können es verwenden, um Ihre ReactJS-Webapp-Projekte und die Entwicklungsumgebung für diese Projekte schnell voranzutreiben. Die Seed-App macht nicht viel und hat die meisten Funktionen entfernt, sodass Sie ein Thema nach Ihren Bedürfnissen hinzufügen können, indem Sie einfach den Demo-App-Beispielen folgen.",
+    "h1": "Ein einfaches Beispiel",
+    "change-locale": "Sprache wechseln zu \"{{changeTo}}\"",
+    "to-second-page": "Zur zweiten Seite",
+    "error-with-status": "Auf dem Server ist ein Fehler ({{statusCode}}) aufgetreten",
+    "error-without-status": "Auf dem Server ist ein Fehler aufgetreten",
+    "title": "Hauptseite | next-i18next",
+    "blog": {
+        "appDir": {
+            "question": "Verwendest du das neue Next.js 13 mit app directory?",
+            "answer": "Dann schau dir <1>diesen Blogbeitrag</1> an.",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "Möchtest du einige Superkräfte entfesseln, um für alle Seiten optimierte Übersetzungen zu haben?",
+            "answer": "Dann schaue dir vielleicht <1>diesen Blogbeitrag</1> an.",
+            "link": "https://locize.com/blog/next-i18next-de/"
+        },
+        "ssg": {
+            "question": "Möchtest du SSG (next export) verwenden?",
+            "answer": "Dann schaue dir vielleicht <1>diesen Blogbeitrag</1> an.",
+            "link": "https://locize.com/blog/next-i18n-statisch/"
+        }
+    },
+    "knowledge-development-works": "Wissensentwicklung",
+    "1-cluster-of-knowledge-mining-wells": "Nr. 1 Cluster von Knowledge-Mining-Bohrungen",
+    "database": "datenbank",
+    "trouble": "probleme",
+    "home": "Heim"
+}

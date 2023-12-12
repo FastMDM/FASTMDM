@@ -1,0 +1,33 @@
+{
+    "blog": {
+        "ssg": {
+            "question": "Vil du bruge SSG (næste eksport)?",
+            "answer": "Så kan du se på <1>dette blogindlæg</1>.",
+            "link": "https://locize.com/blog/næste-i18n-statisk /"
+        },
+        "appDir": {
+            "question": "Bruger du den nye Next.js 13 app mappe?",
+            "answer": "Så tjek <1>Dette blogindlæg</1>.",
+            "link": "https://locize.com/blog/næste-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "Kan du lide at slippe nogle supermagter for at have alle side optimeret oversættelser?",
+            "answer": "Så kan du se på <1>dette blogindlæg</1>.",
+            "link": "https://locize.com/blog/næste-i18next/"
+        }
+    },
+    "skeleton": "Dette projekt er et program skelet. Du kan bruge det til hurtigt at trække din ReactJS webapp projekter og dev miljø til disse projekter. Sæd app'en gør ikke meget og har de fleste af funktionen fjernet, så du kan tilføje tema som pr. behov lige efter demo app eksempler.",
+    "about": "Om Om os",
+    "under-construction": "Under konstruktion",
+    "h1": "Et simpelt eksempel",
+    "change-locale": "Ændre lokalerne til \"{{changeTo}}\"",
+    "to-second-page": "Til anden side",
+    "error-with-status": "En {{statusCode}} fejl opstod på serveren",
+    "error-without-status": "En fejl opstod på serveren",
+    "title": "Hjem | næste-i18næste",
+    "knowledge-development-works": "Videnudvikling værker",
+    "1-cluster-of-knowledge-mining-wells": "#1 klynge af viden minedrift brønde",
+    "database": "databasedatabase",
+    "trouble": "problemer med problemer",
+    "home": "Hjem"
+}

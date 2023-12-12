@@ -1,0 +1,33 @@
+{
+    "blog": {
+        "ssg": {
+            "link": "https://locize.com/blog/next-i18n-static/",
+            "question": "¿Quieres usar SSG (la próxima exportación)?",
+            "answer": "Entonces usted puede tener un vistazo a <1 Confés este artículo del blog realizado/1 título."
+        },
+        "appDir": {
+            "question": "¿Estás usando el nuevo directorio de App Next.js 13?",
+            "answer": "A continuación, comprobar hacia fuera <1⁄4].",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "¿Te gusta desencadenar algunos superpoderes para tener todas las traducciones optimizadas?",
+            "answer": "Entonces usted puede tener un vistazo a <1 Confés este artículo del blog realizado/1 título.",
+            "link": "https://locize.com/blog/next-i18next/"
+        }
+    },
+    "about": "Acerca de",
+    "under-construction": "En construcción",
+    "skeleton": "Este proyecto es un esqueleto de aplicación. Puede utilizarlo para adaptar rápidamente sus proyectos ReactJS webapp y entorno dev para estos proyectos. La aplicación de semillas no hace mucho y tiene la mayor parte de la característica eliminada para que pueda añadir el tema según sus necesidades siguiendo los ejemplos de la aplicación de demostración.",
+    "h1": "Un ejemplo simple",
+    "change-locale": "Cambiar locale a \"{{changeTo}}\"",
+    "to-second-page": "A segunda página",
+    "error-with-status": "Un error {{statusCode}} ocurrió en el servidor",
+    "error-without-status": "Un error ocurrió en el servidor",
+    "title": "Inicio Silencio next-i18next",
+    "knowledge-development-works": "El desarrollo del conocimiento funciona",
+    "database": "base de datos",
+    "trouble": "problemas",
+    "1-cluster-of-knowledge-mining-wells": "#1 de pozos de minería de conocimiento",
+    "home": "Casa"
+}

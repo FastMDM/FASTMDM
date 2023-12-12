@@ -1,0 +1,33 @@
+{
+    "about": "约 旦",
+    "h1": "简单的例子",
+    "change-locale": "将当地改为“{{changeTo}}”",
+    "to-second-page": "第二页",
+    "home": "家庭",
+    "under-construction": "施工",
+    "skeleton": "这个项目是应用舱。 你们可以利用这一系统迅速减少你们的ReactJS网络应用项目,并为这些项目创造环境。 种子 app子没有做很多工作,而且大部分功能已经消除,因此,你可以按照你们的需要,在 de光灯之后添加主题。.",
+    "error-with-status": "服务器上发生的{{statusCode}}错误",
+    "error-without-status": "服务器上出现错误",
+    "title": "住宅区",
+    "knowledge-development-works": "知识开发工程",
+    "1-cluster-of-knowledge-mining-wells": "#1 一组知识开采水井",
+    "database": "数据库",
+    "trouble": "麻烦",
+    "blog": {
+        "appDir": {
+            "question": "你们是否使用新的下司。?",
+            "answer": "然后检查<1>该博客</1>。.",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "你们是否希望释放一些超级大国,让所有方面优化翻译?",
+            "answer": "然后,请看<1>该博客</1>。.",
+            "link": "https://locize.com/blog/next-i18next/"
+        },
+        "ssg": {
+            "question": "你们是否希望使用SSG(出口)?",
+            "answer": "然后,请看<1>该博客</1>。.",
+            "link": "https://locize.com/blog/next-i18next/"
+        }
+    }
+}
