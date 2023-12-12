@@ -1,0 +1,33 @@
+{
+    "about": "お問い合わせ",
+    "under-construction": "工事中",
+    "skeleton": "このプロジェクトはアプリケーションスケルトンです。 これらのプロジェクトでは、ReactJS の Webapp プロジェクトと dev 環境をすばやく調整できます。 シードアプリはそれほど多くありませんし、ほとんどの機能が削除されていないため、デモアプリの例に従ってテーマを追加できます。.",
+    "h1": "簡単な例",
+    "change-locale": "ロケールを「{{changeTo}}」に変更",
+    "to-second-page": "ページの先頭へ",
+    "error-with-status": "サーバ上で{{statusCode}}エラーが発生しました",
+    "error-without-status": "サーバ上でエラーが発生しました",
+    "title": "ホーム | 次へ 18次へ",
+    "knowledge-development-works": "知識開発作品",
+    "1-cluster-of-knowledge-mining-wells": "#1 知識マイニング井戸のクラスター",
+    "database": "データベース",
+    "trouble": "トラブル",
+    "blog": {
+        "appDir": {
+            "question": "Next.js 13 のアプリディレクトリは使えますか?",
+            "answer": "それからチェックアウト <1>このブログ投稿</1>.",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "すべての面で最適化された翻訳を持つスーパーパワーを解凍したいですか?",
+            "answer": "すると、<1>こちらのブログ記事</1> をご覧いただけます。.",
+            "link": "https://locize.com/blog/next-i18next/"
+        },
+        "ssg": {
+            "question": "SSG(次のエクスポート)を使いたいですか?",
+            "answer": "すると、<1>こちらのブログ記事</1> をご覧いただけます。.",
+            "link": "https://locize.com/blog/next-i18n-static/"
+        }
+    },
+    "home": "ホーム"
+}

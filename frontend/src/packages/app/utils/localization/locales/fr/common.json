@@ -1,0 +1,33 @@
+{
+    "blog": {
+        "appDir": {
+            "question": "Utilisez-vous le nouveau répertoire d'application Next.js 13 ?",
+            "answer": "Ensuite, consultez l'article suivant .",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "Vous aimez libérer des super pouvoirs pour avoir des traductions optimisées ?",
+            "answer": "Ensuite, vous pouvez jeter un coup d'œil à l'adresse suivante :.",
+            "link": "https://locize.com/blog/next-i18next/"
+        },
+        "ssg": {
+            "answer": "Ensuite, vous pouvez jeter un coup d'œil à l'adresse suivante :.",
+            "link": "https://locize.com/blog/next-i18n-static/",
+            "question": "Voulez-vous utiliser SSG (export de next) ?"
+        }
+    },
+    "about": "À propos",
+    "under-construction": "Construction",
+    "skeleton": "Ce projet est un squelette d'application. Vous pouvez l'utiliser pour surmonter rapidement vos projets webapp ReactJS et dev environnement pour ces projets. L'application de semences ne fait pas grand-chose et a la plupart de la fonctionnalité supprimée afin que vous puissiez ajouter le thème selon vos besoins juste en suivant les exemples d'application de démonstration.",
+    "h1": "Un exemple simple",
+    "change-locale": "Changer de local pour \"{{changeTo}}\"",
+    "to-second-page": "À la deuxième page",
+    "error-with-status": "Une erreur {{statusCode}} s'est produite sur le serveur",
+    "error-without-status": "Une erreur s'est produite sur le serveur",
+    "title": "Accueil | next-i18next",
+    "knowledge-development-works": "Travaux de développement des connaissances",
+    "1-cluster-of-knowledge-mining-wells": "1 groupe de puits miniers de connaissances",
+    "database": "base de données",
+    "trouble": "problèmes",
+    "home": "Domicile"
+}

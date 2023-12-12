@@ -1,0 +1,33 @@
+{
+    "about": "بشأن",
+    "under-construction": "قيد التشييد",
+    "h1": "مثال بسيط",
+    "change-locale": "تغيير محلي إلى \"{{changeTo}}",
+    "skeleton": "هذا المشروع هيكل تطبيقي يمكنك استخدامه لتعقب مشاريع الـ(راتكس) الخاصة بك على شبكة الإنترنت وتطهير البيئة لهذه المشاريع تطبيق البذور لا يفي بالغرض وقد أزيل معظم المميزة حتى يمكنك إضافة الموضوع حسب احتياجاتك.",
+    "to-second-page": "إلى الصفحة الثانية",
+    "error-with-status": "خطأ {{statusCode}} حدث على الخادم",
+    "error-without-status": "حدث خطأ على الخادم",
+    "title": "المنزل التالي",
+    "knowledge-development-works": "أعمال تنمية المعارف",
+    "1-cluster-of-knowledge-mining-wells": "مجموعة آبار تعدين المعارف",
+    "database": "قاعدة البيانات",
+    "trouble": "المشاكل",
+    "blog": {
+        "appDir": {
+            "question": "هل تستخدمين الدليل التالى 13؟?",
+            "answer": "ثمّ يَتأكّدُ مِنْ المدوّنِ هذا الملصقِ مِنْ 1/1.",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "هل تحب أن تطلق بعض القوى الخارقة لتحصل على ترجمة أمثل؟?",
+            "answer": "ثمّ أنت قَدْ يَكُونُ عِنْدَكَ a نظرة في InstitutoI.",
+            "link": "https://locize.com/blog/next-i18next/"
+        },
+        "ssg": {
+            "question": "هل تريد استخدام SSG (الصادرات الخارجية) ؟?",
+            "answer": "ثمّ أنت قَدْ يَكُونُ عِنْدَكَ a نظرة في InstitutoI.",
+            "link": "https://locize.com/blog/next-i18n-static/"
+        }
+    },
+    "home": "البيت"
+}

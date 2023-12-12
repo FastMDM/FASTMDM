@@ -1,0 +1,33 @@
+{
+    "about": "O nás",
+    "blog": {
+        "appDir": {
+            "question": "Používáte nový adresář aplikace Next.js 13?",
+            "answer": "Poté se podívejte na <1>this blog příspěvek</1>.",
+            "link": "https://locize.com/blog/next-13-app-dir-i18n/"
+        },
+        "optimized": {
+            "question": "Líbí se vám, abyste neporušili některé super pravomoci, které mají všechny boční optimalizované překlady?",
+            "answer": "Poté se můžete podívat na <1>this blog post</1>.",
+            "link": "https://locize.com/blog/next-i18next/"
+        },
+        "ssg": {
+            "question": "Chcete použít SSG (další export)?",
+            "answer": "Poté se můžete podívat na <1>this blog post</1>.",
+            "link": "https://locize.com/blog/next-i18n-static/"
+        }
+    },
+    "error-with-status": "Chyba {{statusCode}} došlo na serveru",
+    "error-without-status": "Chyba nastala na serveru",
+    "title": "Úvod | další-i18next",
+    "knowledge-development-works": "Databáze řešení",
+    "1-cluster-of-knowledge-mining-wells": "#1 clusteru znalostí těžbě",
+    "database": "databáze řešení",
+    "trouble": "problémy",
+    "under-construction": "Pod konstrukcí",
+    "skeleton": "Tento projekt je aplikační koster. Můžete jej použít k rychlému zapínání projektů ReactJS a pro tyto projekty, které jsou pro tyto projekty. Seed app není moc a má většinu funkce odstraněna, takže můžete přidat téma podle vašich potřeb těsně po ukázkách demo aplikace.",
+    "h1": "Jednoduchý příklad",
+    "change-locale": "Změňte lokální na \"{{changeTo}}\"",
+    "to-second-page": "Na druhou stránku",
+    "home": "Domov"
+}
