@@ -16,7 +16,8 @@
     "android": "cd apps/expo && npx expo run:android",
     "ios": "cd apps/expo && npx expo run:ios",
     "web": "cd apps/next && yarn next",
-    "build:next": "cd apps/next && yarn build"
+    "build:next": "cd apps/next && yarn build",
+    "resetcache": "yarn start --reset-cache" 
   },
   "resolutions": {
     "metro": "~0.76.7",
