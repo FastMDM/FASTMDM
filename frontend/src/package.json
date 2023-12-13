@@ -8,6 +8,7 @@
   "devDependencies": {
     "@types/react": "^18.2.21",
     "eslint": "^8.21.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "turbo": "^1.4.2",

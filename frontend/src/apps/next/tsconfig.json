@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "target": "es5",
     "lib": [
       "dom",
@@ -24,7 +25,7 @@
     "app-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/_document.js"  ],
+, "pages/_document.js", "pages/restaurants/index.js"  ],
   "exclude": [
     "node_modules"
   ],

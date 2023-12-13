@@ -28,10 +28,12 @@ export function Restaurants(
 }
 
 // This gets called on every request
+
+
 export async function getServerSideProps(context: any) {
   console.log ("u101")
   return RestaurantScreenGetServerSideProps(context);
-
+}
 /*
     console.log ("t101");
     const { locale } = getLocalizedParams(context.query);
@@ -96,5 +98,5 @@ export async function getServerSideProps(context: any) {
     }
     */
 
-  }
+  
 
