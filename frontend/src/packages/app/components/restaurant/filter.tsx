@@ -31,6 +31,7 @@ export function  RestaurantFilter (
 } )
 
 {
+  /*
   var   global,
   initialData,
   pageData,
@@ -39,7 +40,7 @@ export function  RestaurantFilter (
   locale,
   perPage,
   preview;
-
+*/
   const [placeId, setPlaceId] = useState(null);
   const [categoryId, setCategoryId] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
