@@ -3,8 +3,8 @@ import { RestaurantScreen, RestaurantScreenGetServerSideProps } from 'app/screen
 export default Restaurants
 
 import delve from "dlv";
-import { getData, getRestaurants, getStrapiURL, handleRedirection } from "app/utils";
-import { getLocalizedParams } from "app/utils/localize";
+// import { getData, getRestaurants, getStrapiURL, handleRedirection } from "app/utils";
+// import { getLocalizedParams } from "app/utils/localize";
 import React from "react";
 
 export function Restaurants(
