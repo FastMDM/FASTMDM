@@ -7,7 +7,7 @@
   ],
   "devDependencies": {
     "@types/react": "^18.2.21",
-    "@types/react-native": "^0.72.2",
+    "@types/react-native": "0.72.8",
     "eslint": "^8.21.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
@@ -26,7 +26,7 @@
   "resolutions": {
     "metro": "~0.76.7",
     "metro-resolver": "~0.76.7",
-    "react-native-reanimated": "3.5.4"
+    "expo-constants": "15.4.1"
   },
   "nohoist": [
     "**/expo-router",
