@@ -25,8 +25,7 @@
   },
   "resolutions": {
     "metro": "~0.76.7",
-    "metro-resolver": "~0.76.7",
-    "expo-constants": "15.4.1"
+    "metro-resolver": "~0.76.7"
   },
   "nohoist": [
     "**/expo-router",
