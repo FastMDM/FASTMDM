@@ -15,9 +15,9 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 - [Expo Router 2](https://github.com/expo/expo)
 - [Next.JS 14.0.4](https://github.com/vercel/next.js)
 - [React 18.2.0](https://github.com/facebook/react/)
-- [Solito 4.0.1](https://github.com/nandorojo/solito)
+- [Solito 4.2.0](https://github.com/nandorojo/solito)
 - [ShowTime Universal Design System 154.0.0](https://github.com/showtime-xyz/showtime-frontend/tree/staging)
-- [FoodAdvisor #130](https://github.com/strapi/foodadvisor)
+- [FoodAdvisor #PR130](https://github.com/strapi/foodadvisor)
 
 ## **License**
 
