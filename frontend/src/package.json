@@ -26,6 +26,7 @@
   "resolutions": {
     "metro": "~0.76.7",
     "metro-resolver": "~0.76.7",
+    "react-native-reanimated": "3.6.0",
     "expo-constants": "15.4.1"
   },
   "nohoist": [
