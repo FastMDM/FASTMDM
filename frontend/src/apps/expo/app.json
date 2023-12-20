@@ -18,6 +18,9 @@
     },
     "android": {
       "package": "com.fastmdm.android"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

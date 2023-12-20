@@ -7,7 +7,6 @@
   ],
   "devDependencies": {
     "@types/react": "^18.2.21",
-    "@types/react-native": "0.72.8",
     "eslint": "^8.21.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
@@ -17,8 +16,9 @@
   },
   "scripts": {
     "start": "cd apps/expo && npx expo start",
+    "start2": "cd apps/expo && yarn start2 ",
     "android": "cd apps/expo && npx expo run:android",
-    "ios": "cd apps/expo && npx expo run:ios",
+    "ios": "cd apps/expo && rm -r ios && npx expo run:ios ",
     "web": "cd apps/next && yarn next",
     "build:next": "cd apps/next && yarn build",
     "resetcache": "yarn start --reset-cache"
@@ -26,8 +26,9 @@
   "resolutions": {
     "metro": "~0.76.7",
     "metro-resolver": "~0.76.7",
-    "react-native-reanimated": "3.6.0",
-    "expo-constants": "15.4.1"
+    "react-native-reanimated": "3.6.1",
+    "expo-constants": "15.4.1",
+    "@expo/metro-config": "0.16.0"
   },
   "nohoist": [
     "**/expo-router",

@@ -12,7 +12,7 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 - [Node.Js 18.18.2](https://github.com/nodejs/node)
 - [Strapi 4.15.0](https://github.com/strapi/strapi)
 - [Expo 50.0.0](https://github.com/expo/examples)
-- [Expo Router 2](https://github.com/expo/expo)
+- [Expo Router 3.4.0](https://github.com/expo/expo)
 - [Next.JS 14.0.4](https://github.com/vercel/next.js)
 - [React 18.2.0](https://github.com/facebook/react/)
 - [Solito 4.2.0](https://github.com/nandorojo/solito)
