@@ -2,6 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "700"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "700"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "700"
 spec:
   tls:
     - hosts:
