@@ -14,8 +14,8 @@ COPY . .
 RUN yarn build
 
 EXPOSE 1337
-#CMD ["strapi", "configuration:restore", "-f", "dump.json", "&&", "strapi", "develop"]
-#CMD ["strapi", "develop"]
-#CMD ["sh","-c","strapi configuration:restore -f dump.json && strapi start"]
-CMD ["sh","-c","yarn start"]
+# CMD ["strapi", "configuration:restore", "-f", "dump.json", "&&", "strapi", "develop"]
+# CMD ["strapi", "develop"]
+CMD ["sh","-c","yarn restore && yarn start"]
+# CMD ["sh","-c","yarn start"]
 
