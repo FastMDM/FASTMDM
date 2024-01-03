@@ -7,7 +7,9 @@
     "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "dump": "strapi configuration:dump -f dump.json",
+    "restore":"strapi configuration:restore -f dump.json"
   },
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "0.0.10",
