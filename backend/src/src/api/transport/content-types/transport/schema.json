@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transports",
+  "info": {
+    "singularName": "transport",
+    "pluralName": "transports",
+    "displayName": "Transport"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    }
+  }
+}

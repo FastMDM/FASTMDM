@@ -2,7 +2,8 @@
   "collectionName": "components_restaurant_dishes",
   "info": {
     "displayName": "Dish",
-    "icon": "angle-double-right"
+    "icon": "angle-double-right",
+    "description": ""
   },
   "options": {},
   "attributes": {

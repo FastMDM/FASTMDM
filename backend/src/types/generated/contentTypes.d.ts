@@ -971,6 +971,103 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnimalAnimal extends Schema.CollectionType {
+  collectionName: 'animals';
+  info: {
+    singularName: 'animal';
+    pluralName: 'animals';
+    displayName: 'Animal';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::animal.animal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::animal.animal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::animal.animal',
+      'oneToMany',
+      'api::animal.animal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAssetAsset extends Schema.CollectionType {
+  collectionName: 'assets';
+  info: {
+    singularName: 'asset';
+    pluralName: 'assets';
+    displayName: 'Asset';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::asset.asset',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::asset.asset',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::asset.asset',
+      'oneToMany',
+      'api::asset.asset'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiAutoAuto extends Schema.CollectionType {
   collectionName: 'autos';
   info: {
@@ -2486,6 +2583,159 @@ export interface ApiHouseTypeHouseType extends Schema.CollectionType {
   };
 }
 
+export interface ApiInventoryInventory extends Schema.CollectionType {
+  collectionName: 'inventories';
+  info: {
+    singularName: 'inventory';
+    pluralName: 'inventories';
+    displayName: 'Inventory';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inventory.inventory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inventory.inventory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::inventory.inventory',
+      'oneToMany',
+      'api::inventory.inventory'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiLegalLegal extends Schema.CollectionType {
+  collectionName: 'legals';
+  info: {
+    singularName: 'legal';
+    pluralName: 'legals';
+    displayName: 'Legal';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Subs: Attribute.DynamicZone<['restaurant.restaurant']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Blocks: Attribute.DynamicZone<
+      ['common.rich-text', 'blocks.cta', 'blocks.faq']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::legal.legal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::legal.legal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::legal.legal',
+      'oneToMany',
+      'api::legal.legal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiMenuMenu extends Schema.CollectionType {
   collectionName: 'menus';
   info: {
@@ -2537,6 +2787,102 @@ export interface ApiMenuMenu extends Schema.CollectionType {
       'api::menu.menu',
       'oneToMany',
       'api::menu.menu'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPersonPerson extends Schema.CollectionType {
+  collectionName: 'people';
+  info: {
+    singularName: 'person';
+    pluralName: 'people';
+    displayName: 'Person';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::person.person',
+      'oneToMany',
+      'api::person.person'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product.product'
     >;
     locale: Attribute.String;
   };
@@ -3055,6 +3401,54 @@ export interface ApiRestaurantTypeRestaurantType extends Schema.CollectionType {
   };
 }
 
+export interface ApiServiceService extends Schema.CollectionType {
+  collectionName: 'services';
+  info: {
+    singularName: 'service';
+    pluralName: 'services';
+    displayName: 'Service';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::service.service',
+      'oneToMany',
+      'api::service.service'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTenantTenant extends Schema.CollectionType {
   collectionName: 'tenants';
   info: {
@@ -3184,6 +3578,54 @@ export interface ApiTodoTodo extends Schema.CollectionType {
   };
 }
 
+export interface ApiTransportTransport extends Schema.CollectionType {
+  collectionName: 'transports';
+  info: {
+    singularName: 'transport';
+    pluralName: 'transports';
+    displayName: 'Transport';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::transport.transport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::transport.transport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::transport.transport',
+      'oneToMany',
+      'api::transport.transport'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -3205,6 +3647,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::animal.animal': ApiAnimalAnimal;
+      'api::asset.asset': ApiAssetAsset;
       'api::auto.auto': ApiAutoAuto;
       'api::auto-color.auto-color': ApiAutoColorAutoColor;
       'api::auto-condition.auto-condition': ApiAutoConditionAutoCondition;
@@ -3225,15 +3669,21 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::house.house': ApiHouseHouse;
       'api::house-type.house-type': ApiHouseTypeHouseType;
+      'api::inventory.inventory': ApiInventoryInventory;
+      'api::legal.legal': ApiLegalLegal;
       'api::menu.menu': ApiMenuMenu;
+      'api::person.person': ApiPersonPerson;
+      'api::product.product': ApiProductProduct;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
       'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
       'api::restaurant-feature.restaurant-feature': ApiRestaurantFeatureRestaurantFeature;
       'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
       'api::restaurant-type.restaurant-type': ApiRestaurantTypeRestaurantType;
+      'api::service.service': ApiServiceService;
       'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
+      'api::transport.transport': ApiTransportTransport;
     }
   }
 }
