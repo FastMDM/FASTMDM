@@ -316,9 +316,10 @@ export interface RestaurantDishSlider extends Schema.Component {
   info: {
     displayName: 'DishSlider';
     icon: 'angle-double-down';
+    description: '';
   };
   attributes: {
-    name: Attribute.String;
+    Name: Attribute.String;
     Description: Attribute.Text;
     Image: Attribute.Media;
     Price: Attribute.Integer;
@@ -330,6 +331,7 @@ export interface RestaurantDish extends Schema.Component {
   info: {
     displayName: 'Dish';
     icon: 'angle-double-right';
+    description: '';
   };
   attributes: {
     DishSlider: Attribute.Component<'restaurant.dish-slider', true>;
@@ -386,6 +388,42 @@ export interface RestaurantRelatedRestaurants extends Schema.Component {
       'restaurant.related-restaurants',
       'oneToMany',
       'api::restaurant.restaurant'
+    >;
+  };
+}
+
+export interface RestaurantRestaurant extends Schema.Component {
+  collectionName: 'components_restaurant_restaurants';
+  info: {
+    displayName: 'Restaurant';
+    description: '';
+  };
+  attributes: {
+    DishSlider: Attribute.Component<'restaurant.dish-slider', true>;
+    restaurant_cuisines: Attribute.Relation<
+      'restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant-cuisine.restaurant-cuisine'
+    >;
+    restaurant_dishes: Attribute.Relation<
+      'restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant-dish.restaurant-dish'
+    >;
+    restaurant_features: Attribute.Relation<
+      'restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant-feature.restaurant-feature'
+    >;
+    restaurant_prices: Attribute.Relation<
+      'restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant-price.restaurant-price'
+    >;
+    restaurant_types: Attribute.Relation<
+      'restaurant.restaurant',
+      'oneToMany',
+      'api::restaurant-type.restaurant-type'
     >;
   };
 }
@@ -617,6 +655,7 @@ declare module '@strapi/types' {
       'restaurant.location': RestaurantLocation;
       'restaurant.opening-hours': RestaurantOpeningHours;
       'restaurant.related-restaurants': RestaurantRelatedRestaurants;
+      'restaurant.restaurant': RestaurantRestaurant;
       'restaurant.rich-content': RestaurantRichContent;
       'shared.button': SharedButton;
       'shared.card': SharedCard;

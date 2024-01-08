@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_restaurant_restaurants",
+  "info": {
+    "displayName": "Restaurant",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "DishSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.dish-slider"
+    },
+    "restaurant_cuisines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-cuisine.restaurant-cuisine"
+    },
+    "restaurant_dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-dish.restaurant-dish"
+    },
+    "restaurant_features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-feature.restaurant-feature"
+    },
+    "restaurant_prices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-price.restaurant-price"
+    },
+    "restaurant_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant-type.restaurant-type"
+    }
+  }
+}
