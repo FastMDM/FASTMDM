@@ -234,6 +234,88 @@ export interface GlobalNavigation extends Schema.Component {
   };
 }
 
+export interface HotelHotel extends Schema.Component {
+  collectionName: 'components_hotel_hotels';
+  info: {
+    displayName: 'Hotel';
+    description: '';
+  };
+  attributes: {
+    Parking: Attribute.Boolean;
+    NonSmokingRooms: Attribute.Boolean;
+    FreeWiFi: Attribute.Boolean;
+    FamilyRooms: Attribute.Boolean;
+    AllDayHourFrontDesk: Attribute.Boolean;
+    PetsAllowed: Attribute.Boolean;
+    Restaurant: Attribute.Boolean;
+    RoomService: Attribute.Boolean;
+    FitnessCentre: Attribute.Boolean;
+    AirportShuttle: Attribute.Boolean;
+    FacilitiesForDisabledGuests: Attribute.Boolean;
+    ElectricVehicleChargingStation: Attribute.Boolean;
+    SpaAndWellnessCentre: Attribute.Boolean;
+    SwimmingPool: Attribute.Boolean;
+    EntireHomesAndApartments: Attribute.Boolean;
+    Apartments: Attribute.Boolean;
+    Hotels: Attribute.Boolean;
+    Homestays: Attribute.Boolean;
+    GuestHouses: Attribute.Boolean;
+    HolidayHomes: Attribute.Boolean;
+    Hostels: Attribute.Boolean;
+    BedAndBreakfasts: Attribute.Boolean;
+    Villas: Attribute.Boolean;
+    Boats: Attribute.Boolean;
+    Chalets: Attribute.Boolean;
+    CapsuleHotels: Attribute.Boolean;
+    FarmStays: Attribute.Boolean;
+    LuxuryTents: Attribute.Boolean;
+    StudentAccommodation: Attribute.Boolean;
+    SelfCatering: Attribute.Boolean;
+    BreakfastIncluded: Attribute.Boolean;
+    AllInclusive: Attribute.Boolean;
+    BreakfastAndLunchIncluded: Attribute.Boolean;
+    BreakfastAndDinnerIncluded: Attribute.Boolean;
+    PrivateBathroom: Attribute.Boolean;
+    AirConditioning: Attribute.Boolean;
+    Kitchen: Attribute.Boolean;
+    Balcony: Attribute.Boolean;
+    Shower: Attribute.Boolean;
+    Toilet: Attribute.Boolean;
+    Bath: Attribute.Boolean;
+    View: Attribute.Boolean;
+    HotTub: Attribute.Boolean;
+    SeaView: Attribute.Boolean;
+    Refrigerator: Attribute.Boolean;
+    PrivatePool: Attribute.Boolean;
+    Terrace: Attribute.Boolean;
+    SpaBath: Attribute.Boolean;
+    Towels: Attribute.Boolean;
+    WashingMachine: Attribute.Boolean;
+    UpperFloorsAccessibleByElevator: Attribute.Boolean;
+    Hairdryer: Attribute.Boolean;
+    ElectricKettle: Attribute.Boolean;
+    TV: Attribute.Boolean;
+    Kitchenette: Attribute.Boolean;
+    MountainView: Attribute.Boolean;
+    SafetyDepositBox: Attribute.Boolean;
+    ToiletPaper: Attribute.Boolean;
+    CoffeeMaker: Attribute.Boolean;
+    FreeCancellation: Attribute.Boolean;
+    star1: Attribute.Boolean;
+    star2: Attribute.Boolean;
+    star3: Attribute.Boolean;
+    star4: Attribute.Boolean;
+    star5: Attribute.Boolean;
+    starUnrated: Attribute.Boolean;
+    TwinBeds: Attribute.Boolean;
+    DoubleBed: Attribute.Boolean;
+    Fitness: Attribute.Boolean;
+    BicycleRental: Attribute.Boolean;
+    WalkingTours: Attribute.Boolean;
+    Cycling: Attribute.Boolean;
+  };
+}
+
 export interface PricingPerks extends Schema.Component {
   collectionName: 'components_shared_perks';
   info: {
@@ -644,6 +726,7 @@ declare module '@strapi/types' {
       'common.rich-text': CommonRichText;
       'global.footer': GlobalFooter;
       'global.navigation': GlobalNavigation;
+      'hotel.hotel': HotelHotel;
       'pricing.perks': PricingPerks;
       'pricing.pricing-cards': PricingPricingCards;
       'question.answer': QuestionAnswer;
