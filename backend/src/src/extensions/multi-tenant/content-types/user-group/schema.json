@@ -38,12 +38,6 @@
       "target": "plugin::multi-tenant.user-group",
       "mappedBy": "parent"
     },
-    "workspaces": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::workspace.workspace",
-      "mappedBy": "userGroup"
-    },
     "blogs": {
       "type": "relation",
       "relation": "oneToMany",
