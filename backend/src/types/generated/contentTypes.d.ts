@@ -699,11 +699,6 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'oneToMany',
       'plugin::multi-tenant.user-group'
     >;
-    workspaces: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::workspace.workspace'
-    >;
     blogs: Attribute.Relation<
       'plugin::multi-tenant.user-group',
       'oneToMany',

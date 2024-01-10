@@ -9,27 +9,25 @@
     "build": "strapi build",
     "strapi": "strapi",
     "dump": "strapi configuration:dump -f dump.json",
-    "restore":"strapi configuration:restore -f dump.json"
+    "restore": "strapi configuration:restore -f dump.json"
   },
   "dependencies": {
-    "@ckeditor/strapi-plugin-ckeditor": "0.0.10",
     "@offset-dev/strapi-calendar": "0.1.1",
+    "@strapi/icons": "1.13.0",
     "@strapi/plugin-i18n": "4.16.2",
     "@strapi/plugin-users-permissions": "4.16.2",
-    "@strapi/icons": "1.13.0",
     "@strapi/strapi": "^4.16.2",
     "better-sqlite3": "9.2.2",
-    "strapi-plugin-multi-tenant": "1.0.4",
     "patch-package": "8.0.0",
     "pg": "8.11.3",
     "postinstall-postinstall": "2.1.0",
-    "strapi-plugin-translate": "1.2.4",
-    "strapi-provider-translate-libretranslate": "1.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^5.2.0",
+    "strapi-plugin-multi-tenant": "^1.0.4",
+    "strapi-plugin-translate": "1.2.4",
+    "strapi-provider-translate-libretranslate": "1.0.11",
     "styled-components": "^5.2.1"
-  
   },
   "author": {
     "name": "A Strapi developer"
