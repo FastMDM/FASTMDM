@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           />       
         <meta
           name="description"
-          content="Meanmine"
+          content="FastMDM"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

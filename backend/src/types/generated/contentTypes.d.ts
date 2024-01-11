@@ -2688,7 +2688,7 @@ export interface ApiLegalLegal extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    Subs: Attribute.DynamicZone<['restaurant.restaurant']> &
+    Subs: Attribute.DynamicZone<['restaurant.restaurant', 'hotel.hotel']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

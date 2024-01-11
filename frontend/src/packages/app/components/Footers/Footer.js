@@ -106,10 +106,10 @@ export default function Footer() {
               <div className="text-sm text-blueGray-500 font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Notus NextJS by{" "}
                 <a
-                  href="https://meanmine.com"
+                  href="https://fastmdm.com"
                   className="text-blueGray-500 hover:text-blueGray-800"
                 >
-                  MeanMine
+                  FastMDM
                 </a>
                 .
               </div>

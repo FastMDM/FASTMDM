@@ -90,7 +90,8 @@
     "Subs": {
       "type": "dynamiczone",
       "components": [
-        "restaurant.restaurant"
+        "restaurant.restaurant",
+        "hotel.hotel"
       ],
       "pluginOptions": {
         "i18n": {
