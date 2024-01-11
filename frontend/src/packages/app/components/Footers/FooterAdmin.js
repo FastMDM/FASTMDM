@@ -11,10 +11,10 @@ export default function FooterAdmin() {
               <div className="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left">
                 Copyright © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://meanmine.com"
+                  href="https://fastmdm.com"
                   className="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
                 >
-                  MeanMine
+                  FastMDM
                 </a>
               </div>
             </div>
