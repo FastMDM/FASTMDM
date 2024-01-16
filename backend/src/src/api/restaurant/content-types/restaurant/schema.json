@@ -157,6 +157,17 @@
         }
       },
       "component": "shared.social-network"
+    },
+    "user_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "restaurants"
     }
   }
 }

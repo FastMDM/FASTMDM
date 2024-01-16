@@ -5,6 +5,7 @@
 import calendar from "@offset-dev/strapi-calendar/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import multiTenant from "strapi-plugin-multi-tenant/strapi-admin";
 import translate from "strapi-plugin-translate/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
@@ -17,6 +18,7 @@ renderAdmin(document.getElementById("strapi"), {
     calendar: calendar,
     i18n: i18N,
     "users-permissions": usersPermissions,
+    "multi-tenant": multiTenant,
     translate: translate,
   },
 });

@@ -9284,6 +9284,11 @@ statuses@2.0.1, statuses@^2.0.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
+strapi-plugin-multi-tenant@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-multi-tenant/-/strapi-plugin-multi-tenant-1.0.4.tgz#aa48c316b80cf0aa245a0f265ae960ea885b2042"
+  integrity sha512-ZqOw8Hn1GqKhDMk8fdbAvDoESQ0zwtVYpGJB12saOE2hU/hmGPZUy7JEos43vMJAWgVXnvnpNi/SlQgbBh7e5Q==
+
 strapi-plugin-translate@1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/strapi-plugin-translate/-/strapi-plugin-translate-1.2.4.tgz#9efc965e1197263a1eb783a5015642abac4bc23d"

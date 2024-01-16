@@ -43,12 +43,6 @@
       "relation": "oneToMany",
       "target": "api::menu.menu",
       "mappedBy": "parent"
-    },
-    "tenant": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tenant.tenant",
-      "inversedBy": "menus"
     }
   }
 }
