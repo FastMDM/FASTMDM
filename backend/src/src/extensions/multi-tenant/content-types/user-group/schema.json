@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_groups",
+  "info": {
+    "singularName": "user-group",
+    "pluralName": "user-groups",
+    "displayName": "UserGroup"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "tenant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.tenant",
+      "inversedBy": "userGroups",
+      "required": true
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::multi-tenant.user-group",
+      "mappedBy": "parent"
+    },
+    "restaurants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant.restaurant",
+      "mappedBy": "user_group"
+    }
+  }
+}

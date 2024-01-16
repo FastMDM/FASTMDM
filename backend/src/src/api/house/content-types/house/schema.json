@@ -16,12 +16,6 @@
     }
   },
   "attributes": {
-    "tenant": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tenant.tenant",
-      "inversedBy": "houses"
-    },
     "Title": {
       "pluginOptions": {
         "i18n": {

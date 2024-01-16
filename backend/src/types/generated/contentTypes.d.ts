@@ -630,6 +630,97 @@ export interface PluginTranslateBatchTranslateJob
   };
 }
 
+export interface PluginMultiTenantTenant extends Schema.CollectionType {
+  collectionName: 'tenants';
+  info: {
+    singularName: 'tenant';
+    pluralName: 'tenants';
+    displayName: 'Tenant';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    userGroups: Attribute.Relation<
+      'plugin::multi-tenant.tenant',
+      'oneToMany',
+      'plugin::multi-tenant.user-group'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::multi-tenant.tenant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::multi-tenant.tenant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
+  collectionName: 'user_groups';
+  info: {
+    singularName: 'user-group';
+    pluralName: 'user-groups';
+    displayName: 'UserGroup';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    users: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    tenant: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'manyToOne',
+      'plugin::multi-tenant.tenant'
+    > &
+      Attribute.Required;
+    parent: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    >;
+    children: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'plugin::multi-tenant.user-group'
+    >;
+    restaurants: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::restaurant.restaurant'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1060,11 +1151,6 @@ export interface ApiAutoAuto extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    tenant: Attribute.Relation<
-      'api::auto.auto',
-      'manyToOne',
-      'api::tenant.tenant'
-    >;
     color: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
@@ -2124,11 +2210,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    tenant: Attribute.Relation<
-      'api::course.course',
-      'manyToOne',
-      'api::tenant.tenant'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2232,11 +2313,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    tenant: Attribute.Relation<
-      'api::event.event',
-      'manyToOne',
-      'api::tenant.tenant'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2278,11 +2354,6 @@ export interface ApiHouseHouse extends Schema.CollectionType {
     };
   };
   attributes: {
-    tenant: Attribute.Relation<
-      'api::house.house',
-      'manyToOne',
-      'api::tenant.tenant'
-    >;
     Title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -2635,11 +2706,6 @@ export interface ApiMenuMenu extends Schema.CollectionType {
       'oneToMany',
       'api::menu.menu'
     >;
-    tenant: Attribute.Relation<
-      'api::menu.menu',
-      'manyToOne',
-      'api::tenant.tenant'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2879,6 +2945,16 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    user_group: Attribute.Relation<
+      'api::restaurant.restaurant',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -3253,61 +3329,6 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
-export interface ApiTenantTenant extends Schema.CollectionType {
-  collectionName: 'tenants';
-  info: {
-    singularName: 'tenant';
-    pluralName: 'tenants';
-    displayName: 'Tenant';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    menus: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToMany',
-      'api::menu.menu'
-    >;
-    autos: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToMany',
-      'api::auto.auto'
-    >;
-    courses: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToMany',
-      'api::course.course'
-    >;
-    events: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToMany',
-      'api::event.event'
-    >;
-    houses: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToMany',
-      'api::house.house'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tenant.tenant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTodoTodo extends Schema.CollectionType {
   collectionName: 'todos';
   info: {
@@ -3445,6 +3466,8 @@ declare module '@strapi/types' {
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::translate.batch-translate-job': PluginTranslateBatchTranslateJob;
+      'plugin::multi-tenant.tenant': PluginMultiTenantTenant;
+      'plugin::multi-tenant.user-group': PluginMultiTenantUserGroup;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3483,7 +3506,6 @@ declare module '@strapi/types' {
       'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
       'api::restaurant-type.restaurant-type': ApiRestaurantTypeRestaurantType;
       'api::service.service': ApiServiceService;
-      'api::tenant.tenant': ApiTenantTenant;
       'api::todo.todo': ApiTodoTodo;
       'api::transport.transport': ApiTransportTransport;
     }

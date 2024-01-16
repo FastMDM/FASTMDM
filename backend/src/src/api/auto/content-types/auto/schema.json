@@ -150,12 +150,6 @@
       },
       "type": "string"
     },
-    "tenant": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tenant.tenant",
-      "inversedBy": "autos"
-    },
     "color": {
       "type": "relation",
       "relation": "manyToOne",
