@@ -80,17 +80,6 @@
         "common.rich-text"
       ]
     },
-    "userGroup": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::multi-tenant.user-group",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "blogs"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",

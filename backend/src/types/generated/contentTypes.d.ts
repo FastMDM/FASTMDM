@@ -630,127 +630,6 @@ export interface PluginTranslateBatchTranslateJob
   };
 }
 
-export interface PluginMultiTenantOrganization extends Schema.CollectionType {
-  collectionName: 'organizations';
-  info: {
-    singularName: 'organization';
-    pluralName: 'organizations';
-    displayName: 'Organization';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    userGroups: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToMany',
-      'plugin::multi-tenant.user-group'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::multi-tenant.organization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
-  collectionName: 'user_groups';
-  info: {
-    singularName: 'user-group';
-    pluralName: 'user-groups';
-    displayName: 'UserGroup';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    users: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
-    organization: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'manyToOne',
-      'plugin::multi-tenant.organization'
-    > &
-      Attribute.Required;
-    parent: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    >;
-    children: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'plugin::multi-tenant.user-group'
-    >;
-    blogs: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::blog.blog'
-    >;
-    restaurants: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant.restaurant'
-    >;
-    restaurant_cuisines: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-cuisine.restaurant-cuisine'
-    >;
-    restaurant_dishes: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-dish.restaurant-dish'
-    >;
-    restaurant_features: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-feature.restaurant-feature'
-    >;
-    restaurant_prices: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-price.restaurant-price'
-    >;
-    restaurant_types: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant-type.restaurant-type'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1818,16 +1697,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    userGroup: Attribute.Relation<
-      'api::blog.blog',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -2994,16 +2863,6 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     slug: Attribute.UID<'api::restaurant.restaurant', 'Name'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -3083,16 +2942,6 @@ export interface ApiRestaurantCuisineRestaurantCuisine
           translate: 'translate';
         };
       }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant-cuisine.restaurant-cuisine',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3147,16 +2996,6 @@ export interface ApiRestaurantDishRestaurantDish extends Schema.CollectionType {
       'api::restaurant-dish.restaurant-dish',
       'manyToMany',
       'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant-dish.restaurant-dish',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
     > &
       Attribute.SetPluginOptions<{
         translate: {
@@ -3223,16 +3062,6 @@ export interface ApiRestaurantFeatureRestaurantFeature
           translate: 'translate';
         };
       }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant-feature.restaurant-feature',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3293,16 +3122,6 @@ export interface ApiRestaurantPriceRestaurantPrice
           translate: 'translate';
         };
       }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant-price.restaurant-price',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3357,16 +3176,6 @@ export interface ApiRestaurantTypeRestaurantType extends Schema.CollectionType {
       'api::restaurant-type.restaurant-type',
       'manyToMany',
       'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    userGroup: Attribute.Relation<
-      'api::restaurant-type.restaurant-type',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
     > &
       Attribute.SetPluginOptions<{
         translate: {
@@ -3636,8 +3445,6 @@ declare module '@strapi/types' {
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::translate.batch-translate-job': PluginTranslateBatchTranslateJob;
-      'plugin::multi-tenant.organization': PluginMultiTenantOrganization;
-      'plugin::multi-tenant.user-group': PluginMultiTenantUserGroup;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
