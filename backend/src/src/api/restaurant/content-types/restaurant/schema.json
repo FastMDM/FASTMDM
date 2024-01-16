@@ -129,17 +129,6 @@
       },
       "inversedBy": "restaurants"
     },
-    "userGroup": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::multi-tenant.user-group",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "restaurants"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {

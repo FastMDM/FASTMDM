@@ -37,17 +37,6 @@
         }
       },
       "mappedBy": "restaurant_prices"
-    },
-    "userGroup": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::multi-tenant.user-group",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "restaurant_prices"
     }
   }
 }
