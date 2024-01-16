@@ -9,7 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi",
     "dump": "strapi configuration:dump -f dump.json",
-    "restore": "strapi configuration:restore -f dump.json"
+    "restore": "strapi configuration:restore -f dump.json",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@offset-dev/strapi-calendar": "0.1.1",
@@ -24,7 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^5.2.0",
-    "strapi-plugin-multi-tenant": "^1.0.4",
+    "strapi-plugin-multi-tenant": "1.0.4",
     "strapi-plugin-translate": "1.2.4",
     "strapi-provider-translate-libretranslate": "1.0.11",
     "styled-components": "^5.2.1"
