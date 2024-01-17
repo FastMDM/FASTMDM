@@ -117,6 +117,17 @@
           "translate": "translate"
         }
       }
+    },
+    "userGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "legals"
     }
   }
 }
