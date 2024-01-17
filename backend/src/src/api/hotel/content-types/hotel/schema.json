@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "inventories",
+  "collectionName": "hotels",
   "info": {
-    "singularName": "inventory",
-    "pluralName": "inventories",
-    "displayName": "Inventory",
+    "singularName": "hotel",
+    "pluralName": "hotels",
+    "displayName": "Hotel",
     "description": ""
   },
   "options": {
@@ -17,6 +17,7 @@
   },
   "attributes": {
     "Name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,8 +25,18 @@
         "translate": {
           "translate": "translate"
         }
-      },
-      "type": "string"
+      }
+    },
+    "hotel_features": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hotel-feature.hotel-feature",
+      "mappedBy": "hotels",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "userGroup": {
       "type": "relation",
@@ -36,7 +47,7 @@
           "translate": "translate"
         }
       },
-      "inversedBy": "inventories"
+      "inversedBy": "hotels"
     }
   }
 }

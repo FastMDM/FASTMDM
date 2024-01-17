@@ -704,6 +704,36 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'oneToMany',
       'api::restaurant.restaurant'
     >;
+    legals: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::legal.legal'
+    >;
+    animals: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::animal.animal'
+    >;
+    assets: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::asset.asset'
+    >;
+    autos: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    hotels: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::hotel.hotel'
+    >;
+    inventories: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::inventory.inventory'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -942,6 +972,7 @@ export interface ApiAnimalAnimal extends Schema.CollectionType {
     singularName: 'animal';
     pluralName: 'animals';
     displayName: 'Animal';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -957,6 +988,16 @@ export interface ApiAnimalAnimal extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::animal.animal',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -990,6 +1031,7 @@ export interface ApiAssetAsset extends Schema.CollectionType {
     singularName: 'asset';
     pluralName: 'assets';
     displayName: 'Asset';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1005,6 +1047,16 @@ export interface ApiAssetAsset extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::asset.asset',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -1055,11 +1107,17 @@ export interface ApiAutoAuto extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     Description: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     Price: Attribute.Integer &
@@ -1072,17 +1130,28 @@ export interface ApiAutoAuto extends Schema.CollectionType {
       'api::auto.auto',
       'manyToOne',
       'api::currency.currency'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     City: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     PostalCode: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     VIN: Attribute.String &
@@ -1155,47 +1224,102 @@ export interface ApiAutoAuto extends Schema.CollectionType {
       'api::auto.auto',
       'manyToOne',
       'api::auto-color.auto-color'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     condition: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-condition.auto-condition'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     cylinder: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-cylinder.auto-cylinder'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     drive: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-drive.auto-drive'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     fuel: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-fuel.auto-fuel'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     size: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-size.auto-size'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     status: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-status.auto-status'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     transmission: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-transmission.auto-transmission'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     type: Attribute.Relation<
       'api::auto.auto',
       'manyToOne',
       'api::auto-type.auto-type'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::auto.auto',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2337,6 +2461,134 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiHotelHotel extends Schema.CollectionType {
+  collectionName: 'hotels';
+  info: {
+    singularName: 'hotel';
+    pluralName: 'hotels';
+    displayName: 'Hotel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    hotel_features: Attribute.Relation<
+      'api::hotel.hotel',
+      'manyToMany',
+      'api::hotel-feature.hotel-feature'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::hotel.hotel',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToMany',
+      'api::hotel.hotel'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiHotelFeatureHotelFeature extends Schema.CollectionType {
+  collectionName: 'hotel_features';
+  info: {
+    singularName: 'hotel-feature';
+    pluralName: 'hotel-features';
+    displayName: 'HotelFeature';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    hotels: Attribute.Relation<
+      'api::hotel-feature.hotel-feature',
+      'manyToMany',
+      'api::hotel.hotel'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hotel-feature.hotel-feature',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hotel-feature.hotel-feature',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::hotel-feature.hotel-feature',
+      'oneToMany',
+      'api::hotel-feature.hotel-feature'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiHouseHouse extends Schema.CollectionType {
   collectionName: 'houses';
   info: {
@@ -2524,6 +2776,7 @@ export interface ApiInventoryInventory extends Schema.CollectionType {
     singularName: 'inventory';
     pluralName: 'inventories';
     displayName: 'Inventory';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -2539,6 +2792,16 @@ export interface ApiInventoryInventory extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::inventory.inventory',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -2644,6 +2907,16 @@ export interface ApiLegalLegal extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::legal.legal',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -2947,7 +3220,7 @@ export interface ApiRestaurantRestaurant extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    user_group: Attribute.Relation<
+    userGroup: Attribute.Relation<
       'api::restaurant.restaurant',
       'manyToOne',
       'plugin::multi-tenant.user-group'
@@ -3492,6 +3765,8 @@ declare module '@strapi/types' {
       'api::course.course': ApiCourseCourse;
       'api::currency.currency': ApiCurrencyCurrency;
       'api::event.event': ApiEventEvent;
+      'api::hotel.hotel': ApiHotelHotel;
+      'api::hotel-feature.hotel-feature': ApiHotelFeatureHotelFeature;
       'api::house.house': ApiHouseHouse;
       'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::inventory.inventory': ApiInventoryInventory;

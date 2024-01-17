@@ -20,6 +20,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -28,6 +31,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "text"
@@ -44,12 +50,20 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::currency.currency",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "City": {
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -58,6 +72,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -154,54 +171,110 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-color.auto-color",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "condition": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-condition.auto-condition",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "cylinder": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-cylinder.auto-cylinder",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "drive": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-drive.auto-drive",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "fuel": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-fuel.auto-fuel",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "size": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-size.auto-size",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "status": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-status.auto-status",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "transmission": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-transmission.auto-transmission",
-      "inversedBy": "autos"
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "type": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auto-type.auto-type",
+      "inversedBy": "autos",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "userGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
       "inversedBy": "autos"
     }
   }

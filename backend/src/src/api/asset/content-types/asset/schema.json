@@ -4,7 +4,8 @@
   "info": {
     "singularName": "asset",
     "pluralName": "assets",
-    "displayName": "Asset"
+    "displayName": "Asset",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +26,17 @@
         }
       },
       "type": "string"
+    },
+    "userGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "assets"
     }
   }
 }

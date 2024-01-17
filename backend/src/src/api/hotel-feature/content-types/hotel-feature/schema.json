@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "inventories",
+  "collectionName": "hotel_features",
   "info": {
-    "singularName": "inventory",
-    "pluralName": "inventories",
-    "displayName": "Inventory",
+    "singularName": "hotel-feature",
+    "pluralName": "hotel-features",
+    "displayName": "HotelFeature",
     "description": ""
   },
   "options": {
@@ -27,16 +27,16 @@
       },
       "type": "string"
     },
-    "userGroup": {
+    "hotels": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::multi-tenant.user-group",
+      "relation": "manyToMany",
+      "target": "api::hotel.hotel",
       "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
       },
-      "inversedBy": "inventories"
+      "inversedBy": "hotel_features"
     }
   }
 }

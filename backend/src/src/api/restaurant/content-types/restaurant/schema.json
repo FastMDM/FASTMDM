@@ -158,7 +158,7 @@
       },
       "component": "shared.social-network"
     },
-    "user_group": {
+    "userGroup": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::multi-tenant.user-group",
