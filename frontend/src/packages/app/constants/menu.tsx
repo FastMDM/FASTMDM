@@ -11,7 +11,16 @@ export type menuType = {
   }
   
 
-export const Menu: menuType[] = [  
+export const Menu: menuType[] = [
+    {
+        id: 20,
+        name: 'Legal',
+        icon: 'angle-up',
+        translate: 'sidebar.nav.Legal',
+        icontype: 'FontAwesome5',
+        open: true,
+        path: '/legal',
+    },
     {
         id: 19,
         name: 'Restaurant',
