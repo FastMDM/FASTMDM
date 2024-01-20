@@ -37,6 +37,14 @@
         }
       },
       "mappedBy": "restaurant_prices"
+    },
+    "OrderBy": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

@@ -26,14 +26,14 @@
       "relation": "oneToMany",
       "target": "api::restaurant-feature.restaurant-feature"
     },
-    "restaurant_prices": {
+    "restaurant_price": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::restaurant-price.restaurant-price"
     },
-    "restaurant_types": {
+    "restaurant_type": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::restaurant-type.restaurant-type"
     }
   }

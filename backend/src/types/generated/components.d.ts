@@ -313,6 +313,11 @@ export interface HotelHotel extends Schema.Component {
     BicycleRental: Attribute.Boolean;
     WalkingTours: Attribute.Boolean;
     Cycling: Attribute.Boolean;
+    hotel_features: Attribute.Relation<
+      'hotel.hotel',
+      'oneToMany',
+      'api::hotel-feature.hotel-feature'
+    >;
   };
 }
 
@@ -497,14 +502,14 @@ export interface RestaurantRestaurant extends Schema.Component {
       'oneToMany',
       'api::restaurant-feature.restaurant-feature'
     >;
-    restaurant_prices: Attribute.Relation<
+    restaurant_price: Attribute.Relation<
       'restaurant.restaurant',
-      'oneToMany',
+      'oneToOne',
       'api::restaurant-price.restaurant-price'
     >;
-    restaurant_types: Attribute.Relation<
+    restaurant_type: Attribute.Relation<
       'restaurant.restaurant',
-      'oneToMany',
+      'oneToOne',
       'api::restaurant-type.restaurant-type'
     >;
   };
