@@ -221,6 +221,11 @@
     },
     "Cycling": {
       "type": "boolean"
+    },
+    "hotel_features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hotel-feature.hotel-feature"
     }
   }
 }

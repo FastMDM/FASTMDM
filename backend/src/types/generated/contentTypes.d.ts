@@ -3471,6 +3471,12 @@ export interface ApiRestaurantPriceRestaurantPrice
           translate: 'translate';
         };
       }>;
+    OrderBy: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

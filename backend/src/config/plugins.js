@@ -72,7 +72,20 @@ module.exports = {
         // default is the string before the `-` character for every locale
         localeMap:{ }
       },
-      // other options ...
+/*
+      // Which field types are translated (default string, text, richtext, components and dynamiczones)
+      // Either string or object with type and format
+      // Possible formats: plain, markdown, html (default plain)
+      translatedFieldTypes: [
+        'string',
+        { type: 'text', format: 'plain' },
+        { type: 'richtext', format: 'markdown' },
+        'component',
+        'dynamiczone',
+      ],
+      // If relations should be translated (default true)
+      translateRelations: true,
+*/      
     },
   },
   // ...
