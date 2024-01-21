@@ -5,6 +5,8 @@
   "skeleton": "This project is an application skeleton. You can use it to quickly tailwind your ReactJS webapp projects and dev environment for these projects. The seed app doesn't do much and has most of the feature removed so you can add theme as per your needs just following the demo app examples.",
   "h1": "A simple example",
   "change-locale": "Change locale to \"{{changeTo}}\"",
+  "legal": "Legal",
+  "person": "Person",
   "to-second-page": "To second page",
   "error-with-status": "A {{statusCode}} error occurred on server",
   "error-without-status": "An error occurred on the server",

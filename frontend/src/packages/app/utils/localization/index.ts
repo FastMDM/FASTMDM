@@ -77,9 +77,9 @@ export const useTranslation = (file: string) => {
 //    })
   }
 
-  console.log(t('skeleton'))
-  console.log(i18n.language)
-  console.log(i18n.languages)
+//  console.log(t('skeleton'))
+//  console.log(i18n.language)
+//  console.log(i18n.languages)
 
   return {
     t,
