@@ -65,8 +65,8 @@ export function  RestaurantFilter (
     }
   );
 
-  console.log("!!!data");
-  console.log ( data);
+//  console.log("!!!data");
+//  console.log ( data);
 
   const lastPage = Math.ceil(data.count / perPage) || 1;
 

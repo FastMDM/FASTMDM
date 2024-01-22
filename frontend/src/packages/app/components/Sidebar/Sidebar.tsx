@@ -14,7 +14,7 @@ import { Button } from "react-native";
 function RenderSubItem({data}){
   const router = useRouter();
 
-  console.log("?    " + data.name + " - " + data.open)
+//  console.log("?    " + data.name + " - " + data.open)
   return (
   <>  
      <li key={data.name} className="inline-flex pl-3">

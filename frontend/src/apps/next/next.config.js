@@ -1,5 +1,7 @@
 const { withExpo } = require('@expo/next-adapter')
 
+const { i18n } = require('./next-i18next.config')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // reanimated (and thus, Moti) doesn't work with strict mode currently...
@@ -18,6 +20,7 @@ const nextConfig = {
     'nativewind',
     'react-native-gesture-handler',
   ],
+  i18n,
 }
 
 module.exports = withExpo(nextConfig)

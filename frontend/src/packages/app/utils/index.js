@@ -84,8 +84,8 @@ export function getData(slug, locale, apiID, kind, preview) {
 }
 
 export async function getRestaurants(key) {
-  console.log ("getRestaurants");
-  console.log (key);
+//  console.log ("getRestaurants");
+//  console.log (key);
   const categoryName = key.queryKey[1].category;
   const placeName = key.queryKey[2].place;
   const localeCode = key.queryKey[3].locale;
