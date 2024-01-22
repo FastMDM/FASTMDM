@@ -1691,6 +1691,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.22.5":
+  version: 7.23.8
+  resolution: "@babel/runtime@npm:7.23.8"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 0bd5543c26811153822a9f382fd39886f66825ff2a397a19008011376533747cd05c33a91f6248c0b8b0edf0448d7c167ebfba34786088f1b7eb11c65be7dfc3
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.0.0, @babel/template@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -3524,7 +3533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hoist-non-react-statics@npm:^3.3.1":
+"@types/hoist-non-react-statics@npm:^3.3.1, @types/hoist-non-react-statics@npm:^3.3.4":
   version: 3.3.5
   resolution: "@types/hoist-non-react-statics@npm:3.3.5"
   dependencies:
@@ -7564,19 +7573,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-fs-backend@npm:^2.1.1":
+"i18next-fs-backend@npm:^2.1.1, i18next-fs-backend@npm:^2.3.1":
   version: 2.3.1
   resolution: "i18next-fs-backend@npm:2.3.1"
   checksum: 86273eecdebfb055c171d466e41e4e3d50b9d8184eed3a88dde4fca2cd30cc7bd92e3ae3d69a6aa51f74bad2f429384388b61b121c3a09596870670bbb833bdb
   languageName: node
   linkType: hard
 
-"i18next@npm:22.4.5":
-  version: 22.4.5
-  resolution: "i18next@npm:22.4.5"
+"i18next@npm:23.7.18":
+  version: 23.7.18
+  resolution: "i18next@npm:23.7.18"
   dependencies:
-    "@babel/runtime": ^7.20.6
-  checksum: 37942b6ef1dcc9a6451fda9ed18d9ecc55954bd40b615b6f9b27772ae70a8cb2b140344de75fd02069ca72f8e337ba9f2ebca162170e33cc0af55ea42169ebf7
+    "@babel/runtime": ^7.23.2
+  checksum: 4731125d2829e8343e088605e72eefbe06818a45b88478ca1d994bfd850efb5e41fda48474eefcdfecf0e6b8b820b7caddb275aa5fd72389dc56026dff86a01b
   languageName: node
   linkType: hard
 
@@ -10116,17 +10125,17 @@ __metadata:
     app: "*"
     autoprefixer: ^10.4.16
     eslint-config-next: ^14.0.4
-    i18next: 22.4.5
+    i18next: 23.7.18
     next: ^14.0.4
     next-compose-plugins: ^2.2.1
     next-fonts: ^1.5.1
-    next-i18next: ^13.0.1
+    next-i18next: 15.2.0
     next-images: ^1.8.4
     next-transpile-modules: ^10.0.0
     picocolors: ^1.0.0
     raf: ^3.4.1
     react-dom: ^18.2.0
-    react-i18next: ^12.1.1
+    react-i18next: 14.0.1
     react-query: ^3.39.3
     rimraf: ^3.0.2
     setimmediate: ^1.0.5
@@ -10154,7 +10163,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-i18next@npm:^13.0.1, next-i18next@npm:^13.0.3":
+"next-i18next@npm:15.2.0":
+  version: 15.2.0
+  resolution: "next-i18next@npm:15.2.0"
+  dependencies:
+    "@babel/runtime": ^7.23.2
+    "@types/hoist-non-react-statics": ^3.3.4
+    core-js: ^3
+    hoist-non-react-statics: ^3.3.2
+    i18next-fs-backend: ^2.3.1
+  peerDependencies:
+    i18next: ">= 23.7.13"
+    next: ">= 12.0.0"
+    react: ">= 17.0.2"
+    react-i18next: ">= 13.5.0"
+  checksum: 6666c58bceb744700021b7bda9edc7afdf73b82e2a98541bd1653b60262fbb1cffd5e0591ee602437fe37d5848be6a92cd3464da6898fbd0b926e00433554fa4
+  languageName: node
+  linkType: hard
+
+"next-i18next@npm:^13.0.3":
   version: 13.3.0
   resolution: "next-i18next@npm:13.3.0"
   dependencies:
@@ -11471,7 +11498,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^12.1.1, react-i18next@npm:^12.1.4":
+"react-i18next@npm:14.0.1":
+  version: 14.0.1
+  resolution: "react-i18next@npm:14.0.1"
+  dependencies:
+    "@babel/runtime": ^7.22.5
+    html-parse-stringify: ^3.0.1
+  peerDependencies:
+    i18next: ">= 23.2.3"
+    react: ">= 16.8.0"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 5ddd3bde1f31fbb1a2103148111decc09f73c993291ed943e7da58dd585e34f8104d6c0d4e6c3f2559add7298156526244d7dd58a2b3200253c512af8f5ddb9a
+  languageName: node
+  linkType: hard
+
+"react-i18next@npm:^12.1.4":
   version: 12.3.1
   resolution: "react-i18next@npm:12.3.1"
   dependencies:

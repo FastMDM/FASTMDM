@@ -83,13 +83,13 @@ export function  RestaurantList (
     }
   );
 
-  console.log("!!!data");
-  console.log ( `data= ${data}`);
-  console.log ( `categoryId= ${categoryId}`);
-  console.log ( `placeId= ${placeId}`);
-  console.log ( `locale= ${locale}`);
-  console.log ( `pageNumber= ${pageNumber}`);
-  //console.log ( `initialData= ${JSON.stringify(initialData)}`);
+//  console.log("!!!data");
+//  console.log ( `data= ${data}`);
+//  console.log ( `categoryId= ${categoryId}`);
+//  console.log ( `placeId= ${placeId}`);
+//  console.log ( `locale= ${locale}`);
+//  log ( `pageNumber= ${pageNumber}`);
+//  console.log ( `initialData= ${JSON.stringify(initialData)}`);
 
 
   const lastPage = Math.ceil(data.count / perPage) || 1;
