@@ -1,0 +1,39 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+          "command": "yarn web",
+          "name": "Yarn web",
+          "request": "launch",
+          "type": "node-terminal",
+          "env": {
+            "DATABASE_SSL": "false",
+            "NODE_ENV": "development",
+          }
+        },
+        {
+          "command": "yarn start",
+          "name": "Yarn start",
+          "request": "launch",
+          "type": "node-terminal",
+          "env": {
+            "DATABASE_SSL": "false",
+            "NODE_ENV": "development",
+          }
+        },
+        {
+          "command": "yarn native",
+          "name": "Yarn native",
+          "request": "launch",
+          "type": "node-terminal",
+          "env": {
+            "DATABASE_SSL": "false",
+            "NODE_ENV": "development",
+          }
+        },
+    ]
+}
+
