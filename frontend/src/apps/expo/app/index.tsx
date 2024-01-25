@@ -1,5 +1,11 @@
+/*
 import { HomeScreen } from 'app/features/home/screen'
 
 export default function Home() {
   return <HomeScreen />
 }
+*/
+
+import { LegalScreen } from 'app/screens/legal'
+
+export default LegalScreen

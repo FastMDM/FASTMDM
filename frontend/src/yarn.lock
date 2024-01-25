@@ -1755,6 +1755,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@egjs/hammerjs@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@egjs/hammerjs@npm:2.0.17"
+  dependencies:
+    "@types/hammerjs": ^2.0.36
+  checksum: 8945137cec5837edd70af3f2e0ea621543eb0aa3b667e6269ec6485350f4d120c2434b37c7c30b1cf42a65275dd61c1f24626749c616696d3956ac0c008c4766
+  languageName: node
+  linkType: hard
+
 "@emotion/is-prop-valid@npm:^0.8.2":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -3321,7 +3330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/drawer@npm:^6.5.1":
+"@react-navigation/drawer@npm:6.6.6":
   version: 6.6.6
   resolution: "@react-navigation/drawer@npm:6.6.6"
   dependencies:
@@ -3586,6 +3595,13 @@ __metadata:
   version: 1.1.4
   resolution: "@types/dlv@npm:1.1.4"
   checksum: 9b4884b4b559488754e11a41f0e7f9d17fdc537bfb429963a20476282c3c8228df61989149da457e584479d9a8f9037f59d56e5aa9f2bf53ecdb9106ed308a54
+  languageName: node
+  linkType: hard
+
+"@types/hammerjs@npm:^2.0.36":
+  version: 2.0.45
+  resolution: "@types/hammerjs@npm:2.0.45"
+  checksum: 40a29067c485a2a1f4345718104218fcf769adb1dbe091cdb6f679b3293dfa0798b207eb498ee7fd79ae8664c999117738fa0c01753f7465a639128f38c3ff5b
   languageName: node
   linkType: hard
 
@@ -4129,7 +4145,7 @@ __metadata:
   dependencies:
     "@popperjs/core": ^2.11.6
     "@react-navigation/bottom-tabs": ^6.4.1
-    "@react-navigation/drawer": ^6.5.1
+    "@react-navigation/drawer": 6.6.6
     dlv: ^1.1.3
     dripsy: ^3.8.1
     expo-linking: 6.2.1
@@ -6485,6 +6501,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.73.2
+    react-native-gesture-handler: 2.14.1
     react-native-reanimated: 3.6.1
     react-native-safe-area-context: 4.7.4
     react-native-screens: 3.27.0
@@ -11614,6 +11631,22 @@ __metadata:
     "@types/react": ">=16"
     react: ">=16"
   checksum: 0f3e570975134a3382c3fe5189e04e742ae154941463bdfaab2293319da1f1585cb9b75b6f07d99f514c4d728d69cc1af3c96ab37df90003b3bcc210dd0001ba
+  languageName: node
+  linkType: hard
+
+"react-native-gesture-handler@npm:2.14.1":
+  version: 2.14.1
+  resolution: "react-native-gesture-handler@npm:2.14.1"
+  dependencies:
+    "@egjs/hammerjs": ^2.0.17
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.2.4
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a037e8c5a88a9fc79c283f3064d7653ec8615cb05fc62622eaccb5f3db489ede9c3a0685b7aad210c7efabfd8f5aa34e4f19204318dfda64c8829266d78e0cae
   languageName: node
   linkType: hard
 

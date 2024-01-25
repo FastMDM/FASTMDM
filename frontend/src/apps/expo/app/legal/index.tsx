@@ -1,6 +1,6 @@
-import { AboutScreen } from 'app/screens/legal'
+import { LegalScreen } from 'app/screens/legal'
 
-export default AboutScreen
+export default LegalScreen
 
 
 
