@@ -9,6 +9,7 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 
 ## **FastMDM tech**
 
+- [PostgreSQL 15](https://github.com/zalando/postgres-operator)
 - [Node.Js 18.18.2](https://github.com/nodejs/node)
 - [Strapi 4.15.0](https://github.com/strapi/strapi)
 - [Expo 50.0.0](https://github.com/expo/examples)
