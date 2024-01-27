@@ -1,4 +1,4 @@
-/*
+
 import { Provider } from 'app/provider'
 import { Stack } from 'expo-router'
 
@@ -9,7 +9,8 @@ export default function Root() {
     </Provider>
   )
 }
-*/
+
+/*
 import { NativeNavigation } from "app/navigation/native" 
 import { Layout } from 'app/layout'
 import { QueryClient, QueryClientProvider } from "react-query";   
@@ -25,4 +26,4 @@ export default function App() {
     </Layout>
   )
 }
-          
+*/          
