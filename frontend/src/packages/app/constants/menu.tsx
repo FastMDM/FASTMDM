@@ -3,6 +3,7 @@ export type menuType = {
     name: string,
     translate?: string,
     path: string,
+    pathexpo?: string,
     icon: string,
     icontype: string,
     open?: boolean,
@@ -20,6 +21,7 @@ export const Menu: menuType[] = [
         icontype: 'FontAwesome5',
         open: true,
         path: '/legal',
+        pathexpo: 'legal/index',
     },
     {
         id: 19,
@@ -29,6 +31,7 @@ export const Menu: menuType[] = [
         icontype: 'FontAwesome5',
         open: true,
         path: '/restaurants',
+        pathexpo: 'restaurants/index',
     },
     {
         
@@ -40,6 +43,7 @@ export const Menu: menuType[] = [
         icontype: 'FontAwesome5',
         icon: 'layer-group',
         open: true,
+        pathexpo: 'database/index',
         submenu: [
             {
                 id: 1,
@@ -372,6 +376,7 @@ export const Menu: menuType[] = [
         icontype: 'FontAwesome5',
         open: true,
         path: '/about',
+        pathexpo: 'about/index',
     },
     {
         id: 15,

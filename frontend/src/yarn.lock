@@ -2173,12 +2173,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/metro-runtime@npm:3.1.0":
-  version: 3.1.0
-  resolution: "@expo/metro-runtime@npm:3.1.0"
+"@expo/metro-runtime@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@expo/metro-runtime@npm:3.1.2"
   peerDependencies:
     react-native: "*"
-  checksum: d13d6df9d8c6ebe012bb0268764119697c4938fb63015a466a63d1e3025babd0ff87d7300b548ffaa2d7dfb629968aae661ffd3f09f10829a5ccfa8bfc9b4be2
+  checksum: 5b24d3b73dde0d6582bdc1c991c08ce4be094055f59963f01e30e03855e4a1d8a7e6244ebdae7f7e87f5d53b45109aa6c92c1566184f8919692c6bd0ad2939e7
   languageName: node
   linkType: hard
 
@@ -6495,7 +6495,7 @@ __metadata:
     app: "*"
     expo: 50.0.3
     expo-linking: 6.2.1
-    expo-router: 3.4.0
+    expo-router: 3.4.6
     expo-splash-screen: 0.26.0
     expo-status-bar: 1.11.0
     react: 18.2.0
@@ -6610,17 +6610,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-router@npm:3.4.0":
-  version: 3.4.0
-  resolution: "expo-router@npm:3.4.0"
+"expo-router@npm:3.4.6":
+  version: 3.4.6
+  resolution: "expo-router@npm:3.4.6"
   dependencies:
-    "@expo/metro-runtime": 3.1.0
+    "@expo/metro-runtime": 3.1.2
     "@expo/server": ^0.3.0
     "@radix-ui/react-slot": 1.0.1
     "@react-navigation/bottom-tabs": ~6.5.7
     "@react-navigation/native": ~6.1.6
     "@react-navigation/native-stack": ~6.9.12
-    expo-splash-screen: 0.26.0
+    expo-splash-screen: 0.26.4
     react-helmet-async: ^1.3.0
     schema-utils: ^4.0.1
   peerDependencies:
@@ -6639,7 +6639,7 @@ __metadata:
       optional: true
     react-native-reanimated:
       optional: true
-  checksum: 85649a64f76c103245323d8ec0c7bda24c30905d4adc0a44a47b1772b4a8b16a433a863bc60fa4b93a4c0c3b4ddd2ae5ff8103fffe1b72deeab751e277e2cc0f
+  checksum: 9f721636546c6c078c2562c9f8c16aafc57234bed5f8172848379987b34d127b54f046486184e1ffc2f90f19f7d39a817fef0ef45a35d9efa767e44b749913e7
   languageName: node
   linkType: hard
 
@@ -6651,6 +6651,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 2ae20df5f535c7c8e5f34472255b0a874f8126108e42089d55f1947037a014b8b8cd5d509ced5b6e58032b1042b2d2f5aa92ff95cc24f4757f10f0c0081f9039
+  languageName: node
+  linkType: hard
+
+"expo-splash-screen@npm:0.26.4":
+  version: 0.26.4
+  resolution: "expo-splash-screen@npm:0.26.4"
+  dependencies:
+    "@expo/prebuild-config": 6.7.4
+  peerDependencies:
+    expo: "*"
+  checksum: b8bd28e00b6bbdc4d1b926dda8dde29a2c54451bb26099ac1e44dcfa07a9dcd9fad0d0b6a9ecb8b2419e7c049befcfeb75a79ce761553d30686f9962c9d9db78
   languageName: node
   linkType: hard
 
