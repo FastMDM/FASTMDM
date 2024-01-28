@@ -50,12 +50,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::currency.currency",
-      "inversedBy": "autos",
       "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
-      }
+      },
+      "inversedBy": "autos"
     },
     "City": {
       "pluginOptions": {

@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -20,6 +20,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -36,13 +39,23 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::menu.menu",
-      "inversedBy": "children"
+      "inversedBy": "children",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "children": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::menu.menu",
-      "mappedBy": "parent"
+      "mappedBy": "parent",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     }
   }
 }

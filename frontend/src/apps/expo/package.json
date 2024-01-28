@@ -2,7 +2,7 @@
   "dependencies": {
     "@react-native/dev-middleware": "0.73.6",
     "app": "*",
-    "expo": "50.0.3",
+    "expo": "50.0.4",
     "expo-linking": "6.2.1",
     "expo-router": "3.4.6",
     "expo-splash-screen": "0.26.0",

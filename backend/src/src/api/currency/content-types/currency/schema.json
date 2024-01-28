@@ -4,10 +4,11 @@
   "info": {
     "singularName": "currency",
     "pluralName": "currencies",
-    "displayName": "Currency"
+    "displayName": "Currency",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -19,6 +20,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -27,7 +31,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::auto.auto",
-      "mappedBy": "currency"
+      "mappedBy": "currency",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     }
   }
 }
