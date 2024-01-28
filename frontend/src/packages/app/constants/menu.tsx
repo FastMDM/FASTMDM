@@ -2,7 +2,7 @@ export type menuType = {
     id: number,
     name: string,
     translate?: string,
-    path: string,
+    pathnext: string,
     pathexpo?: string,
     icon: string,
     icontype: string,
@@ -20,7 +20,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Legal',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/legal',
+        pathnext: '/legal',
         pathexpo: 'legal/index',
     },
     {
@@ -30,7 +30,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Restaurant',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/restaurants',
+        pathnext: '/restaurants',
         pathexpo: 'restaurants/index',
     },
     {
@@ -38,7 +38,7 @@ export const Menu: menuType[] = [
         id: 0,
         name: 'Database',
         translate: 'sidebar.nav.Database',
-        path: '/database',
+        pathnext: '/database',
         label: { value: 12, color: 'success' },
         icontype: 'FontAwesome5',
         icon: 'layer-group',
@@ -48,85 +48,96 @@ export const Menu: menuType[] = [
             {
                 id: 1,
                 name: 'Specialists',
-                path: '/database/specialist',
+                pathnext: '/database/specialist',
                 icontype: 'FontAwesome5',
-                icon: 'layer-group'
-                       
+                icon: 'layer-group',
+                pathexpo: 'database/specialist/index',                       
             },
             {
                 id: 2,
                 name: 'Products',
-                path: '/database/product',
+                pathnext: '/database/product',
+                pathexpo: 'database/product/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 3,
                 name: 'Organizations',
-                path: '/database/organization',
+                pathnext: '/database/organization',
+                pathexpo: 'database/organization/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 4,
                 name: 'Problems',
-                path: '/database/problem',
+                pathnext: '/database/problem',
+                pathexpo: 'database/problem/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 5,
                 name: 'Roles',
-                path: '/database/role',
+                pathnext: '/database/role',
+                pathexpo: 'database/role/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 6,
                 name: 'Users',
-                path: '/database/user',
+                pathnext: '/database/user',
+                pathexpo: 'database/user/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 7,
                 name: 'Secret questions',
-                path: '/database/secret-question',
+                pathnext: '/database/secret-question',
+                pathexpo: 'database/secret-question/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 8,
                 name: 'Orders',
-                path: '/database/order',
+                pathnext: '/database/order',
+                pathexpo: 'database/order/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 9,
                 name: 'Visitors',
-                path: '/database/visitor',
+                pathnext: '/database/visitor',
+                pathexpo: 'database/visitor/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 10,
                 name: 'Diagnostics processing statuses',
-                path: '/database/diagnostics-processing-status',
+                pathnext: '/database/diagnostics-processing-status',
+                pathexpo: 'database/diagnostics-processing-status/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 11,
                 name: 'Testing processing statuses',
-                path: '/database/testing-processing-status',
+                pathnext: '/database/testing-processing-status',
+                pathexpo: 'database/testing/processing-status/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
             {
                 id: 12,
                 name: 'Event logs',
-                path: '/database/event-log',
+                pathnext: '/database/event-log',
+                pathexpo: 'database/event-log/index',
                 icontype: 'FontAwesome5',
                 icon: 'layer-group'            
             },
@@ -137,7 +148,8 @@ export const Menu: menuType[] = [
         name: 'Trouble',
         translate: 'sidebar.nav.ProblemSolving',
         label: { value: 5, color: 'success' },
-        path: "/trouble",
+        pathnext: "/trouble",
+        pathexpo: 'trouble/index',
         icon: 'adjust',
         icontype: 'FontAwesome5',
         open: true,
@@ -145,125 +157,141 @@ export const Menu: menuType[] = [
             {
                 id: 1,
                 name: 'Catalogue',
-                path: '/trouble/cat',
+                pathnext: '/trouble/cat',
+                pathexpo: 'trouble/cat/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 2,
                 name: 'Comments',
-                path: '/trouble/comment',
+                pathnext: '/trouble/comment',
+                pathexpo: 'trouble/comment/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 3,
                 name: 'Create',
-                path: '/trouble/create',
+                pathnext: '/trouble/create',
+                pathexpo: 'trouble/create/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 4,
                 name: 'Delete',
-                path: '/trouble/delete',
+                pathnext: '/trouble/delete',
+                pathexpo: 'trouble/delete/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 5,
                 name: 'Knowledge base',
-                path: '/trouble/kb',
+                pathnext: '/trouble/kb',
+                pathexpo: 'trouble/kb/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 6,
                 name: 'My',
-                path: '/trouble/my',
+                pathnext: '/trouble/my',
+                pathexpo: 'trouble/my/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 7,
                 name: 'Recommend',
-                path: '/trouble/recommend',
+                pathnext: '/trouble/recommend',
+                pathexpo: 'trouble/recommend/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 8,
                 name: 'Same',
-                path: '/trouble/same',
+                pathnext: '/trouble/same',
+                pathexpo: 'trouble/same/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 9,
                 name: 'Similar',
-                path: '/trouble/similar',
+                pathnext: '/trouble/similar',
+                pathexpo: 'trouble/similar/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 10,
                 name: 'Solution',
-                path: '/trouble/solution',
+                pathnext: '/trouble/solution',
+                pathexpo: 'trouble/solution/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 11,
                 name: 'Solve',
-                path: '/trouble/solve',
+                pathnext: '/trouble/solve',
+                pathexpo: 'trouble/solve/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 12,
                 name: 'View',
-                path: '/trouble/view',
+                pathnext: '/trouble/view',
+                pathexpo: 'trouble/view/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             }
         ]        
     },
-
     {
         id: 2,
         name: 'Classifiers',
         translate: 'sidebar.nav.Classifiers',
         label: { value: 5, color: 'success' },
         icontype: 'FontAwesome5',
-        path: "/classifiers",
+        pathnext: "/classifiers",
+        pathexpo: 'classifiers/index',
         icon: 'adjust',
         open: true,
         submenu: [
             {
                 id: 1,
                 name: 'Organization activities',
-                path: '/classifiers/org-activities',
+                pathnext: '/classifiers/org-activities',
                 icontype: 'FontAwesome5',
+                pathexpo: 'classifiers/org-activities/index',
                 icon: 'adjust'            
             },
             {
                 id: 2,
                 name: 'Locations',
-                path: '/classifiers/locations',
+                pathnext: '/classifiers/locations',
+                pathexpo: 'classifiers/locations/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 3,
                 name: 'Diagnostics directions',
-                path: '/classifiers/diagnostics-directions',
+                pathnext: '/classifiers/diagnostics-directions',
+                pathexpo: 'classifiers/diagnostics-direction/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             },
             {
                 id: 4,
                 name: 'Testing directions',
-                path: '/classifiers/test-directions',
+                pathnext: '/classifiers/test-directions',
+                pathexpo: 'classifiers/test-direction/index',
                 icontype: 'FontAwesome5',
                 icon: 'adjust'            
             }
@@ -276,7 +304,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Chat',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/chat',
+        pathnext: '/chat',
+        pathexpo: 'chat/index',
     },
     {
         id: 4,
@@ -285,7 +314,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Diagnostics',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/diagnostics',
+        pathnext: '/diagnostics',
     },
     {
         id: 5,
@@ -294,7 +323,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Learning',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/learning',
+        pathnext: '/learning',
     },
     {
         id: 6,
@@ -303,7 +332,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Teaching',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/teaching',
+        pathnext: '/teaching',
     },
     {
         id: 7,
@@ -312,16 +341,17 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Testing',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/testing',
+        pathnext: '/testing',
     },
     {
         id: 8,
         name: 'Exchange',
         icon: 'battery-empty',
         translate: 'sidebar.nav.Exchange',
+        pathexpo: 'exchange/index',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/exchange',
+        pathnext: '/exchange',
     },
     {
         id: 9,
@@ -330,7 +360,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Directories',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/directories',
+        pathnext: '/directory',
+        pathexpo: 'directory/index',
     },
     {
         id: 10,
@@ -339,7 +370,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Search',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/search',
+        pathnext: '/search',
+        pathexpo: 'search/index',
     },
     {
         id: 11,
@@ -348,7 +380,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.News',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/news',
+        pathnext: '/news',
+        pathexpo: 'news/index',
     },
     {
         id: 12,
@@ -357,7 +390,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Translation',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/translation',
+        pathnext: '/translation',
+        pathexpo: 'translation/index',
     },
     {
         id: 13,
@@ -366,7 +400,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.PromoCode',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/promo',
+        pathnext: '/promo',
+        pathexpo: 'promo/index',
     },
     {
         id: 14,
@@ -375,7 +410,7 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.About',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/about',
+        pathnext: '/about',
         pathexpo: 'about/index',
     },
     {
@@ -385,7 +420,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Chat',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/help',
+        pathnext: '/help',
+        pathexpo: 'help',
     },
     {
         id: 16,
@@ -394,7 +430,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Login',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/login',
+        pathnext: '/login',
+        pathexpo: 'login/index',
     },
     {
         id: 17,
@@ -403,7 +440,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Register',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/register',
+        pathnext: '/register',
+        pathexpo: 'register/index',
     },
     {
         id: 18,
@@ -412,7 +450,8 @@ export const Menu: menuType[] = [
         translate: 'sidebar.nav.Recover',
         icontype: 'FontAwesome5',
         open: true,
-        path: '/recover',
+        pathnext: '/recover',
+        pathexpo: 'recover/index',
     },
 
 ];

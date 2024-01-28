@@ -18,12 +18,12 @@ function RenderSubItem({data}){
   return (
   <>  
      <li key={data.name} className="inline-flex pl-3">
-      <Link legacyBehavior href={data.path}>
+      <Link legacyBehavior href={data.pathnext}>
         <a
           href="#pablo"
           className={
             " text-sm block mb-4 no-underline font-semibold " +
-            (router.pathname.indexOf(data.path) !== -1
+            (router.pathname.indexOf(data.pathnext) !== -1
               ? "text-lightBlue-500 hover:text-lightBlue-600"
               : "text-blueGray-700 hover:text-blueGray-500")
           }
@@ -143,7 +143,7 @@ export default function Sidebar() {
               <>
                 <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
 
-                    <Link legacyBehavior href={item.path ? item.path : ""  }   >
+                    <Link legacyBehavior href={item.pathnext ? item.pathnext : ""  }   >
                     <a
                       onClick={(e) => { 
                         if (item.submenu) {
@@ -156,7 +156,7 @@ export default function Sidebar() {
                       href="#pablo"
                       className={
                         "text-xs uppercase py-3 font-bold block " +
-                        (router.pathname.indexOf(item.path) !== -1
+                        (router.pathname.indexOf(item.pathnext) !== -1
                           ? "text-lightBlue-500 hover:text-lightBlue-600"
                           : "text-blueGray-700 hover:text-blueGray-500")
                       }
