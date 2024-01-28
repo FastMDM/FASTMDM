@@ -29,7 +29,7 @@ export default function App() {
 }
 */          
 
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 import { Drawer } from 'expo-router/drawer';
 import { Button, 
   View,
@@ -60,7 +60,7 @@ export default function Layout() {
 
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+
       <Drawer screenOptions={{ headerShown: true, swipeEdgeWidth : 100 }} drawerContent={(props) => <CustomDrawerContent {...props}/>} >
         {/* screens */}
         <Drawer.Screen name="index" options={{ drawerLabel: 'Home', title: 'Home'}}/>
@@ -76,7 +76,7 @@ export default function Layout() {
         <Drawer.Screen name="diagnostics/index" options={{drawerLabel: 'Diagnostics processing statuses',title: 'Diagnostics processing statuses'}} />
 
       </Drawer>
-    </GestureHandlerRootView>
+
   );
 
 
@@ -126,7 +126,7 @@ function CustomDrawerContent({ navigation }) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('index')}
             style={styles.subCard}>
             <Icon name="home" color={colors.primary} size={20} />
             <Text style={styles.txt}>Home</Text>
@@ -171,11 +171,10 @@ function CustomDrawerContent({ navigation }) {
           ))}
 
 
-          <Button title="Go Home" onPress={() => { navigation.navigate('Home');}}  />
-          <Button title="Go User detail" onPress={() => { navigation.navigate('User detail');}}  />
-          <Button title="Go Database" onPress={() => { navigation.navigate('Database');}}  />
-          <Button title="Go Problems" onPress={() => { navigation.navigate('Problems');}}  />
-          <Button title="Go Specialist" onPress={() => { navigation.navigate('Specialist');}}  />
+          <Button title="Go Home" onPress={() => { navigation.navigate('index');}}  />
+          <Button title="Go Database" onPress={() => { navigation.navigate('database/index');}}  />
+          <Button title="Go Problems" onPress={() => { navigation.navigate('database/problem/index');}}  />
+          <Button title="Go Specialist" onPress={() => { navigation.navigate('database/specialist/index');}}  />
 
 
 
