@@ -65,7 +65,6 @@ export default function Layout() {
         {/* screens */}
         <Drawer.Screen name="index" options={{ drawerLabel: 'Home', title: 'Home'}}/>
         <Drawer.Screen name="legal/index" options={{drawerLabel: 'Legal',title: 'Legal'}} />
-        <Drawer.Screen name="user/[id]" options={{drawerLabel: 'User detail',title: 'User detail'}} />
         <Drawer.Screen name="database/index" options={{drawerLabel: 'Database',title: 'Database'}} />
         <Drawer.Screen name="database/specialist/index" options={{drawerLabel: 'Specialists',title: 'Specialists'}} />
         <Drawer.Screen name="database/product/index" options={{drawerLabel: 'Products',title: 'Products'}} />
@@ -136,7 +135,6 @@ function CustomDrawerContent({ navigation }) {
           {toggleDown.map((item, index) => (
             <View key={item.name}>
               <TouchableOpacity
-                
                 onPress={() => {item.submenu ? toggleSideMenuFolderList(item.id) : navigation.navigate(item.pathexpo) }}
                 style={styles.element}>
 
@@ -159,7 +157,7 @@ function CustomDrawerContent({ navigation }) {
                   {item.submenu? item.submenu.map(subitem => (
                     <TouchableOpacity
                       key={subitem.name}
-                      onPress={() => navigation.navigate(subitem.name)}
+                      onPress={() => navigation.navigate(subitem.pathexpo)}
                       style={[styles.subCard, {marginLeft: 16}]}>
                       {renderIcons(subitem)}
                       <Text style={styles.txt}>{subitem.name}</Text>
