@@ -26,6 +26,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-multi-tenant": "1.0.4",
+    "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-translate": "1.2.4",
     "strapi-provider-translate-libretranslate": "1.0.11",
     "styled-components": "^5.2.1"
