@@ -2983,6 +2983,24 @@ export interface ApiLegalLegal extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
+    restaurant: Attribute.Component<'restaurant.restaurant'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    hotel: Attribute.Component<'hotel.hotel'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
