@@ -1,3 +1,5 @@
+import { Meta } from "@storybook/react";
+
 import { Text } from "@showtime-xyz/universal.text";
 import { View } from "@showtime-xyz/universal.view";
 
@@ -6,7 +8,7 @@ import { Accordion } from "./index";
 export default {
   component: Accordion.Root,
   title: "Components/Accordion",
-};
+} as Meta;
 
 const Container = (props: any) => {
   return (
@@ -16,7 +18,7 @@ const Container = (props: any) => {
   );
 };
 
-export const Basic = () => (
+export const Basic: React.VFC<{}> = () => (
   <Container>
     <Accordion.Root>
       <Accordion.Item value="hello" tw="mb-4">

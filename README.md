@@ -9,8 +9,6 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 
 ## **FastMDM tech**
 
-- [PostgreSQL 15](https://github.com/zalando/postgres-operator)
-- [Node.Js 18.18.2](https://github.com/nodejs/node)
 - [Strapi 4.15.0](https://github.com/strapi/strapi)
 - [Expo 50.0.4](https://github.com/expo/examples)
 - [Expo Router 3.4.0](https://github.com/expo/expo)
@@ -19,6 +17,9 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 - [Solito 4.2.0](https://github.com/nandorojo/solito)
 - [ShowTime Universal Design System 154.0.0](https://github.com/showtime-xyz/showtime-frontend/tree/staging)
 - [FoodAdvisor #PR130](https://github.com/strapi/foodadvisor)
+- [Kubernetes 1.29](https://kubernetes.io/)
+- [PostgreSQL 15](https://github.com/zalando/postgres-operator)
+- [Node.Js 18.18.2](https://github.com/nodejs/node)
 
 ## **License**
 
