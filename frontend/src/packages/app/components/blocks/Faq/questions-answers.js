@@ -1,5 +1,5 @@
 import delve from 'dlv';
-//import 'github-markdown-css';
+import 'github-markdown-css';
 import ReactMarkdown from 'react-markdown';
 
 const QuestionsAnswers = ({ items, theme }) => {
