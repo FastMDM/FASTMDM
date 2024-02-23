@@ -46,3 +46,10 @@ spec:
             name: backend
             port:
               number: 80
+      - path: /users-permissions
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
