@@ -32,3 +32,17 @@ spec:
             name: backend
             port:
               number: 80
+      - path: /i18n
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
+      - path: /content-manager
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
