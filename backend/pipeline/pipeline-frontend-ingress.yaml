@@ -22,3 +22,17 @@ spec:
             name: frontend
             port:
               number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
+      - path: /admin
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
