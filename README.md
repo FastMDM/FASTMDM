@@ -20,6 +20,7 @@ Fast Master Data Management (FastMDM) — open source master data hub, comprehen
 - [Kubernetes 1.29](https://kubernetes.io/)
 - [PostgreSQL 15](https://github.com/zalando/postgres-operator)
 - [Node.Js 18.18.2](https://github.com/nodejs/node)
+- Ontology
 
 ## **License**
 

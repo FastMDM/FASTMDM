@@ -79,6 +79,54 @@
       "relation": "oneToMany",
       "target": "api::inventory.inventory",
       "mappedBy": "userGroup"
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area",
+      "mappedBy": "userGroup"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city.city",
+      "mappedBy": "userGroup"
+    },
+    "city_districts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city-district.city-district",
+      "mappedBy": "userGroup"
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::country.country",
+      "mappedBy": "userGroup"
+    },
+    "settlements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::settlement.settlement",
+      "mappedBy": "userGroup"
+    },
+    "streets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::street.street",
+      "mappedBy": "userGroup"
+    },
+    "steads": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stead.stead",
+      "mappedBy": "userGroup"
+    },
+    "realties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::realty.realty",
+      "mappedBy": "userGroup"
     }
   }
 }

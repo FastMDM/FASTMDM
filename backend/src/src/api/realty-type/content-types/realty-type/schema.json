@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "realty_types",
+  "info": {
+    "singularName": "realty-type",
+    "pluralName": "realty-types",
+    "displayName": "RealtyType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
+    "realties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::realty.realty",
+      "mappedBy": "realty_type"
+    }
+  }
+}
