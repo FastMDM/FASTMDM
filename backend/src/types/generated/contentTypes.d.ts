@@ -746,6 +746,46 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'oneToMany',
       'api::inventory.inventory'
     >;
+    areas: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::area.area'
+    >;
+    cities: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::city.city'
+    >;
+    city_districts: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::city-district.city-district'
+    >;
+    countries: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::country.country'
+    >;
+    settlements: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::settlement.settlement'
+    >;
+    streets: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::street.street'
+    >;
+    steads: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::stead.stead'
+    >;
+    realties: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::realty.realty'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -981,6 +1021,129 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAddressAddress extends Schema.CollectionType {
+  collectionName: 'addresses';
+  info: {
+    singularName: 'address';
+    pluralName: 'addresses';
+    displayName: 'Address';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    postal_code: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    country: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::country.country'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    region: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::region.region'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    area: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::area.area'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::city-district.city-district'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    settlement: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::settlement.settlement'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    street: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::street.street'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    realties: Attribute.Relation<
+      'api::address.address',
+      'oneToMany',
+      'api::realty.realty'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::address.address',
+      'oneToMany',
+      'api::address.address'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiAnimalAnimal extends Schema.CollectionType {
   collectionName: 'animals';
   info: {
@@ -1035,6 +1198,124 @@ export interface ApiAnimalAnimal extends Schema.CollectionType {
       'api::animal.animal',
       'oneToMany',
       'api::animal.animal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAreaArea extends Schema.CollectionType {
+  collectionName: 'areas';
+  info: {
+    singularName: 'area';
+    pluralName: 'areas';
+    displayName: 'Area';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    area_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    area_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    area_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    area_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    area_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    area: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    addresses: Attribute.Relation<
+      'api::area.area',
+      'oneToMany',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::area.area',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::area.area',
+      'oneToMany',
+      'api::area.area'
     >;
     locale: Attribute.String;
   };
@@ -1951,6 +2232,237 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiCityCity extends Schema.CollectionType {
+  collectionName: 'cities';
+  info: {
+    singularName: 'city';
+    pluralName: 'cities';
+    displayName: 'City';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    city_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    city_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    city_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    city_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    city_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    city: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    userGroup: Attribute.Relation<
+      'api::city.city',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::city.city',
+      'oneToMany',
+      'api::city.city'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCityDistrictCityDistrict extends Schema.CollectionType {
+  collectionName: 'city_districts';
+  info: {
+    singularName: 'city-district';
+    pluralName: 'city-districts';
+    displayName: 'CityDistrict';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    city_district_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    city_district_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    city_district_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    city_district_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    city_district_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    city_district: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    addresses: Attribute.Relation<
+      'api::city-district.city-district',
+      'oneToMany',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::city-district.city-district',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::city-district.city-district',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::city-district.city-district',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::city-district.city-district',
+      'oneToMany',
+      'api::city-district.city-district'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCoachingCoaching extends Schema.CollectionType {
   collectionName: 'coachings';
   info: {
@@ -2294,11 +2806,44 @@ export interface ApiCountryCountry extends Schema.CollectionType {
     };
   };
   attributes: {
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    country_iso_code: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 2;
+      }>;
+    userGroup: Attribute.Relation<
+      'api::country.country',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    addresses: Attribute.Relation<
+      'api::country.country',
+      'oneToMany',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -2624,211 +3169,6 @@ export interface ApiHotelFeatureHotelFeature extends Schema.CollectionType {
       'api::hotel-feature.hotel-feature',
       'oneToMany',
       'api::hotel-feature.hotel-feature'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiHouseHouse extends Schema.CollectionType {
-  collectionName: 'houses';
-  info: {
-    singularName: 'house';
-    pluralName: 'houses';
-    displayName: 'House';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Town: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Price: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Picture: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Guests: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Bedrooms: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Beds: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Baths: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    WiFi: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Kitchen: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Heating: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    FreeParking: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    EntirePlace: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    type: Attribute.Relation<
-      'api::house.house',
-      'manyToOne',
-      'api::house-type.house-type'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::house.house',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::house.house',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::house.house',
-      'oneToMany',
-      'api::house.house'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiHouseTypeHouseType extends Schema.CollectionType {
-  collectionName: 'house_types';
-  info: {
-    singularName: 'house-type';
-    pluralName: 'house-types';
-    displayName: 'HouseType';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    houses: Attribute.Relation<
-      'api::house-type.house-type',
-      'oneToMany',
-      'api::house.house'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::house-type.house-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::house-type.house-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::house-type.house-type',
-      'oneToMany',
-      'api::house-type.house-type'
     >;
     locale: Attribute.String;
   };
@@ -3184,6 +3524,345 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::product.product',
       'oneToMany',
       'api::product.product'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiRealtyRealty extends Schema.CollectionType {
+  collectionName: 'realties';
+  info: {
+    singularName: 'realty';
+    pluralName: 'realties';
+    displayName: 'Realty';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    address: Attribute.Relation<
+      'api::realty.realty',
+      'manyToOne',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Price: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Guests: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Bedrooms: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Beds: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Baths: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    WiFi: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Kitchen: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Heating: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    FreeParking: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    EntirePlace: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    realty_type: Attribute.Relation<
+      'api::realty.realty',
+      'manyToOne',
+      'api::realty-type.realty-type'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::realty.realty',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::realty.realty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::realty.realty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::realty.realty',
+      'oneToMany',
+      'api::realty.realty'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiRealtyTypeRealtyType extends Schema.CollectionType {
+  collectionName: 'realty_types';
+  info: {
+    singularName: 'realty-type';
+    pluralName: 'realty-types';
+    displayName: 'RealtyType';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    realties: Attribute.Relation<
+      'api::realty-type.realty-type',
+      'oneToMany',
+      'api::realty.realty'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::realty-type.realty-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::realty-type.realty-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::realty-type.realty-type',
+      'oneToMany',
+      'api::realty-type.realty-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiRegionRegion extends Schema.CollectionType {
+  collectionName: 'regions';
+  info: {
+    singularName: 'region';
+    pluralName: 'regions';
+    displayName: 'Region';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    federal_district: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    region_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    region_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    region_iso_code: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 6;
+      }>;
+    region_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    region_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    region_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    region: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.DefaultTo<'120'>;
+    addresses: Attribute.Relation<
+      'api::region.region',
+      'oneToMany',
+      'api::address.address'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::region.region',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::region.region',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::region.region',
+      'oneToMany',
+      'api::region.region'
     >;
     locale: Attribute.String;
   };
@@ -3706,6 +4385,364 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
+export interface ApiSettlementSettlement extends Schema.CollectionType {
+  collectionName: 'settlements';
+  info: {
+    singularName: 'settlement';
+    pluralName: 'settlements';
+    displayName: 'Settlement';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    settlement_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    settlement_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    settlement_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    settlement_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    settlement_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    settlement: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    userGroup: Attribute.Relation<
+      'api::settlement.settlement',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    addresses: Attribute.Relation<
+      'api::settlement.settlement',
+      'oneToMany',
+      'api::address.address'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::settlement.settlement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::settlement.settlement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::settlement.settlement',
+      'oneToMany',
+      'api::settlement.settlement'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiSteadStead extends Schema.CollectionType {
+  collectionName: 'steads';
+  info: {
+    singularName: 'stead';
+    pluralName: 'steads';
+    displayName: 'Stead';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    stead_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    stead_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    stead_cadnum: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    stead_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    stead_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    stead: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    userGroup: Attribute.Relation<
+      'api::stead.stead',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::stead.stead',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::stead.stead',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::stead.stead',
+      'oneToMany',
+      'api::stead.stead'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiStreetStreet extends Schema.CollectionType {
+  collectionName: 'streets';
+  info: {
+    singularName: 'street';
+    pluralName: 'streets';
+    displayName: 'Street';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    street_fias_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 36;
+      }>;
+    street_kladr_id: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 19;
+      }>;
+    street_with_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 131;
+      }>;
+    street_type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    street_type_full: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    street: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    userGroup: Attribute.Relation<
+      'api::street.street',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    addresses: Attribute.Relation<
+      'api::street.street',
+      'oneToMany',
+      'api::address.address'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::street.street',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::street.street',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::street.street',
+      'oneToMany',
+      'api::street.street'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTodoTodo extends Schema.CollectionType {
   collectionName: 'todos';
   info: {
@@ -3849,7 +4886,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::address.address': ApiAddressAddress;
       'api::animal.animal': ApiAnimalAnimal;
+      'api::area.area': ApiAreaArea;
       'api::asset.asset': ApiAssetAsset;
       'api::auto.auto': ApiAutoAuto;
       'api::auto-color.auto-color': ApiAutoColorAutoColor;
@@ -3862,6 +4901,8 @@ declare module '@strapi/types' {
       'api::auto-transmission.auto-transmission': ApiAutoTransmissionAutoTransmission;
       'api::auto-type.auto-type': ApiAutoTypeAutoType;
       'api::blog.blog': ApiBlogBlog;
+      'api::city.city': ApiCityCity;
+      'api::city-district.city-district': ApiCityDistrictCityDistrict;
       'api::coaching.coaching': ApiCoachingCoaching;
       'api::company.company': ApiCompanyCompany;
       'api::company-directory.company-directory': ApiCompanyDirectoryCompanyDirectory;
@@ -3871,13 +4912,14 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::hotel.hotel': ApiHotelHotel;
       'api::hotel-feature.hotel-feature': ApiHotelFeatureHotelFeature;
-      'api::house.house': ApiHouseHouse;
-      'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::inventory.inventory': ApiInventoryInventory;
       'api::legal.legal': ApiLegalLegal;
       'api::menu.menu': ApiMenuMenu;
       'api::person.person': ApiPersonPerson;
       'api::product.product': ApiProductProduct;
+      'api::realty.realty': ApiRealtyRealty;
+      'api::realty-type.realty-type': ApiRealtyTypeRealtyType;
+      'api::region.region': ApiRegionRegion;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'api::restaurant-cuisine.restaurant-cuisine': ApiRestaurantCuisineRestaurantCuisine;
       'api::restaurant-dish.restaurant-dish': ApiRestaurantDishRestaurantDish;
@@ -3885,6 +4927,9 @@ declare module '@strapi/types' {
       'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
       'api::restaurant-type.restaurant-type': ApiRestaurantTypeRestaurantType;
       'api::service.service': ApiServiceService;
+      'api::settlement.settlement': ApiSettlementSettlement;
+      'api::stead.stead': ApiSteadStead;
+      'api::street.street': ApiStreetStreet;
       'api::todo.todo': ApiTodoTodo;
       'api::transport.transport': ApiTransportTransport;
     }
