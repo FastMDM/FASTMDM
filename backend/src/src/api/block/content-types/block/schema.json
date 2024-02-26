@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "steads",
+  "collectionName": "blocks",
   "info": {
-    "singularName": "stead",
-    "pluralName": "steads",
-    "displayName": "Stead",
+    "singularName": "block",
+    "pluralName": "blocks",
+    "displayName": "Block",
     "description": ""
   },
   "options": {
@@ -16,37 +16,7 @@
     }
   },
   "attributes": {
-    "stead_fias_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "maxLength": 36
-    },
-    "stead_kladr_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "maxLength": 19
-    },
-    "stead_cadnum": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "type": "string",
-      "maxLength": 50
-    },
-    "stead_type": {
+    "block_type": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -58,7 +28,7 @@
       "type": "string",
       "maxLength": 10
     },
-    "stead_type_full": {
+    "block_type_full": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,7 +40,7 @@
       "type": "string",
       "maxLength": 50
     },
-    "stead": {
+    "block": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -84,20 +54,19 @@
     },
     "userGroup": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToOne",
       "target": "plugin::multi-tenant.user-group",
       "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
-      },
-      "inversedBy": "steads"
+      }
     },
     "addresses": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::address.address",
-      "mappedBy": "stead"
+      "mappedBy": "block"
     }
   }
 }
