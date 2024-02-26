@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "steads",
+  "collectionName": "houses",
   "info": {
-    "singularName": "stead",
-    "pluralName": "steads",
-    "displayName": "Stead",
+    "singularName": "house",
+    "pluralName": "houses",
+    "displayName": "House",
     "description": ""
   },
   "options": {
@@ -16,16 +16,20 @@
     }
   },
   "attributes": {
-    "stead_fias_id": {
+    "house_fias_id": {
+      "type": "string",
+      "default": "36",
       "pluginOptions": {
         "i18n": {
           "localized": false
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
-      "type": "string",
       "maxLength": 36
     },
-    "stead_kladr_id": {
+    "house_kladr_id": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -34,19 +38,16 @@
       "type": "string",
       "maxLength": 19
     },
-    "stead_cadnum": {
+    "house_cadnum": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
+          "localized": false
         }
       },
       "type": "string",
       "maxLength": 50
     },
-    "stead_type": {
+    "house_type": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -58,7 +59,7 @@
       "type": "string",
       "maxLength": 10
     },
-    "stead_type_full": {
+    "house_type_full": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,7 +71,7 @@
       "type": "string",
       "maxLength": 50
     },
-    "stead": {
+    "house": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -80,7 +81,7 @@
         }
       },
       "type": "string",
-      "maxLength": 50
+      "default": "50"
     },
     "userGroup": {
       "type": "relation",
@@ -91,13 +92,13 @@
           "translate": "translate"
         }
       },
-      "inversedBy": "steads"
+      "inversedBy": "houses"
     },
     "addresses": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::address.address",
-      "mappedBy": "stead"
+      "mappedBy": "house"
     }
   }
 }

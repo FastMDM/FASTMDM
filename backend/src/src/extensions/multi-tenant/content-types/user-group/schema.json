@@ -127,6 +127,18 @@
       "relation": "oneToMany",
       "target": "api::realty.realty",
       "mappedBy": "userGroup"
+    },
+    "houses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::house.house",
+      "mappedBy": "userGroup"
+    },
+    "time_zones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::time-zone.time-zone",
+      "mappedBy": "userGroup"
     }
   }
 }
