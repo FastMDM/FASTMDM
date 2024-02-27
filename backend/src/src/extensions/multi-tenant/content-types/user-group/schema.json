@@ -139,6 +139,12 @@
       "relation": "oneToMany",
       "target": "api::time-zone.time-zone",
       "mappedBy": "userGroup"
+    },
+    "legal_directories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::legal-directory.legal-directory",
+      "mappedBy": "userGroup"
     }
   }
 }

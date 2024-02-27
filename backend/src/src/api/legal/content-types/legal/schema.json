@@ -154,6 +154,94 @@
         }
       },
       "component": "hotel.hotel"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "legals"
+    },
+    "Phone": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Fax": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Site": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
+    "Chat": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "OpeningHours": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "restaurant.opening-hours"
+    },
+    "legal_directory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::legal-directory.legal-directory",
+      "inversedBy": "legals",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "SocialNetwork": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "component": "shared.social-network"
     }
   }
 }

@@ -796,6 +796,11 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'oneToMany',
       'api::time-zone.time-zone'
     >;
+    legal_directories: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::legal-directory.legal-directory'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1365,6 +1370,11 @@ export interface ApiAddressAddress extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 12;
       }>;
+    legals: Attribute.Relation<
+      'api::address.address',
+      'oneToMany',
+      'api::legal.legal'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3798,6 +3808,74 @@ export interface ApiLegalLegal extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
+    address: Attribute.Relation<
+      'api::legal.legal',
+      'manyToOne',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Fax: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Email: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Site: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Chat: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    OpeningHours: Attribute.Component<'restaurant.opening-hours', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    legal_directory: Attribute.Relation<
+      'api::legal.legal',
+      'manyToOne',
+      'api::legal-directory.legal-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    SocialNetwork: Attribute.Component<'shared.social-network', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3816,6 +3894,95 @@ export interface ApiLegalLegal extends Schema.CollectionType {
       'api::legal.legal',
       'oneToMany',
       'api::legal.legal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiLegalDirectoryLegalDirectory extends Schema.CollectionType {
+  collectionName: 'legal_directories';
+  info: {
+    singularName: 'legal-directory';
+    pluralName: 'legal-directories';
+    displayName: 'LegalDirectory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    parents: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'oneToMany',
+      'api::legal-directory.legal-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    child: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'manyToOne',
+      'api::legal-directory.legal-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    legals: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'oneToMany',
+      'api::legal.legal'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::legal-directory.legal-directory',
+      'oneToMany',
+      'api::legal-directory.legal-directory'
     >;
     locale: Attribute.String;
   };
@@ -5440,6 +5607,7 @@ declare module '@strapi/types' {
       'api::house.house': ApiHouseHouse;
       'api::inventory.inventory': ApiInventoryInventory;
       'api::legal.legal': ApiLegalLegal;
+      'api::legal-directory.legal-directory': ApiLegalDirectoryLegalDirectory;
       'api::menu.menu': ApiMenuMenu;
       'api::person.person': ApiPersonPerson;
       'api::product.product': ApiProductProduct;
