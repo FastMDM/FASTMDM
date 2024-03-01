@@ -9,7 +9,9 @@ export const useHomePosts = () => {
   let indexRef = useRef(0);
   const url = useCallback((index: number) => {
     indexRef.current = index;
-    return `v1/legal/feed?page=${index + 1}&limit=${PAGE_SIZE}`;
+    //return `v1/legal/feed?page=${index + 1}&limit=${PAGE_SIZE}`;
+    return `http://localhost:1337api/legals?populate=deep`;
+    
   }, []);
 
   const queryState = useInfiniteListQuerySWR<LegalList[]>(url, {

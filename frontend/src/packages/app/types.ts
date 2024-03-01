@@ -2,6 +2,28 @@
 
 
 export type LegalList = {
+  data: Array<{
+    id: number;
+    attributes: {
+      Name: string;
+      Description: string;
+      Slug: string;
+      createdAt: string;
+      updatedAt: string;
+      locale: string;
+      Phone: null | string;
+      Fax: null | string;
+      Email: null | string;
+      Site: null | string;
+      Chat: null | string;
+      Image: {
+        data: {
+          id: number;
+
+        }
+      }
+    }
+  }>;   
     id: string;
     profile: {
       verified: boolean;
