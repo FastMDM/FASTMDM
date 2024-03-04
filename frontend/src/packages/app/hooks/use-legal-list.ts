@@ -5,7 +5,7 @@ import { LegalList } from "app/types";
 
 const PAGE_SIZE = 3;
 
-export const useHomePosts = () => {
+export const useLegalList = () => {
   let indexRef = useRef(0);
   const url = useCallback((index: number) => {
     indexRef.current = index;
