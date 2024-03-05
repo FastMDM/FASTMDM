@@ -10,7 +10,7 @@ export const useLegalList = () => {
   const url = useCallback((index: number) => {
     indexRef.current = index;
     //return `v1/legal/feed?page=${index + 1}&limit=${PAGE_SIZE}`;
-    return `http://localhost:1337api/legals?populate=deep`;
+    return `http://localhost:1337/api/legals?populate=deep`;
     
   }, []);
 
