@@ -514,6 +514,10 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     releasedAt: Attribute.DateTime;
     scheduledAt: Attribute.DateTime;
     timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -568,6 +572,7 @@ export interface PluginContentReleasesReleaseAction
       'manyToOne',
       'plugin::content-releases.release'
     >;
+    isEntryValid: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
