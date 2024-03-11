@@ -4546,7 +4546,6 @@ __metadata:
     react-code-blocks: ^0.0.9-0
     react-i18next: 14.0.2
     react-markdown: ^8.0.7
-    react-native-mmkv: 2.12.1
     react-native-reanimated: 3.6.1
     react-native-svg: ^12.3.0
     react-native-vector-icons: ^9.2.0
@@ -7083,6 +7082,7 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.73.4
     react-native-gesture-handler: 2.14.1
+    react-native-mmkv: 2.12.1
     react-native-reanimated: 3.6.1
     react-native-safe-area-context: 4.7.4
     react-native-screens: 3.27.0

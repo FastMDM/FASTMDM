@@ -1,4 +1,5 @@
 import { useCallback, useRef, useMemo } from "react";
+import {Platform} from 'react-native';
 
 import { useInfiniteListQuerySWR } from "app/hooks/use-infinite-list-query";
 import { LegalList } from "app/types";
@@ -10,7 +11,11 @@ export const useLegalList = () => {
   const url = useCallback((index: number) => {
     indexRef.current = index;
     //return `v1/legal/feed?page=${index + 1}&limit=${PAGE_SIZE}`;
-    return `http://localhost:1337/api/legals?populate=deep`;
+
+    var url = `http://localhost:1337/api/legals?populate=deep`;
+    if (Platform.OS === 'android') url = url.replace('localhost','10.0.2.2')
+    return url;
+
     
   }, []);
 
