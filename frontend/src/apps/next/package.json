@@ -18,7 +18,8 @@
     "raf": "^3.4.1",
     "react-dom": "18.2.0",
     "react-i18next": "14.0.2",
-    "setimmediate": "^1.0.5"
+    "setimmediate": "^1.0.5",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@types/dlv": "^1.1.2",
