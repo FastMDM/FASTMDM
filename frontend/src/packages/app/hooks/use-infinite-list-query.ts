@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 
 import type { KeyedMutator } from "swr";
-import useSWRInfinite from "swr/infinite";
+
+import useSWRInfinite, { SWRInfiniteResponse } from "swr/infinite";
 
 import { axios } from "app/lib/axios";
 
 export const fetcher = (url: string) => {
   return axios({ url, method: "GET" });
 };
+
+// workaround https://github.com/vercel/swr/pull/2900
+// and https://github.com/mdn/yari/pull/10538/commits/e847feddf419e9680dbd7755d46c317a4027cd62
+type InfiniteKeyedMutator<T> = SWRInfiniteResponse<
+  T extends (infer I)[] ? I : T
+>["mutate"];
 
 type UseInfiniteListQueryReturn<T> = {
   error?: string;
@@ -19,8 +26,10 @@ type UseInfiniteListQueryReturn<T> = {
   fetchMore: () => void;
   refresh: () => void;
   retry: () => void;
-  mutate: KeyedMutator<T[]>;
+  mutate: InfiniteKeyedMutator<T[]>;
 };
+
+
 type UseInfiniteListConfig = {
   refreshInterval?: number;
   pageSize?: number;
