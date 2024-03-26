@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="yandex-verification" content="72d313b1cd546257" />
         <meta name="google-site-verification" content="r5O1dfe5Y-uQNuVVaS2307HvMKf5EsGk7Aw3bkXSQ8M" />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
       <Layout>
         <QueryClientProvider client={queryClient}>   
