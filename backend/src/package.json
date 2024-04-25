@@ -15,9 +15,9 @@
   "dependencies": {
     "@offset-dev/strapi-calendar": "0.1.1",
     "@strapi/icons": "1.14.1",
-    "@strapi/plugin-i18n": "4.23.1",
-    "@strapi/plugin-users-permissions": "4.23.1",
-    "@strapi/strapi": "4.23.1",
+    "@strapi/plugin-i18n": "4.24.0",
+    "@strapi/plugin-users-permissions": "4.24.0",
+    "@strapi/strapi": "4.24.0",
     "better-sqlite3": "9.4.0",
     "patch-package": "8.0.0",
     "pg": "8.11.3",
