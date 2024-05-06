@@ -19,7 +19,8 @@
     "start2": "cd apps/expo && yarn start2 ",
     "android": "cd apps/expo && npx expo run:android",
     "ios": "cd apps/expo && rm -rdf ios && npx expo run:ios ",
-    "web": "cd apps/next && yarn next",
+    "web": "cd apps/next && yarn dev",
+    "web2": "cd apps/next && yarn start",
     "build:next": "cd apps/next && yarn build",
     "resetcache": "yarn start --reset-cache"
   },
