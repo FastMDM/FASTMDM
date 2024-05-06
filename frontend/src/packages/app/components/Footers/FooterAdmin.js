@@ -15,6 +15,7 @@ export default function FooterAdmin() {
                   className="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
                 >
                   FastMDM
+                  <i  className={ "fas fa-percent"}></i>
                 </a>
               </div>
             </div>

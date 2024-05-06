@@ -1,6 +1,8 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
+
+
 const UserDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
@@ -17,6 +19,7 @@ const UserDropdown = () => {
   };
   return (
     <>
+
       <a
         className="text-blueGray-500 block"
         href="#pablo"
@@ -26,15 +29,33 @@ const UserDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
+        <i  className={ "far fa-twitter"}></i>
         <div className="items-center flex">
+
           <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-          /*
+          {/*
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
               src="/img/team-1-800x800.jpg"
             />
-            */
+            <a className="gh-btn" href="https://github.com/FastMDM/FastMDM" >
+              <div>
+              <span className="gh-ico" ></span> 
+              <span className="gh-text">Star</span> 
+              </div>
+            </a>       
+                      <i  className={ "fas fa-github"}></i>{" hello "}     
+          <img
+              alt="..."
+              className="w-full rounded-full align-middle border-none shadow-lg"
+              src="/img/team-1-800x800.jpg"
+            />                             
+      */}
+
+
+          <i  className={ "fas fa-layer-group"}></i>
+          <i  className="fas fa-layer-group"></i>
           </span>
         </div>
       </a>
