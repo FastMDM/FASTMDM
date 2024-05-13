@@ -1019,11 +1019,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToMany',
       'api::company.company'
     >;
-    blogs: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::blog.blog'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2531,15 +2526,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    Cover: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     Slug: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -2553,16 +2539,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    user: Attribute.Relation<
-      'api::blog.blog',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    > &
-      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -3765,55 +3741,7 @@ export interface ApiLegalLegal extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    Subs: Attribute.DynamicZone<['restaurant.restaurant', 'hotel.hotel']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Blocks: Attribute.DynamicZone<
-      ['common.rich-text', 'blocks.cta', 'blocks.faq']
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    userGroup: Attribute.Relation<
-      'api::legal.legal',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant: Attribute.Component<'restaurant.restaurant'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    hotel: Attribute.Component<'hotel.hotel'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    address: Attribute.Relation<
+    AddressRel: Attribute.Relation<
       'api::legal.legal',
       'manyToOne',
       'api::address.address'
@@ -3879,6 +3807,127 @@ export interface ApiLegalLegal extends Schema.CollectionType {
         };
         translate: {
           translate: 'translate';
+        };
+      }>;
+    Blocks: Attribute.DynamicZone<
+      ['common.rich-text', 'blocks.cta', 'blocks.faq']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::legal.legal',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    restaurant: Attribute.Component<'restaurant.restaurant'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    hotel: Attribute.Component<'hotel.hotel'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    url: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    address: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    city: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    postcode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    country: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    OldCode: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    topic: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    categoryid: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    usastate: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    worldregion: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    canadaprovince: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    pobox: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
