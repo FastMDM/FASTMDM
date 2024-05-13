@@ -38,24 +38,6 @@
       },
       "type": "text"
     },
-    "Cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
-    },
     "Slug": {
       "pluginOptions": {
         "i18n": {
@@ -79,17 +61,6 @@
         "common.quote",
         "common.rich-text"
       ]
-    },
-    "user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "blogs"
     }
   }
 }

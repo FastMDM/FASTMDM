@@ -80,12 +80,6 @@
       "relation": "manyToMany",
       "target": "api::company.company",
       "inversedBy": "users"
-    },
-    "blogs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog.blog",
-      "mappedBy": "user"
     }
   }
 }
