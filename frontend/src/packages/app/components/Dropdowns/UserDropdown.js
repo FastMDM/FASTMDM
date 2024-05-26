@@ -29,7 +29,8 @@ const UserDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <i  className={ "far fa-twitter"}></i>
+        
+
         <div className="items-center flex">
 
           <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
@@ -54,8 +55,6 @@ const UserDropdown = () => {
       */}
 
 
-          <i  className={ "fas fa-layer-group"}></i>
-          <i  className="fas fa-layer-group"></i>
           </span>
         </div>
       </a>
