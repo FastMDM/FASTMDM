@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]   
+    },
     "noImplicitAny": false,
     "target": "es5",
     "lib": [
@@ -24,8 +27,10 @@
     "next-env.d.ts",
     "app-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_document.js", "pages/restaurants/index.js"  ],
+    "**/*.tsx", 
+    "pages/_document.js", 
+    "pages/restaurants/index.js"  
+  ],
   "exclude": [
     "node_modules"
   ],
