@@ -10,8 +10,8 @@ export function UserDetailScreen() {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <Text className="mb-4 text-center font-bold">{`User ID: ${id}`}</Text>
-      <TextLink href="/">👈 Go Home</TextLink>
+      <Text className="mb-4 text-center font-bold text-black dark:text-white">{`User ID: ${id}`}</Text>
+      <TextLink href="/" className="text-center text-black dark:text-white">👈 Go Home</TextLink>
     </View>
   )
 }
