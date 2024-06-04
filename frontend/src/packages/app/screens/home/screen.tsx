@@ -31,9 +31,9 @@ export function HomeScreen() {
   const { t } = useTranslation('common')
   return (
     <View className="flex-1 items-center justify-center p-3">
-      <H1>{t('knowledge-development-works')}</H1>   
+      <H1 className="text-center text-black dark:text-white">{t('knowledge-development-works')}</H1>   
       <View className="max-w-xl">
-        <P className="text-center">{t('1-cluster-of-knowledge-mining-wells')}</P>
+        <P className="text-center text-black dark:text-white">{t('1-cluster-of-knowledge-mining-wells')}</P>
       </View>
     </View>
   )

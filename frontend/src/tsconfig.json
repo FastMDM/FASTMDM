@@ -8,7 +8,8 @@
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,  
     "paths": {
-      "app/*": ["./packages/app/*"]
+      "app/*": ["./packages/app/*"],
+      "@/*": ["./apps/next/*"]   
     },
     "jsx": "react-jsx"
   },

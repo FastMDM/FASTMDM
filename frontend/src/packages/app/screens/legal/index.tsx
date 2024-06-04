@@ -18,11 +18,11 @@ export function LegalScreen() {
 
   return (
     <View className="flex-1 items-center justify-center p-3">
-      <H1>{t('legal')}</H1>
-      <P>{t('under-construction')}</P>      
+      <H1 className="text-center text-black dark:text-white">{t('legal')}</H1>
+      <P className="text-center text-black dark:text-white">{t('under-construction')}</P>      
       <View className="max-w-xl">
-        <P className="text-center">{t('skeleton')}</P>
-        <P className="text-center">{ JSON.stringify(legalListState) }</P>
+        <P className="text-center text-black dark:text-white">{t('skeleton')}</P>
+        <P className="text-center text-black dark:text-white">{ JSON.stringify(legalListState) }</P>
       </View>
     </View>
   )

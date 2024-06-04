@@ -6990,6 +6990,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flatpickr@npm:^4.6.13":
+  version: 4.6.13
+  resolution: "flatpickr@npm:4.6.13"
+  checksum: 2cca1b8dc974e7673b51174ee3f0679ae3a6b79525a0c53bf49b87455ef358354e64acfd60b312e44cef208aab9750a1a48df32a0914046a53de6d9403742304
+  languageName: node
+  linkType: hard
+
 "flatted@npm:^3.2.9":
   version: 3.2.9
   resolution: "flatted@npm:3.2.9"
@@ -8768,6 +8775,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsvectormap@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "jsvectormap@npm:1.5.3"
+  checksum: 7c491f6e83a389d3299a75f460b0a93d80ec5ce6d403456e0afc04e79de50c9363bac1bda12a584a1c11ef42a651bf5f76010d5136670533b27196883caef4a8
+  languageName: node
+  linkType: hard
+
 "jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.5":
   version: 3.3.5
   resolution: "jsx-ast-utils@npm:3.3.5"
@@ -10275,7 +10289,9 @@ __metadata:
     app: "*"
     autoprefixer: ^10.4.16
     eslint-config-next: ^14.0.4
+    flatpickr: ^4.6.13
     i18next: 23.8.2
+    jsvectormap: ^1.5.3
     next: ^14.1.0
     next-compose-plugins: ^2.2.1
     next-fonts: ^1.5.1
