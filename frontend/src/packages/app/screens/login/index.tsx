@@ -27,14 +27,14 @@ export function LoginScreen() {
             <Link className="mb-5.5 inline-block" href="/">
               <Image
                 className="hidden dark:block"
-                src={"/images/logo/logo.svg"}
+                src={"/fastmdm-logo-brand-dark.svg"}
                 alt="Logo"
                 width={176}
                 height={32}
               />
               <Image
                 className="dark:hidden"
-                src={"/images/logo/logo-dark.svg"}
+                src={"/fastmdm-logo-brand.svg"}
                 alt="Logo"
                 width={176}
                 height={32}
@@ -293,7 +293,7 @@ export function LoginScreen() {
               <div className="mt-6 text-center">
                 <p>
                   Don’t have any account?{" "}
-                  <Link href="/auth/signup" className="text-primary">
+                  <Link href="/register" className="text-primary">
                     Register
                   </Link>
                 </p>

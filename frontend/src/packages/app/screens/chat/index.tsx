@@ -4,17 +4,67 @@ import { View } from 'app/design/view'
 
 import { MotiLink } from 'solito/moti'
 
+import Link from "next/link";
+import Image from "next/image";
+import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FastMDM Chat",
+  description: "This is FastMDM Chat",
+};
+
 export function ChatScreen() {
   return (
-    <View className="flex-1 items-center justify-center p-3">
-      <H1 className="text-center text-black dark:text-white">Chat</H1>
-      <P className="text-center text-black dark:text-white">Under construction</P>      
-      <View className="max-w-xl">
-        <P className="text-center text-black dark:text-white">
-        This project is an application skeleton. You can use it to quickly tailwind your ReactJS webapp projects and dev environment for these projects.
-The seed app doesn't do much and has most of the feature removed so you can add theme as per your needs just following the demo app examples.
-        </P>
-      </View>
-    </View>
+    <>
+      <Breadcrumb pageName="Chat" />
+
+      <div className="rounded-sm border border-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
+        <div className="flex flex-col gap-7.5">
+
+          <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
+            Chat here 
+          </h2>
+
+          <span className="mb-1.5 block font-medium">
+            Welcome! I'm Leopard. I'm speaking English, French, German and Russian. Ask questions.<br/>
+            Input: Hello<br/>
+            Response: Hi there!<br/>
+            Input: How are you?<br/>
+            Response: My logic and cognitive functions are normal.<br/>
+            Input: What is your name?<br/>
+            Response: My name is Program E.<br/>
+          </span>
+
+
+          <form>
+              <div className="mb-4">
+                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  Your message
+                </label>
+                <div className="relative">
+                  <input
+                    type="input"
+                    placeholder="Enter your message"
+                    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  />
+
+                </div>
+              </div>
+
+
+              <div className="mb-5">
+                <input
+                  type="submit"
+                  value="Send message"
+                  className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                />
+              </div>
+
+            </form>
+
+        </div>
+      </div>
+    </>
   )
 }

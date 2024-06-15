@@ -4,6 +4,7 @@ import 'setimmediate'
 import Head from 'next/head'
 import React from 'react'
 
+import "@fortawesome/fontawesome-free/css/all.min.css";   
 import "jsvectormap/dist/css/jsvectormap.css";
 import "flatpickr/dist/flatpickr.min.css";  
 import "@/css/satoshi.css";

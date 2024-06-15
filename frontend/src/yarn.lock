@@ -2372,10 +2372,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:5.15.3":
-  version: 5.15.3
-  resolution: "@fortawesome/fontawesome-free@npm:5.15.3"
-  checksum: 4cd44a88752f424229193927f9a9e4f09ffe1b832ab733af5ec8459b13415a77573ef0803aa9164553e47f585e18ed63f2d68b37c0fbf6db70759f4a0f559875
+"@fortawesome/fontawesome-free@npm:6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/fontawesome-free@npm:6.5.2"
+  checksum: b77c1751721f355edc3bbc5c305d3ae87130156846511dfd3f66d5e218e246a7b3b5c57839f7b57729864b9d8b166e76aba2a11472a3e2f2ff597c24d39999df
+  languageName: node
+  linkType: hard
+
+"@fortawesome/react-fontawesome@npm:0.2.2":
+  version: 0.2.2
+  resolution: "@fortawesome/react-fontawesome@npm:0.2.2"
+  dependencies:
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6
+    react: ">=16.3"
+  checksum: e4bed35bfb7fc88b5bcf2305d08ee1835b82fa7705945c4d310df33bb747b05ef07a33ac9db643c8870ca4f835228978290d84d82f2c6c6a70b9ab4c886731a6
   languageName: node
   linkType: hard
 
@@ -10281,7 +10293,8 @@ __metadata:
   resolution: "next-app@workspace:apps/next"
   dependencies:
     "@expo/next-adapter": ^5.0.2
-    "@fortawesome/fontawesome-free": 5.15.3
+    "@fortawesome/fontawesome-free": 6.5.2
+    "@fortawesome/react-fontawesome": 0.2.2
     "@types/dlv": ^1.1.2
     "@types/node": ^20.10.4
     "@types/react": ^18.0.26
