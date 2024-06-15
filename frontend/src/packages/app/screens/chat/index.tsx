@@ -10,8 +10,8 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js Chat Page",
-  description: "This is Next.js Chat Page",
+  title: "FastMDM Chat",
+  description: "This is FastMDM Chat",
 };
 
 export function ChatScreen() {
@@ -23,7 +23,7 @@ export function ChatScreen() {
         <div className="flex flex-col gap-7.5">
 
           <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-            Chat here <i className="fas fa-comments"></i>
+            Chat here 
           </h2>
 
           <span className="mb-1.5 block font-medium">

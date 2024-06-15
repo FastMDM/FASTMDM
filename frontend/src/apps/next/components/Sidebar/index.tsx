@@ -145,6 +145,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               {/* <!-- Menu Item Diagnostics --> */}
 
+              {/* <!-- Menu Item Problem Solving --> */}
+              <li>
+                <Link
+                  href="/problemsolving"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                    pathname.includes("problemsolving") && "bg-graydark dark:bg-meta-4 text-white"
+                  }`}
+                >
+                  <i className="fas fa-share-square"></i>
+                  Problem solving
+                </Link>
+              </li>
+              {/* <!-- Menu Item Problem Solving --> */}
+
+
 
              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
