@@ -9,6 +9,7 @@
     "noUncheckedIndexedAccess": true,  
     "paths": {
       "app/*": ["./packages/app/*"],
+      "design-system/*": ["./packages/design-system/*"],
       "@/*": ["./apps/next/*"]   
     },
     "jsx": "react-jsx"
