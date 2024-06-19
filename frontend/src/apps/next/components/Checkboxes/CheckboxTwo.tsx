@@ -13,7 +13,7 @@ const CheckboxTwo = ({id, value}: CheckboxProps) => {
     <div>
       <label
         htmlFor={id}
-        className="flex cursor-pointer select-none items-left"
+        className="flex cursor-pointer "
       >
         <div>
           <input
