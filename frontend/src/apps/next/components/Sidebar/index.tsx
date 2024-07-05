@@ -148,20 +148,46 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Problem Solving --> */}
               <li>
                 <Link
-                  href="/problemsolving"
+                  href="/ps/solve"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
                     pathname.includes("problemsolving") && "bg-graydark dark:bg-meta-4 text-white"
                   }`}
                 >
-                  <i className="fas fa-share-square"></i>
+                  <i className="fa-solid fa-fingerprint"></i>
                   Problem solving
                 </Link>
               </li>
               {/* <!-- Menu Item Problem Solving --> */}
 
+              {/* <!-- Menu Item Legal --> */}
+              <li>
+                <Link
+                  href="/legal"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                    pathname.includes("legal") && "bg-graydark dark:bg-meta-4 text-white"
+                  }`}
+                >
+                  <i className="fa-solid fa-hotel"></i>
+                  Legal
+                </Link>
+              </li>
+              {/* <!-- Menu Item Legal --> */}
 
+              {/* <!-- Menu Item Person --> */}
+              <li>
+                <Link
+                  href="/person"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                    pathname.includes("person") && "bg-graydark dark:bg-meta-4 text-white"
+                  }`}
+                >
+                  <i className="fa fa-person"></i>
+                  Person
+                </Link>
+              </li>
+              {/* <!-- Menu Item Person --> */}
 
-             {/* <!-- Menu Item Dashboard --> */}
+              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/" || pathname.includes("dashboard")
