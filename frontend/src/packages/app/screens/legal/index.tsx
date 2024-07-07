@@ -73,6 +73,9 @@ export function LegalScreen() {
               <CheckboxTwo id="checkbox-types-8" value="Steakhouse" />
               <CheckboxTwo id="checkbox-types-9" value="Pub & bar" />
           </div>
+          <a className="inline-flex cursor-pointer rounded-lg items-center justify-center gap-2.5 bg-primary p-1 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10" href="#">
+              Apply
+          </a>
         </div>
 
         <div className="basis-3/4 ">
