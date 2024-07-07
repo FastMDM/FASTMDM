@@ -159,7 +159,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               {/* <!-- Menu Item Problem Solving --> */}
 
-              {/* <!-- Menu Item Legal --> */}
+              {/* <!-- Menu Item Legal entities --> */}
               <li>
                 <Link
                   href="/legal"
@@ -168,12 +168,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <i className="fa-solid fa-hotel"></i>
-                  Legal
+                  Legal entities
                 </Link>
               </li>
-              {/* <!-- Menu Item Legal --> */}
+              {/* <!-- Menu Item Legal entities --> */}
 
-              {/* <!-- Menu Item Person --> */}
+              {/* <!-- Menu Item Persons --> */}
               <li>
                 <Link
                   href="/person"
@@ -182,10 +182,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   <i className="fa fa-person"></i>
-                  Person
+                  Persons
                 </Link>
               </li>
-              {/* <!-- Menu Item Person --> */}
+              {/* <!-- Menu Item Persons --> */}
 
               {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
