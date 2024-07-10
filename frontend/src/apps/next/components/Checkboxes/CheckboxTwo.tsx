@@ -25,7 +25,7 @@ const CheckboxTwo = ({id, value}: CheckboxProps) => {
             }}
           />
           <div
-            className={`mr-4 flex h-5 w-5 items-center justify-center rounded border ${
+            className={`mr-3 flex h-4 w-4 items-center justify-center rounded border ${
               isChecked && "border-primary bg-gray dark:bg-transparent"
             }`}
           >

@@ -117,19 +117,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
           <ul className="mb-6 flex flex-col gap-1.5">
 
-              {/* <!-- Menu Item Chat --> */}
+              {/* <!-- Menu Item Chats --> */}
               <li>
                 <Link
-                  href="/chat"
+                  href="/chats"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("chat") && "bg-graydark dark:bg-meta-4 text-white"
+                    pathname.includes("chats") && "bg-graydark dark:bg-meta-4 text-white"
                   }`}
                 >
                   <i className="fa-regular fa-comments"></i>
-                  Chat
+                  Chats
                 </Link>
               </li>
-              {/* <!-- Menu Item Chat --> */}
+              {/* <!-- Menu Item Chats --> */}
 
               {/* <!-- Menu Item Diagnostics --> */}
               <li>
@@ -145,23 +145,49 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               {/* <!-- Menu Item Diagnostics --> */}
 
-              {/* <!-- Menu Item Problem Solving --> */}
+              {/* <!-- Menu Item Problems --> */}
               <li>
                 <Link
-                  href="/problemsolving"
+                  href="/problems/solve"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("problemsolving") && "bg-graydark dark:bg-meta-4 text-white"
+                    pathname.includes("problems") && "bg-graydark dark:bg-meta-4 text-white"
                   }`}
                 >
-                  <i className="fas fa-share-square"></i>
-                  Problem solving
+                  <i className="fa-solid fa-fingerprint"></i>
+                  Problems
                 </Link>
               </li>
               {/* <!-- Menu Item Problem Solving --> */}
 
+              {/* <!-- Menu Item Companies --> */}
+              <li>
+                <Link
+                  href="/companies"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                    pathname.includes("companies") && "bg-graydark dark:bg-meta-4 text-white"
+                  }`}
+                >
+                  <i className="fa-solid fa-hotel"></i>
+                  Companies
+                </Link>
+              </li>
+              {/* <!-- Menu Item Companies --> */}
 
+              {/* <!-- Menu Item Jobs --> */}
+              <li>
+                <Link
+                  href="/jobs"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                    pathname.includes("person") && "bg-graydark dark:bg-meta-4 text-white"
+                  }`}
+                >
+                  <i className="fa fa-person"></i>
+                  Jobs
+                </Link>
+              </li>
+              {/* <!-- Menu Item Jobs --> */}
 
-             {/* <!-- Menu Item Dashboard --> */}
+              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/" || pathname.includes("dashboard")

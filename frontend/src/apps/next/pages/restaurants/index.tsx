@@ -22,8 +22,10 @@ export function Restaurants(
   //const pagedata =   RestaurantScreenGetServerSideProps(context);
 
   return (
-    <RestaurantScreen global={global} initialData={initialData} pageData={pageData} categories={categories}
-        places={places} locale={locale} perPage={perPage} preview={preview}/>
+    <>
+    </>
+
+    // <RestaurantScreen global={global} initialData={initialData} pageData={pageData} categories={categories} places={places} locale={locale} perPage={perPage} preview={preview}/>
   )
 }
 

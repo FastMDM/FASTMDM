@@ -1,11 +1,11 @@
-import { LegalScreen } from 'app/screens/legal'
+import { JobScreen } from 'app/screens/job'
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
 } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-export default LegalScreen
+export default JobScreen
 
 type Props = {
   // Add custom props here
