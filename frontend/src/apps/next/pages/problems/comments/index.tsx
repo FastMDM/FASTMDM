@@ -1,4 +1,4 @@
-import { ProblemSolvingScreen} from 'app/screens/problemsolving'
+import { ProblemSolvingScreen} from 'app/screens/problems'
 
 export default function PSCommentsScreen () {
     return (

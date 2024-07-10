@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     description: "This is FastMDM Problem Solving",
 };
 
-type ProblemSolvingScreenProps = {
+type ProblemScreenProps = {
     tabNumber?: number;
 
 };
       
-export function ProblemSolvingScreen({tabNumber}: ProblemSolvingScreenProps) {
+export function ProblemScreen({tabNumber}: ProblemScreenProps) {
     const [getTabNumber, setTabNumber] = useState(tabNumber?? 1);
     const [getDescribeValue, setDescribeValue] = useState("car won't start");
 
@@ -31,9 +31,9 @@ export function ProblemSolvingScreen({tabNumber}: ProblemSolvingScreenProps) {
 
     return (
         <>
-            <Breadcrumb pageName="Problem solving" />
+            <Breadcrumb pageName="Problems" />
 
-            <div className="rounded-sm border bordegrid grid-colr-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
+            <div className="rounded-sm bordegrid grid-colr-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
                 <form>
                     <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                         Describe the problem
@@ -138,7 +138,7 @@ export function ProblemSolvingScreen({tabNumber}: ProblemSolvingScreenProps) {
                 </form>
             </div>
             <br />
-            <div className="rounded-sm border bordegrid bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+            <div className="rounded-sm bordegrid bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div className="mb-7.5 flex flex-wrap gap-3 border-b border-stroke pb-5 dark:border-strokedark">
 
                     <a className={`rounded-md px-4 py-3 text-sm font-medium hover:bg-primary hover:text-white dark:hover:bg-primary md:text-base lg:px-6 ${getTabNumber == 1 ? "bg-primary text-white" : "bg-gray dark:bg-meta-4 text-black dark:text-white"} `} href="/ps/solve/123"
@@ -1071,7 +1071,7 @@ export function ProblemSolvingScreen({tabNumber}: ProblemSolvingScreenProps) {
                 </div>
             </div>
             <br />
-            <div className="rounded-sm border bordegrid grid-colr-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
+            <div className="rounded-sm bordegrid grid-colr-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
                 <div className="s-3 grid grid-cols-2 gap-4">
                     <div className="flex justify-center gap-2 text-sm font-medium">
 

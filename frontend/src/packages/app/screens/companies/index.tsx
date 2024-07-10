@@ -14,7 +14,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
 
-export function LegalScreen() {
+export function CompanyScreen() {
   const { t } = useTranslation('common')
   setAccessToken ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NjQ0OTkzLCJleHAiOjE3MTIyMzY5OTN9.FoeVqLaXdD5vhOOg5gfsmTj0alETcxh08tjrIaQj9SY');
   const legalListState = useLegalList();  
@@ -23,7 +23,7 @@ export function LegalScreen() {
 
   return (
     <>
-      <Breadcrumb pageName="Legal entities" />
+      <Breadcrumb pageName="Companies" />
 
       <div className="flex flex-row gap-7.5  " >
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
@@ -91,7 +91,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Guide to restaurants across the US. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -121,7 +121,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Traditional Irish pub. Site includes Celtic resources, home movies, and links to Northern Ireland and the Republic of Ireland. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -151,7 +151,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Offer fresh baked bread. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -181,7 +181,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Quick-service restaurant featuring charbroiled hamburgers and chicken sandwiches, salads, chili, hand-dipped milkshakes, and more. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -213,7 +213,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Healthy Mexican-style food. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -245,7 +245,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Specialty pastry served hot with a variety of toppings. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -277,7 +277,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Features Japanese cuisine and live chef entertainment with traditional atmosphere and restaurant experiences such as sushi, teppanyaki, hibachi, and grill. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -309,7 +309,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Includes location finder, history, menu, and more. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -341,7 +341,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Classic Italian brick oven pizzeria. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
@@ -373,7 +373,7 @@ export function LegalScreen() {
                 <div className="text-sm">
                   Home of Bob's Big Boy. 
                 </div>
-                <div className="text-xs flex gap-2  text-black mt-2">
+                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
