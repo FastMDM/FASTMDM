@@ -29,7 +29,7 @@ export function JobScreen() {
 
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
 
-        <label className="mb-3 mt-3 block text-sm font-medium text-black dark:text-white">
+          <label className="mb-3 mt-3 block text-sm font-medium text-black dark:text-white">
             Specialization:
           </label>
           <div>
