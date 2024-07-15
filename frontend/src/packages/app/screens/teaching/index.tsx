@@ -19,7 +19,6 @@ export function TeachingScreen() {
               Teach the knowledge base. Please choose the best solution for questions. Try to choose only one solution.
             </label>
 
-
             <div>
               <h2 className="flex flex-wrap gap-2 mb-9 text-2xl font-bold text-black dark:text-white ">
                 Question 1. Why does our science lag behind other countries?
