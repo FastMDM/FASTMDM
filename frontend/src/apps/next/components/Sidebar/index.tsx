@@ -17,7 +17,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
 
-  let storedSidebarExpanded = "true";
+  let storedSidebarExpanded = "false";
 
   const [sidebarExpanded, setSidebarExpanded] = useState(
     storedSidebarExpanded === null ? false : storedSidebarExpanded === "true",
@@ -109,7 +109,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      <div className=" flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-5 px-4 py-4 lg:mt-9 lg:px-6">
 
@@ -117,35 +117,1360 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
           <ul className="mb-6 flex flex-col gap-1.5">
 
-              {/* <!-- Menu Item Chats --> */}
-              <li>
-                <Link
-                  href="/chats"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("chats") && "bg-graydark dark:bg-meta-4 text-white"
-                  }`}
-                >
-                  <i className="fa-regular fa-comments"></i>
-                  Chats
-                </Link>
-              </li>
-              {/* <!-- Menu Item Chats --> */}
+              {/* <!-- Menu Item Business --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/companies" || pathname.includes("companies")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/companies" || pathname.includes("companies")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Business
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
 
-              {/* <!-- Menu Item Diagnostics --> */}
-              <li>
-                <Link
-                  href="/diagnostics"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("diagnostics") && "bg-graydark dark:bg-meta-4 text-white"
-                  }`}
-                >
-                  <i className="fas fa-share-square"></i>
-                  Diagnostics
-                </Link>
-              </li>
-              {/* <!-- Menu Item Diagnostics --> */}
+                        <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
 
-              {/* <!-- Menu Item Problems --> */}
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Companies
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Individuals
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Franchises
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Business --> */}
+
+              {/* <!-- Menu Item Employees --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/companies" || pathname.includes("companies")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="/jobs"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/jobs" || pathname.includes("jobs")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Employees
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/jobs"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/jobs"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Jobs
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/jobs"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Vacancies
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Employees --> */}
+
+              {/* <!-- Menu Item Products --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Products
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+  
+
+
+
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Products --> */}
+
+              {/* <!-- Menu Item Services --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Services
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+  
+
+
+
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Services --> */}
+
+              {/* <!-- Menu Item Vehicles --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Vehicles
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+  
+
+
+
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Vehicles --> */}
+
+              {/* <!-- Menu Item Real estate --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Real estate
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Real estate --> */}
+
+              {/* <!-- Menu Item Equipment --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Equipment
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Equipment --> */}
+
+              {/* <!-- Menu Item Animals --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Animals
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Animals --> */}
+
+              {/* <!-- Menu Item Projects --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Projects
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List & Search
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Projects --> */}
+
+              {/* <!-- Menu Item Locations --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Locations
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Addresses
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Directory
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Locations --> */}
+
+              {/* <!-- Menu Item Financial --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Financial
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Master data
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Banks
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Brokers
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Metro
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Tax inspections
+                            </Link>
+                          </li>
+
+
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Financial --> */}
+
+              {/* <!-- Menu Item Classifiers  --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("master")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-solid fa-hotel"></i>
+                        Classifiers
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Names
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Currencies
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Units of measure
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Phones
+                            </Link>
+                          </li>
+
+
+                          <li>
+                            <Link
+                              href="/companies"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Passports
+                            </Link>
+                          </li>
+
+
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Classifiers  --> */}
+
+              {/* <!-- Menu Item Chats  --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("master")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("chats")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-regular fa-comments"></i>
+                        Chats
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/chats"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out ${
+                                pathname.includes("chats") && "bg-graydark dark:bg-meta-4 text-white"
+                              }`}
+                            >
+                              Chats
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/chats"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out  ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Knowledge base
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Chats  --> */}
+
+              {/* <!-- Menu Item Diagnostics  --> */}
+              <SidebarLinkGroup
+                activeCondition={
+                  pathname === "/" || pathname.includes("diagnostics")
+                }
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="#"
+                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
+                          (pathname === "/" ||
+                            pathname.includes("diagnostics")) &&
+                          "bg-graydark dark:bg-meta-4 text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <i className="fa-regular fa-comments"></i>
+                        Diagnostics
+                        <svg
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
+                            open && "rotate-180"
+                          }`}
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                            fill=""
+                          />
+                        </svg>
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+
+                          <li>
+                            <Link
+                              href="/diagnostics"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out  ${
+                                pathname.includes("diagnostics") && "bg-graydark dark:bg-meta-4 text-white"
+                              }`}
+                            >
+                              Diagnostics
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/diagnostics"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              Knowledge base
+                            </Link>
+                          </li>
+
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+              {/* <!-- Menu Item Diagnostics  --> */}
+
+              {/* <!-- Menu Item Problem Solving --> */}
               <li>
                 <Link
                   href="/problems/solve"
@@ -158,34 +1483,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 </Link>
               </li>
               {/* <!-- Menu Item Problem Solving --> */}
-
-              {/* <!-- Menu Item Companies --> */}
-              <li>
-                <Link
-                  href="/companies"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("companies") && "bg-graydark dark:bg-meta-4 text-white"
-                  }`}
-                >
-                  <i className="fa-solid fa-hotel"></i>
-                  Companies
-                </Link>
-              </li>
-              {/* <!-- Menu Item Companies --> */}
-
-              {/* <!-- Menu Item Jobs --> */}
-              <li>
-                <Link
-                  href="/jobs"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                    pathname.includes("person") && "bg-graydark dark:bg-meta-4 text-white"
-                  }`}
-                >
-                  <i className="fa-regular fa-address-book"></i>
-                  Jobs
-                </Link>
-              </li>
-              {/* <!-- Menu Item Jobs --> */}
 
               {/* <!-- Menu Item Teaching --> */}
               <li>
@@ -315,6 +1612,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 </Link>
               </li>
               {/* <!-- Menu Item Settings --> */}
+
 
               {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
