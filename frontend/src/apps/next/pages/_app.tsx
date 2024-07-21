@@ -23,6 +23,7 @@ import { getLocalizedParams } from "../utils/localize";
 import App from "next/app";  
 
 import DefaultLayout from "@/components/Layouts/DefaultLayout"; 
+import { useRouter } from 'next/router' 
 
 const queryClient = new QueryClient();  
 
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (global === null) {
     return <ErrorPage statusCode={404} />;
   }  
+  const router = useRouter();
 
   return (
     <>
@@ -45,7 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <DefaultLayout>
         <QueryClientProvider client={queryClient}>   
-          <Component {...pageProps} />
+          <Component {...pageProps} key={router.asPath}  />
         </QueryClientProvider>  
       </DefaultLayout>
     </>
