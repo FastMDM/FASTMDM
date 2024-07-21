@@ -120,7 +120,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Business --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/companies" || pathname.includes("companies")
+                  pathname === "/business" || pathname.includes("business")
                 }
               >
                 {(handleClick, open) => {
@@ -129,7 +129,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <Link
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                          (pathname === "/companies" || pathname.includes("companies")) &&
+                          (pathname === "/business" || pathname.includes("business")) &&
                           "bg-graydark dark:bg-meta-4 text-white"
                         }`}
                         onClick={(e) => {
@@ -166,10 +166,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         }`}
                       >
                         <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
-
-                        <li>
+                          <li>
                             <Link
-                              href="/companies"
+                              href="/business"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
+                                pathname === "/" && "text-black"
+                              }`}
+                            >
+                              List &amp; Filter
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/business/mdm"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -179,17 +188,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                           <li>
                             <Link
-                              href="/companies"
-                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
-                                pathname === "/" && "text-black"
-                              }`}
-                            >
-                              Search
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/companies"
+                              href="/business"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -269,18 +268,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/jobs"
+                              href="/specialist/job"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
                             >
-                              Jobs
+                              Job
                             </Link>
                           </li>
 
                           <li>
                             <Link
-                              href="/vacancies"
+                              href="/specialist/vacancies"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -298,17 +297,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
               {/* <!-- Menu Item Specialists --> */}
 
-              {/* <!-- Menu Item Products --> */}
+              {/* <!-- Menu Item Product --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/products" || pathname.includes("products")
+                  pathname === "/product" || pathname.includes("product")
                 }
               >
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/products"
+                        href="/product"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
                           (pathname === "/products" || pathname.includes("products")) &&
                           "bg-graydark dark:bg-meta-4 text-white"
@@ -350,7 +349,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/products"
+                              href="/product"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -361,7 +360,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/products"
+                              href="/product"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -372,7 +371,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/products"
+                              href="/product"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -1277,20 +1276,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
               {/* <!-- Menu Item Classifiers  --> */}
 
-              {/* <!-- Menu Item Chats  --> */}
+              {/* <!-- Menu Item Chat  --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/chats" || pathname.includes("chats")
+                  pathname === "/chat" || pathname.includes("chat")
                 }
               >
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/chats"
+                        href="/chat"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                          (pathname === "/chats" ||
-                            pathname.includes("chats")) &&
+                          (pathname === "/chat" ||
+                            pathname.includes("chat")) &&
                           "bg-graydark dark:bg-meta-4 text-white"
                         }`}
                         onClick={(e) => {
@@ -1301,7 +1300,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         }}
                       >
                         <i className="fa-regular fa-comments"></i>
-                        Chats
+                        Chat
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && "rotate-180"
@@ -1330,7 +1329,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/chats"
+                              href="/chat"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out ${
                                 pathname.includes("chats") && "bg-graydark dark:bg-meta-4 text-white"
                               }`}
@@ -1341,7 +1340,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/chats"
+                              href="/chat"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out  ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -1357,7 +1356,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Menu Item Chats  --> */}
+              {/* <!-- Menu Item Chat  --> */}
 
               {/* <!-- Menu Item Diagnostics  --> */}
               <SidebarLinkGroup
@@ -1441,20 +1440,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
               {/* <!-- Menu Item Diagnostics  --> */}
 
-              {/* <!-- Menu Item Problem Solving  --> */}
+              {/* <!-- Menu Item Problem  --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/problems/solve" || pathname.includes("problems/solve")
+                  pathname === "/problem/solve" || pathname.includes("problem/solve")
                 }
               >
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/problems/solve"
+                        href="/problem/solve"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                          (pathname === "/problems/solve" ||
-                            pathname.includes("problems/solve")) &&
+                          (pathname === "/problem/solve" ||
+                            pathname.includes("problem/solve")) &&
                           "bg-graydark dark:bg-meta-4 text-white"
                         }`}
                         onClick={(e) => {
@@ -1465,7 +1464,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         }}
                       >
                         <i className="fa-solid fa-fingerprint"></i>
-                        Problem Solving
+                        Problem
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && "rotate-180"
@@ -1494,9 +1493,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/problems/solve"
+                              href="/problem/solve"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out  ${
-                                pathname.includes("diagnostics") && "bg-graydark dark:bg-meta-4 text-white"
+                                pathname.includes("problem") && "bg-graydark dark:bg-meta-4 text-white"
                               }`}
                             >
                               Solve
@@ -1505,7 +1504,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/problems/solve"
+                              href="/problem/solve"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -1521,7 +1520,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Menu Item Problem Solving  --> */}
+              {/* <!-- Menu Item Problem   --> */}
 
               {/* <!-- Menu Item Teaching  --> */}
               <SidebarLinkGroup

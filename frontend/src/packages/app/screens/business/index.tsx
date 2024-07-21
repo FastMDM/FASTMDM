@@ -23,7 +23,7 @@ export function CompanyScreen() {
 
   return (
     <>
-      <Breadcrumb pageName="Companies" />
+      <Breadcrumb pageName="Businesses (Companies &amp; Individuals)" />
 
       <div className="flex flex-row gap-7.5  " >
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
@@ -96,7 +96,7 @@ export function CompanyScreen() {
                     <CheckboxTwo id="checkbox21" value="Compare" />
                   </div>
                   <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                  <i className="fa fa-star  text-meta-8"></i>
+                    <i className="fa fa-star  text-meta-8"></i>
                     <i className="fa fa-star  text-meta-8"></i>
                     <i className="fa fa-star  text-meta-8"></i>
                     <i className="fa fa-star  text-meta-8"></i>

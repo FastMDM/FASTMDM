@@ -1,4 +1,4 @@
-import { CompanyScreen } from 'app/screens/companies'
+import { CompanyScreen } from 'app/screens/business'
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
