@@ -1,3 +1,3 @@
-import { ProblemSolvingScreen } from 'app/screens/problem'
+import { ProblemScreen } from 'app/screens/problem'
 
-export default ProblemSolvingScreen
+export default ProblemScreen

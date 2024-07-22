@@ -23,6 +23,7 @@ export function CompanyScreen({ params }: { params: { name: string, id: string }
   console.log (JSON.stringify(legalListState));
   const router = useRouter()
 
+
   return (
     <>
       <Breadcrumb pageName="Master data requests (Companies &amp; Individuals)" />
@@ -41,8 +42,8 @@ export function CompanyScreen({ params }: { params: { name: string, id: string }
                   <div className="font-bold">Gold  values</div>
                   <div className="font-bold">Values in request {router.query.id}</div>
                   <div className="font-bold">Steward value</div>
-                  <div className="font-bold">Values in request {parseInt(router.query.id, 10) + 1}</div>
-                  <div className="font-bold">Values in request {parseInt(router.query.id, 10) + 2}</div>
+                  <div className="font-bold">Values in request {parseInt((router.query.id as string) ?? "0", 10) + 1}</div>
+                  <div className="font-bold">Values in request {parseInt((router.query.id as string) ?? "0", 10) + 2}</div>
 
                   <div>10</div>
                   <div>2024-07-01</div>

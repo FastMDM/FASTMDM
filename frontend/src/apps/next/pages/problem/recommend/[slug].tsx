@@ -1,8 +1,8 @@
-import { ProblemSolvingScreen} from 'app/screens/problem'
+import { ProblemScreen} from 'app/screens/problem'
 
 export default function PSRecommendScreen () {
     return (
-        <ProblemSolvingScreen tabNumber={2} />
+        <ProblemScreen tabNumber={2} />
     );
 }
 
