@@ -201,10 +201,10 @@ export function CompanyScreen() {
 
                 <div className="grid grid-cols-6 gap-4 text-black dark:text-white">
                   <div className="font-bold">Number</div>
-                  <div>Date</div>
-                  <div>Business name</div>
-                  <div>Status</div>
-                  <div>Similar</div>
+                  <div className="font-bold">Date</div>
+                  <div className="font-bold">Business name</div>
+                  <div className="font-bold">Status</div>
+                  <div className="font-bold">Similar</div>
                   <div></div>
 
                   <div>10</div>
