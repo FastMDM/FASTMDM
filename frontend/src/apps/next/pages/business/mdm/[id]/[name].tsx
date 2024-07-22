@@ -1,4 +1,4 @@
-import { CompanyScreen } from 'app/screens/business/mdm'
+import { CompanyScreen } from 'app/screens/business/mdm/process'
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
