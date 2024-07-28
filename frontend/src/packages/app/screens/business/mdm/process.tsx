@@ -22,168 +22,247 @@ export function CompanyScreen({ params }: { params: { name: string, id: string }
   console.log('x1'); 
   console.log (JSON.stringify(legalListState));
   const router = useRouter()
-
+  const id = parseInt((router.query.id as string) ?? "0", 10);
+  const name = router.query.name;
 
   return (
     <>
-      <Breadcrumb pageName="Master data requests (Companies &amp; Individuals)" />
+      <Breadcrumb pageName="Businesses (Process master data requests)" />
 
-      <div className="flex flex-row gap-7.5  " >
- 
-        <div className="basis-full">
-          <div className="s-3 grid grid-cols-1 gap-4">
+      <div className="  " >
+        <div className=" text-black gap-2 flex">
+          <label>
+            Request # {parseInt((router.query.id as string) ?? "0", 10)} to change Business: {router.query.name}
+          </label>
+
+          <div className="m-1 bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+            <Link href="/business/mdm/10/ActiveDiner" >
+                Check
+            </Link>
+          </div>
+          <div className="m-1 bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+            <Link href="/business/mdm/10/ActiveDiner" >
+                Approve
+            </Link>
+          </div>
+          <div className="m-1 bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+            <Link href="/business/mdm/10/ActiveDiner" >
+                Reject
+            </Link>
+          </div>
+          <div className="m-1 bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+            <Link href="/business/mdm/10/ActiveDiner" >
+                Cancel
+            </Link>
+          </div>
+        </div>
+        <div className=" text-black gap-2 flex-row">
+          <label>
+            Integrated systems:
+          </label>
+
+          <div className="inline-flex items-center gap-3 m-1">
+            <i className="fa-regular fa-square-check"></i>
+            <div className="h-10 w-10 rounded-full">
+              <Image src={"/images/user/user-11.png"} alt="User" width={40} height={40} />
+            </div>
+            <div>
+              <h4 className="font-medium text-black dark:text-white">Naimur Rahman</h4>
+              <p className="text-sm">100 views, 3 months ago</p>
+            </div>
+          </div>
+          <div className="inline-flex items-center gap-3 m-1">
+            <i className="fa-regular fa-square-check"></i>
+            <div className="h-10 w-10 rounded-full">
+              <Image src={"/images/user/user-01.png"} alt="User" width={40} height={40} />
+            </div>
+            <div>
+              <h4 className="font-medium text-black dark:text-white">Musharof Chy</h4>
+              <p className="text-sm">200 views, 3 months ago</p>
+            </div>
+          </div>
+          <div className="inline-flex items-center gap-3 m-1">
+          <i className="fa-regular fa-square"></i>
+            <div className="h-10 w-10 rounded-full">
+              <Image src={"/images/user/user-13.png"} alt="User" width={40} height={40} />
+            </div>
+            <div>
+              <h4 className="font-medium text-black dark:text-white">Shafiq Hammad</h4>
+              <p className="text-sm">300 views, 3 months ago</p>
+            </div>
+          </div>
+
+        </div>
+        
+        <div className="mt-3">
+          <div className="s-3 grid grid-cols-1 gap-4 overflow-auto">
 
               <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
 
                 <div className="grid grid-cols-8 gap-4 text-black dark:text-white">
-                  <div className="font-bold">Number</div>
+                  <div className="font-bold">Field</div>
                   <div className="font-bold">Current fields</div>
-                  <div className="font-bold">Total values</div>
-                  <div className="font-bold">Gold  values</div>
-                  <div className="font-bold">Values in request {router.query.id}</div>
-                  <div className="font-bold">Steward value</div>
-                  <div className="font-bold">Values in request {parseInt((router.query.id as string) ?? "0", 10) + 1}</div>
-                  <div className="font-bold">Values in request {parseInt((router.query.id as string) ?? "0", 10) + 2}</div>
+                  <div className="font-bold">Final values</div>
+                  <div className="font-bold">Gold values</div>
+                  <div className="font-bold">Recommended values</div>
+                  <div className="font-bold">Values in request #{id}</div>
+                  <div className="font-bold">Values in request #{id + 1}</div>
+                  <div className="font-bold">Values in request #{id + 2}</div>
 
-                  <div>10</div>
-                  <div>2024-07-01</div>
-                  <div>ActiveDiner</div>
-                  <div>Created</div>
-                  <div>1</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/10/ActiveDiner" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Short name</div>
+                  <div>{name}</div>
+                  <div>{name}</div>
+                  <div><label><input type="radio" name="01" />&nbsp;{name}-gold</label></div>
+                  <div><label><input type="radio" name="01" />&nbsp;{name}</label></div>
+                  <div><label><input type="radio" name="01" />&nbsp;{name}-{id}</label></div>
+                  <div><label><input type="radio" name="01" />&nbsp;{name}-{id + 1}</label></div>
+                  <div><label><input type="radio" name="01" />&nbsp;{name}-{id + 2}</label></div>
 
-                  <div>11</div>
-                  <div>2024-07-01</div>
-                  <div>Allen's Pub and Restaurant </div>
-                  <div>In Work</div>
-                  <div>1</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/11/Allen%27s%20Pub%20and%20Restaurant" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Full name</div>
+                  <div>{name}</div>
+                  <div>{name}</div>
+                  <div><label><input type="radio" name="02"/>&nbsp;{name}-gold</label></div>
+                  <div><label><input type="radio" name="02"/>&nbsp;{name}</label></div>
+                  <div><label><input type="radio" name="02"/>&nbsp;{name}-{id}</label></div>
+                  <div><label><input type="radio" name="02"/>&nbsp;{name}-{id + 1}</label></div>
+                  <div><label><input type="radio" name="02"/>&nbsp;{name}-{id + 2}</label></div>
 
-                  <div>12</div>
-                  <div>2024-07-01</div>
-                  <div>Atlanta Bread Company </div>
-                  <div>Done</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/12/Atlanta%20Bread%20Company" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Middle name</div>
+                  <div>{name}</div>
+                  <div>{name}</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{name}-gold</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{name}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{name}-{id}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{name}-{id + 1}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{name}-{id + 2}</label></div>
 
-                  <div>13</div>
-                  <div>2024-07-01</div>
-                  <div>Back Yard Burgers </div>
-                  <div>Rejected</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/13/Back%20Yard%20Burgers" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Create date</div>
+                  <div>{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</div>
+                  <div>{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
 
-                  <div>14</div>
-                  <div>2024-07-01</div>
-                  <div>Baja Fresh</div>
-                  <div>Created</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/14/Baja%20Fresh" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Org type</div>
+                  <div>LLP</div>
+                  <div>LLP</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;LLP</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;PLC</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;CIC</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;RTM</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Sole trader</label></div>
 
-                  <div>15</div>
-                  <div>2024-07-01</div>
-                  <div>BeaverTails</div>
-                  <div>In Work</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/15/BeaverTails" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>Form type</div>
+                  <div>Individual</div>
+                  <div>Individual</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Individual</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Individual</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
 
-                  <div>16</div>
-                  <div>2024-07-01</div>
-                  <div>Benihana</div>
-                  <div>Done</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/16/Benihana" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>INN</div>
+                  <div>{name}</div>
+                  <div>{name}</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
 
-                  <div>17</div>
-                  <div>2024-07-01</div>
-                  <div>Bennigan's</div>
-                  <div>Rejected</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/17/Bennigan%27s" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>KPP</div>
+                  <div>590000000</div>
+                  <div>590000000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
 
-                  <div>18</div>
-                  <div>2024-07-01</div>
-                  <div>Bertucci's</div>
-                  <div>Created</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/18/Bertucci%27s" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>OKPO</div>
+                  <div>78000000</div>
+                  <div>78000000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
 
-                  <div>19</div>
-                  <div>2024-07-01</div>
-                  <div>Big Boy International</div>
-                  <div>In Work</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                      <Link href="/business/mdm/19/Big%20Boy%20International" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
+                  <div>OGRN</div>
+                  <div>1000000000000</div>
+                  <div>1000000000000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
+
+                  <div>OKVED</div>
+                  <div>63.1</div>
+                  <div>63.1</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
+
+                  <div>OKTMO</div>
+                  <div>54000000</div>
+                  <div>54000000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
+
+                  <div>Address</div>
+                  <div>UK,London, House avenue, 123</div>
+                  <div>UK,London, House avenue, 123</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;UK,London, House avenue, 123</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;UK,London, House avenue, 123</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;UK,London, House avenue, 123</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;UK,London, House avenue, 123</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;UK,London, House avenue, 123</label></div>
+
+                  <div>Phone</div>
+                  <div>+44 00 0000 0000</div>
+                  <div>+44 00 0000 0000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+
+                  <div>Email</div>
+                  <div>c@f.c</div>
+                  <div>c@f.c</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;c@f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;c@f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;c@f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;c@f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;c@f.c</label></div>
+
+                  <div>Fax</div>
+                  <div>+44 00 0000 0000</div>
+                  <div>+44 00 0000 0000</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;+44 00 0000 0000</label></div>
+
+                  <div>URL</div>
+                  <div>f.c</div>
+                  <div>f.c</div>
+                  <div><label><input type="radio" name="03"/>&nbsp;f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;f.c</label></div>
+                  <div><label><input type="radio" name="03"/>&nbsp;f.c</label></div>
+
+
 
                 </div>
 
