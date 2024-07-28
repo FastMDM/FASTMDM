@@ -23,7 +23,7 @@ export function CompanyScreen() {
 
   return (
     <>
-      <Breadcrumb pageName="Master data requests (Companies &amp; Individuals)" />
+      <Breadcrumb pageName="Businesses (Master data requests)" />
 
       <div className="flex flex-row gap-7.5  " >
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
@@ -213,7 +213,7 @@ export function CompanyScreen() {
                   <div>Created</div>
                   <div>1</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/10/ActiveDiner" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -227,7 +227,7 @@ export function CompanyScreen() {
                   <div>In Work</div>
                   <div>1</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/11/Allen%27s%20Pub%20and%20Restaurant" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -241,7 +241,7 @@ export function CompanyScreen() {
                   <div>Done</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/12/Atlanta%20Bread%20Company" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -255,7 +255,7 @@ export function CompanyScreen() {
                   <div>Rejected</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/13/Back%20Yard%20Burgers" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -269,7 +269,7 @@ export function CompanyScreen() {
                   <div>Created</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/14/Baja%20Fresh" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -283,7 +283,7 @@ export function CompanyScreen() {
                   <div>In Work</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/15/BeaverTails" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -297,7 +297,7 @@ export function CompanyScreen() {
                   <div>Done</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/16/Benihana" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -311,7 +311,7 @@ export function CompanyScreen() {
                   <div>Rejected</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/17/Bennigan%27s" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -325,7 +325,7 @@ export function CompanyScreen() {
                   <div>Created</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/18/Bertucci%27s" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
@@ -339,7 +339,7 @@ export function CompanyScreen() {
                   <div>In Work</div>
                   <div>0</div>
                   <div>
-                    <div className="bg-meta-10 inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
+                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
                       <Link href="/business/mdm/19/Big%20Boy%20International" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process

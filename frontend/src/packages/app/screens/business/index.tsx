@@ -23,7 +23,7 @@ export function CompanyScreen() {
 
   return (
     <>
-      <Breadcrumb pageName="Businesses (Companies &amp; Individuals)" />
+      <Breadcrumb pageName="Businesses (List and Filter)" />
 
       <div className="flex flex-row gap-7.5  " >
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
