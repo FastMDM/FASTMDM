@@ -92,341 +92,103 @@ export function PersonScreen() {
         <div className="basis-3/4 ">
           <div className="s-3 grid grid-cols-2 gap-4">
 
-
-          <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-          <a className="block px-4 pt-4" href="#">
-            <Image src={"/images/diagnostics/d-07.png"} alt="User" width={432} height={238} />
-          </a>
-          <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
-            <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-              <a href="#">Methodology for diagnosing socio-psychological adaptation by K. Rogers and R. Diamond.</a>
-            </h4>
-          </div>
-          <div className="px-7.5 pb-9 pt-6">
-            <p>Psychotherapy and Personality Change: Coordinated Research Studies in the Client-Centered Approach</p>
-          </div>
-          <div className="flex items-center gap-3 p-4">
-            <div className="h-10 w-10 rounded-full">
-              <Image src={"/images/user/user-11.png"} alt="User" width={40} height={40} />
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-01-big.png"} alt="User" width={200} height={200} />
+                </a>
+              </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Cody Fisher</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>100 views, 3 months ago</p>
+              </div>
             </div>
-            <div>
-              <h4 className="font-medium text-black dark:text-white">Naimur Rahman</h4>
-              <p className="text-sm">100 views, 3 months ago</p>
+
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-02-big.png"} alt="User" width={200} height={200} />
+                </a>
+              </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Jenny Wilson</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>200 views, 4 months ago</p>
+              </div>
             </div>
-          </div>
-        </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#">ActiveDiner </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.activediner.com
-                </div>
-                <div className="text-sm">
-                  Guide to restaurants across the US. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 2.8k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium ">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-03-big.png"} alt="User" width={200} height={200} />
+                </a>
               </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Henry Dholi</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>300 views, 5 months ago</p>
+              </div>
+            </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#">Allen's Pub and Restaurant </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.allens.to
-                </div>
-                <div className="text-sm">
-                  Traditional Irish pub. Site includes Celtic resources, home movies, and links to Northern Ireland and the Republic of Ireland. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 1.2k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-04-big.png"} alt="User" width={200} height={200} />
+                </a>
               </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Mariya Desoja</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>400 views, 6 months ago</p>
+              </div>
+            </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#">Atlanta Bread Company </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.atlantabread.com
-                </div>
-                <div className="text-sm">
-                  Offer fresh baked bread. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 3.2k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-06-big.png"} alt="User" width={200} height={200} />
+                </a>
               </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Danish Heilium</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>250 views, 1 months ago</p>
+              </div>
+            </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#">Back Yard Burgers </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.backyardburgers.com
-                </div>
-                <div className="text-sm">
-                  Quick-service restaurant featuring charbroiled hamburgers and chicken sandwiches, salads, chili, hand-dipped milkshakes, and more. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 3.2k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark text-center ">
+              <div>
+                <a className=" px-4 pt-4 flex justify-center " href="#">
+                  <Image src={"/images/user/user-09-big.png"} alt="User" width={200} height={200} />
+                </a>
               </div>
+              <div className="border-b border-stroke p-5 px-7.5 dark:border-strokedark">
+                <h4 className="text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
+                  <a href="#">Jackie Sanders</a>
+                </h4>
+              </div>
+              <div className="px-7.5 pb-9 pt-6">
+                <p>150 views, 2 months ago</p>
+              </div>
+            </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    Baja Fresh 
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.bajafresh.com
-                </div>
-                <div className="text-sm">
-                  Healthy Mexican-style food. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 1.8k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
 
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    BeaverTails
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.beavertailsinc.com
-                </div>
-                <div className="text-sm">
-                  Specialty pastry served hot with a variety of toppings. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 1.7k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    Benihana
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.benihana.com
-                </div>
-                <div className="text-sm">
-                  Features Japanese cuisine and live chef entertainment with traditional atmosphere and restaurant experiences such as sushi, teppanyaki, hibachi, and grill. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 4.1k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    Bennigan's
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.bennigans.com
-                </div>
-                <div className="text-sm">
-                  Includes location finder, history, menu, and more. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 1.2k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    Bertucci's
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://www.bertuccis.com
-                </div>
-                <div className="text-sm">
-                  Classic Italian brick oven pizzeria. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 1.8k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
-                <h4 className="mb-2 text-xl font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary">
-                  <a href="#"> 
-                    Big Boy International
-                  </a>
-                </h4>
-                <div className="text-primary hover:underline">
-                  http://bigboy.com
-                </div>
-                <div className="text-sm">
-                  Home of Bob's Big Boy. 
-                </div>
-                <div className="text-xs flex flex-wrap gap-2  text-black mt-2">
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <CheckboxTwo id="checkbox21" value="Compare" />
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium">
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa fa-star  text-meta-8"></i>
-                    <i className="fa-regular fa-star  text-meta-8"></i>
-                    &nbsp; 3.2k
-                  </div>
-                  <div className="bg-gray inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-black">
-                    <Link href="#" >
-                        <i className="fa-regular fa-heart"></i> 
-                    </Link>
-                  </div>
-                </div>
-              </div>
           </div>
 
           <a className="block px-4 pt-4 text-center" href="#">
