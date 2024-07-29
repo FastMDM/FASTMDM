@@ -1,4 +1,4 @@
-import { JobScreen } from 'app/screens/job'
+import { JobScreen } from 'app/screens/person/job'
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,

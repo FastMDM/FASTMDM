@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 };
 
 
-export function CompanyScreen() {
+export function BusinessScreen() {
   return (
     <>
-      <Breadcrumb pageName="Businesses (Catalogue)  " />
+      <Breadcrumb pageName="Business (Catalogue)  " />
 
       <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 xl:grid-cols-4">
 

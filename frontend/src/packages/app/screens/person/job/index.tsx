@@ -4,7 +4,7 @@ import { View } from 'app/design/view'
 
 import { MotiLink } from 'solito/moti'
 
-import { useTranslation } from '../../utils/localization'
+import { useTranslation } from 'app/utils/localization'
 
 import { useLegalList } from "app/hooks/use-legal-list";   
 import { setAccessToken } from "app/lib/access-token"; 
