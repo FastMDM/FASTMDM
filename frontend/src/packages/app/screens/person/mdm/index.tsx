@@ -153,7 +153,7 @@ export function PersonScreen() {
 
                   <div>20</div>
                   <div>2024-07-01</div>
-                  <div>Naimur Rahman</div>
+                  <div>Cody Fisher</div>
                   <div>Created</div>
                   <div>1</div>
                   <div>
@@ -167,7 +167,7 @@ export function PersonScreen() {
 
                   <div>21</div>
                   <div>2024-07-01</div>
-                  <div>Musharof Chy </div>
+                  <div>Jenny Wilson </div>
                   <div>In Work</div>
                   <div>1</div>
                   <div>
@@ -181,7 +181,7 @@ export function PersonScreen() {
 
                   <div>22</div>
                   <div>2024-07-01</div>
-                  <div>Shafiq Hammad </div>
+                  <div>Mariya Desoja </div>
                   <div>Done</div>
                   <div>0</div>
                   <div>
