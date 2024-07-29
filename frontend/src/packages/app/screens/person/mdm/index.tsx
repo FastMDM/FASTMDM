@@ -14,7 +14,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
 
-export function BusinessScreen() {
+export function PersonScreen() {
   const { t } = useTranslation('common')
   setAccessToken ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NjQ0OTkzLCJleHAiOjE3MTIyMzY5OTN9.FoeVqLaXdD5vhOOg5gfsmTj0alETcxh08tjrIaQj9SY');
   const legalListState = useLegalList();  
@@ -23,7 +23,7 @@ export function BusinessScreen() {
 
   return (
     <>
-      <Breadcrumb pageName="Business (Master data requests)" />
+      <Breadcrumb pageName="Person (Master data requests)" />
 
       <div className="flex flex-row gap-7.5  " >
         <div className="basis-1/4 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4">
@@ -64,72 +64,7 @@ export function BusinessScreen() {
             </div>
           </div>
           <label className="mb-3 mt-3 block text-sm font-medium text-black dark:text-white">
-            Counterparty:
-          </label>
-          <div>
-            <div>
-                <label>Short name:</label>
-                <textarea rows={1} placeholder="Enter short name"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>Full name:</label>
-                <textarea rows={1} placeholder="Enter full name"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>INN:</label>
-                <textarea rows={1} placeholder="Enter INN"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>OKP:</label>
-                <textarea rows={1} placeholder="Enter OKP"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>OGRN:</label>
-                <textarea rows={1} placeholder="Enter OGRN"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>OKVED:</label>
-                <textarea rows={1} placeholder="Enter OKVED"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div>
-                <label>OKTMO:</label>
-                <textarea rows={1} placeholder="Enter OKTMO"
-                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
-                ></textarea>
-            </div>
-            <div className="py-1 flex flex-nowrap gap-2">
-              Form type: 
-              <select name="formtype" id="formtype">
-                <option value="Legal">Legal</option>
-                <option value="Individual">Individual</option>
-              </select>
-            </div>
-            <div className="py-1 flex flex-nowrap gap-2">
-              Org type: 
-              <select name="initiator" id="orgtype">
-                <option value="LLP">LLP</option>
-                <option value="PLC">PLC</option>
-                <option value="CIC">CIC</option>
-                <option value="RTM">RTM</option>
-                <option value="Sole trader">Sole trader</option>
-              </select>
-            </div>
-
-          </div>
-          <label className="mb-3 mt-3 block text-sm font-medium text-black dark:text-white">
-              Contacts:
+              Contact:
           </label>
           <div>
             <div>
@@ -159,6 +94,12 @@ export function BusinessScreen() {
             <div>
                 <label>Email:</label>
                 <textarea rows={1} placeholder="Enter email"
+                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
+                ></textarea>
+            </div>
+            <div>
+                <label>INN:</label>
+                <textarea rows={1} placeholder="Enter INN"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:bg-form-input dark:text-white       mb-3 block text-sm font-medium "
                 ></textarea>
             </div>
@@ -210,145 +151,48 @@ export function BusinessScreen() {
                   <div className="font-bold">Similar</div>
                   <div></div>
 
-                  <div>10</div>
+                  <div>20</div>
                   <div>2024-07-01</div>
-                  <div>ActiveDiner</div>
+                  <div>Naimur Rahman</div>
                   <div>Created</div>
                   <div>1</div>
                   <div>
                     <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/10/ActiveDiner" >
+                      <Link href="/person/mdm/10/ActiveDiner" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
                       </Link>
                     </div>
                   </div>
 
-                  <div>11</div>
+                  <div>21</div>
                   <div>2024-07-01</div>
-                  <div>Allen's Pub and Restaurant </div>
+                  <div>Musharof Chy </div>
                   <div>In Work</div>
                   <div>1</div>
                   <div>
                     <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/11/Allen%27s%20Pub%20and%20Restaurant" >
+                      <Link href="/person/mdm/11/Allen%27s%20Pub%20and%20Restaurant" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
                       </Link>
                     </div>
                   </div>
 
-                  <div>12</div>
+                  <div>22</div>
                   <div>2024-07-01</div>
-                  <div>Atlanta Bread Company </div>
+                  <div>Shafiq Hammad </div>
                   <div>Done</div>
                   <div>0</div>
                   <div>
                     <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/12/Atlanta%20Bread%20Company" >
+                      <Link href="/person/mdm/12/Atlanta%20Bread%20Company" >
                           <i className="fa-solid fa-check"></i> &nbsp;
                           Process
                       </Link>
                     </div>
                   </div>
 
-                  <div>13</div>
-                  <div>2024-07-01</div>
-                  <div>Back Yard Burgers </div>
-                  <div>Rejected</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/13/Back%20Yard%20Burgers" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>14</div>
-                  <div>2024-07-01</div>
-                  <div>Baja Fresh</div>
-                  <div>Created</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/14/Baja%20Fresh" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>15</div>
-                  <div>2024-07-01</div>
-                  <div>BeaverTails</div>
-                  <div>In Work</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/15/BeaverTails" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>16</div>
-                  <div>2024-07-01</div>
-                  <div>Benihana</div>
-                  <div>Done</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/16/Benihana" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>17</div>
-                  <div>2024-07-01</div>
-                  <div>Bennigan's</div>
-                  <div>Rejected</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/17/Bennigan%27s" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>18</div>
-                  <div>2024-07-01</div>
-                  <div>Bertucci's</div>
-                  <div>Created</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/18/Bertucci%27s" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>19</div>
-                  <div>2024-07-01</div>
-                  <div>Big Boy International</div>
-                  <div>In Work</div>
-                  <div>0</div>
-                  <div>
-                    <div className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-1 text-center font-medium text-white over:bg-opacity-90 ">
-                      <Link href="/business/mdm/19/Big%20Boy%20International" >
-                          <i className="fa-solid fa-check"></i> &nbsp;
-                          Process
-                      </Link>
-                    </div>
-                  </div>
 
                 </div>
 

@@ -15,7 +15,7 @@ import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
 import { useRouter } from 'next/router'
 
-export function BusinessScreen({ params }: { params: { name: string, id: string } }) {
+export function PersonScreen({ params }: { params: { name: string, id: string } }) {
   const { t } = useTranslation('common')
   setAccessToken ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NjQ0OTkzLCJleHAiOjE3MTIyMzY5OTN9.FoeVqLaXdD5vhOOg5gfsmTj0alETcxh08tjrIaQj9SY');
   const legalListState = useLegalList();  
@@ -27,7 +27,7 @@ export function BusinessScreen({ params }: { params: { name: string, id: string 
 
   return (
     <>
-      <Breadcrumb pageName="Businesses (Process master data requests)" />
+      <Breadcrumb pageName="Person (Process master data requests)" />
 
       <div className="  " >
         <div className=" text-black gap-2 flex">
@@ -145,24 +145,6 @@ export function BusinessScreen({ params }: { params: { name: string, id: string 
                   <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
                   <div><label><input type="radio" name="03"/>&nbsp;{new Date().toLocaleString("en-US", { year: "numeric", month: "2-digit", day:"2-digit" }) + ""}</label></div>
 
-                  <div>Org type</div>
-                  <div>LLP</div>
-                  <div>LLP</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;LLP</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;PLC</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;CIC</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;RTM</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Sole trader</label></div>
-
-                  <div>Form type</div>
-                  <div>Individual</div>
-                  <div>Individual</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Individual</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Individual</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;Company</label></div>
-
                   <div>INN</div>
                   <div>{name}</div>
                   <div>{name}</div>
@@ -171,51 +153,6 @@ export function BusinessScreen({ params }: { params: { name: string, id: string 
                   <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
                   <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
                   <div><label><input type="radio" name="03"/>&nbsp;5900000000</label></div>
-
-                  <div>KPP</div>
-                  <div>590000000</div>
-                  <div>590000000</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;590000000</label></div>
-
-                  <div>OKPO</div>
-                  <div>78000000</div>
-                  <div>78000000</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;78000000</label></div>
-
-                  <div>OGRN</div>
-                  <div>1000000000000</div>
-                  <div>1000000000000</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;1000000000000</label></div>
-
-                  <div>OKVED</div>
-                  <div>63.1</div>
-                  <div>63.1</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;63.1</label></div>
-
-                  <div>OKTMO</div>
-                  <div>54000000</div>
-                  <div>54000000</div>
-                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
-                  <div><label><input type="radio" name="03"/>&nbsp;54000000</label></div>
 
                   <div>Address</div>
                   <div>UK,London, House avenue, 123</div>

@@ -1,11 +1,11 @@
-import { BusinessScreen } from 'app/screens/business'
+import { PersonScreen } from 'app/screens/person/cat'
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
 } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-export default BusinessScreen
+export default PersonScreen
 
 type Props = {
   // Add custom props here
