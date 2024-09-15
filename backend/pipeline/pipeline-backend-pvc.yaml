@@ -18,7 +18,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /zfs/fastmdm-#{Build.SourceBranchName}#-strapi-public-#{Release.ReleaseId}#
+    path: /nfs/fastmdm-#{Build.SourceBranchName}#-strapi-public-#{Release.ReleaseId}#
     server: nfs
   persistentVolumeReclaimPolicy: Retain
 ---

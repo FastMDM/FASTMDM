@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /zfs/fastmdm-#{Build.SourceBranchName}#-postgres-0-#{Release.ReleaseId}#
+    path: /nfs/fastmdm-#{Build.SourceBranchName}#-postgres-0-#{Release.ReleaseId}#
     server: nfs
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -50,7 +50,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /zfs/fastmdm-#{Build.SourceBranchName}#-postgres-1-#{Release.ReleaseId}#
+    path: /nfs/fastmdm-#{Build.SourceBranchName}#-postgres-1-#{Release.ReleaseId}#
     server: nfs
   persistentVolumeReclaimPolicy: Retain
 ---
