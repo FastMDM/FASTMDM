@@ -13,6 +13,12 @@ import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FastMDM Product",
+  description: "This is FastMDM Product",
+};
 
 export function ProductScreen() {
   const { t } = useTranslation('common')

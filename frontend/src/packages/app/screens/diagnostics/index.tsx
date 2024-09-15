@@ -10,8 +10,8 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FastMDM Diagnostics Page ",
-  description: "This is FastMDM Diagnostics Page",
+  title: "FastMDM Diagnostics  ",
+  description: "This is FastMDM Diagnostics",
 };
 
 
