@@ -51,6 +51,7 @@ module.exports = {
   },
 */
   // ...
+/*
   translate: {
     enabled: true,
     config: {
@@ -72,6 +73,7 @@ module.exports = {
         // default is the string before the `-` character for every locale
         localeMap:{ }
       },
+*/
 /*
       // Which field types are translated (default string, text, richtext, components and dynamiczones)
       // Either string or object with type and format
@@ -84,10 +86,11 @@ module.exports = {
         'dynamiczone',
       ],
       // If relations should be translated (default true)
-      translateRelations: true,
-*/      
+      translateRelations: true,    
     },
   },
+*/
+
   // ...
   // ...
   'multi-tenant': {
