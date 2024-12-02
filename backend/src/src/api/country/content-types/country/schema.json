@@ -27,10 +27,10 @@
       },
       "type": "string"
     },
-    "country_iso_code": {
+    "iso2": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         },
         "translate": {
           "translate": "translate"
@@ -60,6 +60,37 @@
           "translate": "translate"
         }
       },
+      "mappedBy": "country"
+    },
+    "iso3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "maxLength": 3
+    },
+    "external_Id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "population": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city.city",
       "mappedBy": "country"
     }
   }

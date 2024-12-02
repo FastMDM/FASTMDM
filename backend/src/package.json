@@ -13,23 +13,23 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@offset-dev/strapi-calendar": "0.1.1",
-    "@strapi/icons": "1.14.1",
-    "@strapi/plugin-i18n": "4.24.2",
-    "@strapi/plugin-users-permissions": "4.24.2",
-    "@strapi/strapi": "4.24.2",
-    "better-sqlite3": "9.4.0",
+    "@offset-dev/strapi-calendar": "0.1.2",
+    "@strapi/icons": "1.19.0",
+    "@strapi/plugin-i18n": "4.25.14",
+    "@strapi/plugin-users-permissions": "4.25.14",
+    "@strapi/strapi": "4.25.14",
+    "better-sqlite3": "11.5.0",
     "patch-package": "8.0.0",
-    "pg": "8.11.3",
+    "pg": "8.13.1",
     "postinstall-postinstall": "2.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-multi-tenant": "1.0.4",
-    "strapi-plugin-populate-deep": "3.0.1", 
-    "strapi-plugin-translate": "1.2.4",
-    "strapi-provider-translate-libretranslate": "1.0.11",
-    "styled-components": "5.3.3"
+    "strapi-plugin-populate-deep": "3.0.1",
+    "strapi-plugin-translate": "1.2.5",
+    "strapi-provider-translate-libretranslate": "1.0.12",
+    "styled-components": "^5.2.1"
   },
   "author": {
     "name": "A Strapi developer"

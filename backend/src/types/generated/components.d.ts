@@ -1,19 +1,4 @@
-import type { Schema, Attribute } from '@strapi/strapi';
-
-export interface BlocksCtaCommandLine extends Schema.Component {
-  collectionName: 'components_blocks_cta_command_lines';
-  info: {
-    displayName: 'CtaCommandLine';
-    description: '';
-  };
-  attributes: {
-    Theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
-      Attribute.DefaultTo<'primary'>;
-    Title: Attribute.String;
-    Text: Attribute.String;
-    commandLine: Attribute.Text;
-  };
-}
+import type { Attribute, Schema } from '@strapi/strapi';
 
 export interface BlocksCta extends Schema.Component {
   collectionName: 'components_slices_ctas';
@@ -22,43 +7,41 @@ export interface BlocksCta extends Schema.Component {
     icon: 'bullhorn';
   };
   attributes: {
+    buttons: Attribute.Component<'shared.button', true>;
+    text: Attribute.String;
     theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
       Attribute.DefaultTo<'muted'>;
     title: Attribute.String;
-    text: Attribute.String;
-    buttons: Attribute.Component<'shared.button', true>;
+  };
+}
+
+export interface BlocksCtaCommandLine extends Schema.Component {
+  collectionName: 'components_blocks_cta_command_lines';
+  info: {
+    description: '';
+    displayName: 'CtaCommandLine';
+  };
+  attributes: {
+    commandLine: Attribute.Text;
+    Text: Attribute.String;
+    Theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
+      Attribute.DefaultTo<'primary'>;
+    Title: Attribute.String;
   };
 }
 
 export interface BlocksFaq extends Schema.Component {
   collectionName: 'components_shared_faqs';
   info: {
+    description: '';
     displayName: 'faq';
     icon: 'question';
-    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    faq: Attribute.Component<'shared.question-answer', true>;
     theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
       Attribute.DefaultTo<'muted'>;
-    faq: Attribute.Component<'shared.question-answer', true>;
-  };
-}
-
-export interface BlocksFeaturesWithImages extends Schema.Component {
-  collectionName: 'components_slices_features_with_images';
-  info: {
-    displayName: 'featuresWithImages';
-    icon: 'images';
-    description: '';
-  };
-  attributes: {
-    header: Attribute.Component<'shared.header'>;
-    text: Attribute.Text & Attribute.Required;
-    theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
-      Attribute.DefaultTo<'primary'>;
-    image: Attribute.Media;
-    featuresCheck: Attribute.Component<'shared.features-check', true>;
+    title: Attribute.String;
   };
 }
 
@@ -69,10 +52,27 @@ export interface BlocksFeatures extends Schema.Component {
     icon: 'search-plus';
   };
   attributes: {
+    cards: Attribute.Component<'shared.card', true>;
+    header: Attribute.Component<'shared.header'>;
     theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
       Attribute.DefaultTo<'secondary'>;
+  };
+}
+
+export interface BlocksFeaturesWithImages extends Schema.Component {
+  collectionName: 'components_slices_features_with_images';
+  info: {
+    description: '';
+    displayName: 'featuresWithImages';
+    icon: 'images';
+  };
+  attributes: {
+    featuresCheck: Attribute.Component<'shared.features-check', true>;
     header: Attribute.Component<'shared.header'>;
-    cards: Attribute.Component<'shared.card', true>;
+    image: Attribute.Media<'images' | 'files' | 'videos'>;
+    text: Attribute.Text & Attribute.Required;
+    theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
+      Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -83,10 +83,10 @@ export interface BlocksHero extends Schema.Component {
     icon: 'pizza-slice';
   };
   attributes: {
-    images: Attribute.Media;
-    header: Attribute.Component<'shared.header'>;
-    text: Attribute.String;
     buttons: Attribute.Component<'shared.button', true>;
+    header: Attribute.Component<'shared.header'>;
+    images: Attribute.Media<'images' | 'files' | 'videos', true>;
+    text: Attribute.String;
   };
 }
 
@@ -105,9 +105,9 @@ export interface BlocksPricing extends Schema.Component {
 export interface BlocksTeam extends Schema.Component {
   collectionName: 'components_slices_teams';
   info: {
+    description: '';
     displayName: 'team';
     icon: 'people-carry';
-    description: '';
   };
   attributes: {
     header: Attribute.Component<'shared.header'>;
@@ -122,19 +122,19 @@ export interface BlocksTeam extends Schema.Component {
 export interface BlocksTestimonial extends Schema.Component {
   collectionName: 'components_shared_testimonials';
   info: {
+    description: '';
     displayName: 'testimonial';
     icon: 'quote-right';
-    description: '';
   };
   attributes: {
-    theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
-      Attribute.DefaultTo<'primary'>;
-    text: Attribute.Text & Attribute.Required;
     author: Attribute.Relation<
       'blocks.testimonial',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    text: Attribute.Text & Attribute.Required;
+    theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
+      Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -146,6 +146,18 @@ export interface CommonDictionaryItem extends Schema.Component {
   };
   attributes: {
     name: Attribute.String;
+  };
+}
+
+export interface CommonMeta extends Schema.Component {
+  collectionName: 'components_common_metas';
+  info: {
+    description: '';
+    displayName: 'meta';
+    icon: 'address-card';
+  };
+  attributes: {
+    Meta: Attribute.Component<'common.meta-item', true>;
   };
 }
 
@@ -161,15 +173,14 @@ export interface CommonMetaItem extends Schema.Component {
   };
 }
 
-export interface CommonMeta extends Schema.Component {
-  collectionName: 'components_common_metas';
+export interface CommonQuote extends Schema.Component {
+  collectionName: 'components_common_quotes';
   info: {
-    displayName: 'meta';
-    icon: 'address-card';
-    description: '';
+    displayName: 'Quote';
+    icon: 'angle-right';
   };
   attributes: {
-    Meta: Attribute.Component<'common.meta-item', true>;
+    Quote: Attribute.Component<'common.quote-item', true>;
   };
 }
 
@@ -182,17 +193,6 @@ export interface CommonQuoteItem extends Schema.Component {
   attributes: {
     Quote: Attribute.String;
     Quoter: Attribute.String;
-  };
-}
-
-export interface CommonQuote extends Schema.Component {
-  collectionName: 'components_common_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'angle-right';
-  };
-  attributes: {
-    Quote: Attribute.Component<'common.quote-item', true>;
   };
 }
 
@@ -214,10 +214,10 @@ export interface GlobalFooter extends Schema.Component {
     icon: 'align-right';
   };
   attributes: {
-    footerColumns: Attribute.Component<'shared.footer-columns', true>;
-    socialNetworks: Attribute.Component<'shared.social-networks', true>;
     button: Attribute.Component<'shared.button'>;
+    footerColumns: Attribute.Component<'shared.footer-columns', true>;
     label: Attribute.String;
+    socialNetworks: Attribute.Component<'shared.social-networks', true>;
   };
 }
 
@@ -228,8 +228,8 @@ export interface GlobalNavigation extends Schema.Component {
     icon: 'location-arrow';
   };
   attributes: {
-    links: Attribute.Component<'shared.link', true>;
     leftButton: Attribute.Component<'shared.link'>;
+    links: Attribute.Component<'shared.link', true>;
     rightButton: Attribute.Component<'shared.link'>;
   };
 }
@@ -237,8 +237,8 @@ export interface GlobalNavigation extends Schema.Component {
 export interface HotelHotel extends Schema.Component {
   collectionName: 'components_hotel_hotels';
   info: {
-    displayName: 'Hotel';
     description: '';
+    displayName: 'Hotel';
   };
   attributes: {
     hotel_features: Attribute.Relation<
@@ -256,8 +256,8 @@ export interface PricingPerks extends Schema.Component {
     icon: 'adjust';
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
     included: Attribute.Boolean & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
   };
 }
 
@@ -268,10 +268,10 @@ export interface PricingPricingCards extends Schema.Component {
     icon: 'file-invoice-dollar';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
     description: Attribute.String;
-    price: Attribute.Integer & Attribute.Required;
     perks: Attribute.Component<'pricing.perks', true>;
+    price: Attribute.Integer & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -287,10 +287,10 @@ export interface QuestionAnswer extends Schema.Component {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    text: Attribute.RichText;
-    scor: Attribute.Integer;
-    Votes: Attribute.Component<'question.vote', true>;
     Comments: Attribute.Component<'question.comment', true>;
+    scor: Attribute.Integer;
+    text: Attribute.RichText;
+    Votes: Attribute.Component<'question.vote', true>;
   };
 }
 
@@ -326,30 +326,30 @@ export interface QuestionVote extends Schema.Component {
   };
 }
 
-export interface RestaurantDishSlider extends Schema.Component {
-  collectionName: 'components_restaurant_dish_sliders';
-  info: {
-    displayName: 'DishSlider';
-    icon: 'angle-double-down';
-    description: '';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Description: Attribute.Text;
-    Image: Attribute.Media;
-    Price: Attribute.Integer;
-  };
-}
-
 export interface RestaurantDish extends Schema.Component {
   collectionName: 'components_restaurant_dishes';
   info: {
+    description: '';
     displayName: 'Dish';
     icon: 'angle-double-right';
-    description: '';
   };
   attributes: {
     DishSlider: Attribute.Component<'restaurant.dish-slider', true>;
+  };
+}
+
+export interface RestaurantDishSlider extends Schema.Component {
+  collectionName: 'components_restaurant_dish_sliders';
+  info: {
+    description: '';
+    displayName: 'DishSlider';
+    icon: 'angle-double-down';
+  };
+  attributes: {
+    Description: Attribute.Text;
+    Image: Attribute.Media<'images' | 'files' | 'videos'>;
+    Name: Attribute.String;
+    Price: Attribute.Integer;
   };
 }
 
@@ -361,8 +361,8 @@ export interface RestaurantInformation extends Schema.Component {
   };
   attributes: {
     description: Attribute.Text;
-    opening_hours: Attribute.Component<'restaurant.opening-hours', true>;
     location: Attribute.Component<'restaurant.location'>;
+    opening_hours: Attribute.Component<'restaurant.opening-hours', true>;
   };
 }
 
@@ -374,8 +374,8 @@ export interface RestaurantLocation extends Schema.Component {
   };
   attributes: {
     address: Attribute.String;
-    website: Attribute.String;
     phone: Attribute.String;
+    website: Attribute.String;
   };
 }
 
@@ -386,9 +386,9 @@ export interface RestaurantOpeningHours extends Schema.Component {
     icon: 'calendar-alt';
   };
   attributes: {
+    closing_hour: Attribute.String;
     day_interval: Attribute.String & Attribute.Required;
     opening_hour: Attribute.String;
-    closing_hour: Attribute.String;
   };
 }
 
@@ -410,8 +410,8 @@ export interface RestaurantRelatedRestaurants extends Schema.Component {
 export interface RestaurantRestaurant extends Schema.Component {
   collectionName: 'components_restaurant_restaurants';
   info: {
-    displayName: 'Restaurant';
     description: '';
+    displayName: 'Restaurant';
   };
   attributes: {
     DishSlider: Attribute.Component<'restaurant.dish-slider', true>;
@@ -457,14 +457,14 @@ export interface RestaurantRichContent extends Schema.Component {
 export interface SharedButton extends Schema.Component {
   collectionName: 'components_shared_buttons';
   info: {
-    displayName: 'Button';
     description: '';
+    displayName: 'Button';
   };
   attributes: {
+    Link: Attribute.Component<'shared.link'>;
     theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
       Attribute.Required &
       Attribute.DefaultTo<'primary'>;
-    Link: Attribute.Component<'shared.link'>;
   };
 }
 
@@ -474,9 +474,9 @@ export interface SharedCard extends Schema.Component {
     displayName: 'Card';
   };
   attributes: {
-    Title: Attribute.String;
+    Image: Attribute.Media<'images' | 'files' | 'videos'>;
     Text: Attribute.String;
-    Image: Attribute.Media;
+    Title: Attribute.String;
   };
 }
 
@@ -513,13 +513,13 @@ export interface SharedFooterColumns extends Schema.Component {
 export interface SharedHeader extends Schema.Component {
   collectionName: 'components_shared_headers';
   info: {
-    displayName: 'Header';
     description: '';
+    displayName: 'Header';
   };
   attributes: {
+    Label: Attribute.String;
     Theme: Attribute.Enumeration<['primary', 'secondary', 'muted']> &
       Attribute.DefaultTo<'primary'>;
-    Label: Attribute.String;
     Title: Attribute.String;
   };
 }
@@ -527,14 +527,14 @@ export interface SharedHeader extends Schema.Component {
 export interface SharedLink extends Schema.Component {
   collectionName: 'components_shared_links';
   info: {
-    displayName: 'Link';
     description: '';
+    displayName: 'Link';
   };
   attributes: {
     Href: Attribute.String & Attribute.Required;
+    IsExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
     Label: Attribute.String & Attribute.Required;
     Target: Attribute.Enumeration<['_blank']>;
-    IsExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -544,23 +544,23 @@ export interface SharedMetaSocial extends Schema.Component {
     displayName: 'MetaSocial';
   };
   attributes: {
+    Description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    Image: Attribute.Media<'images' | 'files' | 'videos'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'copy';
+        };
+      }>;
     SocialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
       Attribute.Required;
     Title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 60;
-      }>;
-    Description: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
-    Image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'copy';
-        };
       }>;
   };
 }
@@ -579,13 +579,13 @@ export interface SharedPublication extends Schema.Component {
 export interface SharedQuestionAnswer extends Schema.Component {
   collectionName: 'components_shared_question_answers';
   info: {
+    description: '';
     displayName: 'questionAnswer';
     icon: 'question-circle';
-    description: '';
   };
   attributes: {
-    question: Attribute.String;
     answer: Attribute.RichText;
+    question: Attribute.String;
   };
 }
 
@@ -595,24 +595,25 @@ export interface SharedSeo extends Schema.Component {
     displayName: 'Seo';
   };
   attributes: {
+    CanonicalURL: Attribute.String;
+    Keywords: Attribute.Text;
+    MetaDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
+        minLength: 50;
+      }>;
+    MetaImage: Attribute.Media<'images' | 'files' | 'videos'> &
+      Attribute.Required;
+    MetaRobots: Attribute.String;
+    MetaSocial: Attribute.Component<'shared.meta-social', true>;
     MetaTitle: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    MetaDescription: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 50;
-        maxLength: 160;
-      }>;
-    MetaImage: Attribute.Media & Attribute.Required;
-    MetaSocial: Attribute.Component<'shared.meta-social', true>;
-    Keywords: Attribute.Text;
-    MetaRobots: Attribute.String;
-    StructuredData: Attribute.JSON;
     MetaViewport: Attribute.String;
-    CanonicalURL: Attribute.String;
+    StructuredData: Attribute.JSON;
   };
 }
 
@@ -632,9 +633,9 @@ export interface SharedTeamCard extends Schema.Component {
     displayName: 'TeamCard';
   };
   attributes: {
+    Description: Attribute.String & Attribute.Required;
     Fullname: Attribute.String & Attribute.Required;
     Job: Attribute.String & Attribute.Required;
-    Description: Attribute.String & Attribute.Required;
     SocialNetworks: Attribute.Component<'shared.social-network', true>;
   };
 }
@@ -642,20 +643,20 @@ export interface SharedTeamCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'blocks.cta-command-line': BlocksCtaCommandLine;
       'blocks.cta': BlocksCta;
+      'blocks.cta-command-line': BlocksCtaCommandLine;
       'blocks.faq': BlocksFaq;
-      'blocks.features-with-images': BlocksFeaturesWithImages;
       'blocks.features': BlocksFeatures;
+      'blocks.features-with-images': BlocksFeaturesWithImages;
       'blocks.hero': BlocksHero;
       'blocks.pricing': BlocksPricing;
       'blocks.team': BlocksTeam;
       'blocks.testimonial': BlocksTestimonial;
       'common.dictionary-item': CommonDictionaryItem;
-      'common.meta-item': CommonMetaItem;
       'common.meta': CommonMeta;
-      'common.quote-item': CommonQuoteItem;
+      'common.meta-item': CommonMetaItem;
       'common.quote': CommonQuote;
+      'common.quote-item': CommonQuoteItem;
       'common.rich-text': CommonRichText;
       'global.footer': GlobalFooter;
       'global.navigation': GlobalNavigation;
@@ -665,8 +666,8 @@ declare module '@strapi/types' {
       'question.answer': QuestionAnswer;
       'question.comment': QuestionComment;
       'question.vote': QuestionVote;
-      'restaurant.dish-slider': RestaurantDishSlider;
       'restaurant.dish': RestaurantDish;
+      'restaurant.dish-slider': RestaurantDishSlider;
       'restaurant.information': RestaurantInformation;
       'restaurant.location': RestaurantLocation;
       'restaurant.opening-hours': RestaurantOpeningHours;
