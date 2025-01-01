@@ -1,0 +1,311 @@
+{
+  "kind": "collectionType",
+  "collectionName": "businesses",
+  "info": {
+    "singularName": "business",
+    "pluralName": "businesses",
+    "displayName": "Business",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
+    "Description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "text"
+    },
+    "Slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "businesses"
+    },
+    "Phone": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Fax": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Site": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Chat": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "OpeningHours": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "restaurant.opening-hours"
+    },
+    "business_directory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-directory.business-directory",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "businesses"
+    },
+    "SocialNetwork": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "shared.social-network"
+    },
+    "Blocks": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "common.rich-text",
+        "blocks.cta",
+        "blocks.faq"
+      ]
+    },
+    "userGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "businesses"
+    },
+    "Restaurant": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "component": "restaurant.restaurant"
+    },
+    "Hotel": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "component": "hotel.hotel"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "text"
+    },
+    "url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text"
+    },
+    "AddressText": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "City": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Postcode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "Country": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "OldCode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "Topic": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text"
+    },
+    "CategoryId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "usastate": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "worldregion": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "canadaprovince": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "pobox": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    }
+  }
+}

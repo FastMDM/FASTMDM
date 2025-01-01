@@ -4,10 +4,12 @@ import { View } from 'app/design/view'
 
 import { MotiLink } from 'solito/moti'
 
+
 import { useTranslation } from '../../utils/localization'
 
 export function AboutScreen() {
   const { t } = useTranslation('common')
+
   return (
     <View className="flex-1 items-left justify-left p-3">
       <H1 className="text-center text-black dark:text-white">About Us</H1>
@@ -21,8 +23,13 @@ export function AboutScreen() {
         <li>Multilanguage. Data storage in many languages, attended and unattended data translation.</li>
         <li>Data integration. API eliminates the need for manual data entry and reduces the risk of errors or duplications.</li>
       </ul>
-      
-         
+      <ul className="list-disc text-black dark:text-white">
+         <li>Metadata as code. Centrally store a unified structure of data and relationships between data.</li>
+         <li>Data quality. Data mapping, cleansing, deduplication and enrichment.</li>
+         <li>Multitenancy. Authentication, authorization, policies, access control to use data.</li>
+         <li>Multilanguage. Data storage in many languages, attended and unattended data translation.</li>
+         <li>Data integration. API eliminates the need for manual data entry and reduces the risk of errors or duplications.</li>
+       </ul>
     </View>
   )
 }

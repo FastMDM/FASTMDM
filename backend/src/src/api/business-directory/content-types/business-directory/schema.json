@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_directories",
+  "info": {
+    "singularName": "business-directory",
+    "pluralName": "business-directories",
+    "displayName": "BusinessDirectory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-directory.business-directory",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "mappedBy": "childs"
+    },
+    "childs": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-directory.business-directory",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "parent"
+    },
+    "userGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::multi-tenant.user-group",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "inversedBy": "business_directories"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "business_directory"
+    }
+  }
+}

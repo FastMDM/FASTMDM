@@ -145,6 +145,18 @@
       "relation": "oneToMany",
       "target": "api::legal-directory.legal-directory",
       "mappedBy": "userGroup"
+    },
+    "business_directories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-directory.business-directory",
+      "mappedBy": "userGroup"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "userGroup"
     }
   }
 }

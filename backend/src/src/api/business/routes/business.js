@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * todo router.
+ * business router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::todo.todo');
+module.exports = createCoreRouter('api::business.business');
