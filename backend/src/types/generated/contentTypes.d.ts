@@ -399,6 +399,11 @@ export interface ApiAddressAddress extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
+    businesses: Attribute.Relation<
+      'api::address.address',
+      'oneToMany',
+      'api::business.business'
+    >;
     capital_marker: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1884,6 +1889,346 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiBusinessDirectoryBusinessDirectory
+  extends Schema.CollectionType {
+  collectionName: 'business_directories';
+  info: {
+    description: '';
+    displayName: 'BusinessDirectory';
+    pluralName: 'business-directories';
+    singularName: 'business-directory';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    businesses: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'oneToMany',
+      'api::business.business'
+    >;
+    childs: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'manyToOne',
+      'api::business-directory.business-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'oneToMany',
+      'api::business-directory.business-directory'
+    >;
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    parent: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'oneToMany',
+      'api::business-directory.business-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    userGroup: Attribute.Relation<
+      'api::business-directory.business-directory',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+  };
+}
+
+export interface ApiBusinessBusiness extends Schema.CollectionType {
+  collectionName: 'businesses';
+  info: {
+    description: '';
+    displayName: 'Business';
+    pluralName: 'businesses';
+    singularName: 'business';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Attribute.Relation<
+      'api::business.business',
+      'manyToOne',
+      'api::address.address'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    AddressText: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Blocks: Attribute.DynamicZone<
+      ['common.rich-text', 'blocks.cta', 'blocks.faq']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    business_directory: Attribute.Relation<
+      'api::business.business',
+      'manyToOne',
+      'api::business-directory.business-directory'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    canadaprovince: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    CategoryId: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Chat: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    City: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Country: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::business.business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    Description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Email: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Fax: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Hotel: Attribute.Component<'hotel.hotel', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::business.business',
+      'oneToMany',
+      'api::business.business'
+    >;
+    Name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    OldCode: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    OpeningHours: Attribute.Component<'restaurant.opening-hours', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    pobox: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Postcode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Restaurant: Attribute.Component<'restaurant.restaurant'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Site: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    SocialNetwork: Attribute.Component<'shared.social-network', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    Topic: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::business.business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    url: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    usastate: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    userGroup: Attribute.Relation<
+      'api::business.business',
+      'manyToOne',
+      'plugin::multi-tenant.user-group'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    worldregion: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+  };
+}
+
 export interface ApiCityDistrictCityDistrict extends Schema.CollectionType {
   collectionName: 'city_districts';
   info: {
@@ -2210,283 +2555,6 @@ export interface ApiCoachingCoaching extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiCompanyDirectoryCompanyDirectory
-  extends Schema.CollectionType {
-  collectionName: 'company_directories';
-  info: {
-    description: '';
-    displayName: 'CompanyDirectory';
-    pluralName: 'company-directories';
-    singularName: 'company-directory';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    child: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'oneToMany',
-      'api::company-directory.company-directory'
-    >;
-    companies: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'manyToMany',
-      'api::company.company'
-    >;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'oneToMany',
-      'api::company-directory.company-directory'
-    >;
-    oldcode: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    parent: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'manyToOne',
-      'api::company-directory.company-directory'
-    >;
-    parentid: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    parenttitle: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Attribute.DateTime;
-    title: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    titleen: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    user: Attribute.Relation<
-      'api::company-directory.company-directory',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-  };
-}
-
-export interface ApiCompanyCompany extends Schema.CollectionType {
-  collectionName: 'companies';
-  info: {
-    description: '';
-    displayName: 'Company';
-    pluralName: 'companies';
-    singularName: 'company';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    address: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    canadaprovince: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    categoryid: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    city: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    company_directories: Attribute.Relation<
-      'api::company.company',
-      'manyToMany',
-      'api::company-directory.company-directory'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    country: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::company.company',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    email: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    fax: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::company.company',
-      'oneToMany',
-      'api::company.company'
-    >;
-    OldCode: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    phone: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    pobox: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    postcode: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    publishedAt: Attribute.DateTime;
-    title: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    topic: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::company.company',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    url: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    usastate: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    users: Attribute.Relation<
-      'api::company.company',
-      'manyToMany',
-      'plugin::users-permissions.user'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    worldregion: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
   };
 }
 
@@ -4889,80 +4957,6 @@ export interface ApiTimeZoneTimeZone extends Schema.CollectionType {
   };
 }
 
-export interface ApiTodoTodo extends Schema.CollectionType {
-  collectionName: 'todos';
-  info: {
-    description: '';
-    displayName: 'Todo';
-    pluralName: 'todos';
-    singularName: 'todo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    due: Attribute.Date &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    finished: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::todo.todo',
-      'oneToMany',
-      'api::todo.todo'
-    >;
-    publishedAt: Attribute.DateTime;
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    users_permissions_user: Attribute.Relation<
-      'api::todo.todo',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-  };
-}
-
 export interface ApiTransportTransport extends Schema.CollectionType {
   collectionName: 'transports';
   info: {
@@ -5223,6 +5217,16 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'plugin::multi-tenant.user-group',
       'oneToMany',
       'api::auto.auto'
+    >;
+    business_directories: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::business-directory.business-directory'
+    >;
+    businesses: Attribute.Relation<
+      'plugin::multi-tenant.user-group',
+      'oneToMany',
+      'api::business.business'
     >;
     children: Attribute.Relation<
       'plugin::multi-tenant.user-group',
@@ -5628,16 +5632,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   attributes: {
     blocked: Attribute.Boolean & Attribute.DefaultTo<false>;
-    companies: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'manyToMany',
-      'api::company.company'
-    >;
-    company_directories: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::company-directory.company-directory'
-    >;
     confirmationToken: Attribute.String & Attribute.Private;
     confirmed: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
@@ -5663,11 +5657,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
-    >;
-    todos: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::todo.todo'
     >;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -5711,11 +5700,11 @@ declare module '@strapi/types' {
       'api::auto.auto': ApiAutoAuto;
       'api::block.block': ApiBlockBlock;
       'api::blog.blog': ApiBlogBlog;
+      'api::business-directory.business-directory': ApiBusinessDirectoryBusinessDirectory;
+      'api::business.business': ApiBusinessBusiness;
       'api::city-district.city-district': ApiCityDistrictCityDistrict;
       'api::city.city': ApiCityCity;
       'api::coaching.coaching': ApiCoachingCoaching;
-      'api::company-directory.company-directory': ApiCompanyDirectoryCompanyDirectory;
-      'api::company.company': ApiCompanyCompany;
       'api::country.country': ApiCountryCountry;
       'api::course.course': ApiCourseCourse;
       'api::currency.currency': ApiCurrencyCurrency;
@@ -5743,7 +5732,6 @@ declare module '@strapi/types' {
       'api::stead.stead': ApiSteadStead;
       'api::street.street': ApiStreetStreet;
       'api::time-zone.time-zone': ApiTimeZoneTimeZone;
-      'api::todo.todo': ApiTodoTodo;
       'api::transport.transport': ApiTransportTransport;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

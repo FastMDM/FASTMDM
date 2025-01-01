@@ -62,24 +62,6 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
-    },
-    "todos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::todo.todo",
-      "mappedBy": "users_permissions_user"
-    },
-    "company_directories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::company-directory.company-directory",
-      "mappedBy": "user"
-    },
-    "companies": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::company.company",
-      "inversedBy": "users"
     }
   }
 }

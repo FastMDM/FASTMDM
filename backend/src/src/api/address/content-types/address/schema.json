@@ -365,6 +365,12 @@
       "relation": "oneToMany",
       "target": "api::legal.legal",
       "mappedBy": "AddressRel"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "address"
     }
   }
 }
