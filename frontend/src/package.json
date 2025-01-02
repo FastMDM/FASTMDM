@@ -35,5 +35,5 @@
     "**/expo-router",
     "**/expo-router/**"
   ],
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@4.2.2"
 }
