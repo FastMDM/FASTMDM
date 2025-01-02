@@ -38,46 +38,16 @@
       "target": "plugin::multi-tenant.user-group",
       "mappedBy": "parent"
     },
-    "restaurants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::restaurant.restaurant",
-      "mappedBy": "user_group"
-    },
-    "legals": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::legal.legal",
-      "mappedBy": "userGroup"
-    },
     "animals": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::animal.animal",
       "mappedBy": "userGroup"
     },
-    "assets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::asset.asset",
-      "mappedBy": "userGroup"
-    },
     "autos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::auto.auto",
-      "mappedBy": "userGroup"
-    },
-    "hotels": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::hotel.hotel",
-      "mappedBy": "userGroup"
-    },
-    "inventories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::inventory.inventory",
       "mappedBy": "userGroup"
     },
     "areas": {
@@ -138,12 +108,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::time-zone.time-zone",
-      "mappedBy": "userGroup"
-    },
-    "legal_directories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::legal-directory.legal-directory",
       "mappedBy": "userGroup"
     },
     "business_directories": {

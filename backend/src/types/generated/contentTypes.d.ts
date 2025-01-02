@@ -389,16 +389,6 @@ export interface ApiAddressAddress extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    block: Attribute.Relation<
-      'api::address.address',
-      'manyToOne',
-      'api::block.block'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     businesses: Attribute.Relation<
       'api::address.address',
       'oneToMany',
@@ -569,11 +559,6 @@ export interface ApiAddressAddress extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 19;
       }>;
-    legals: Attribute.Relation<
-      'api::address.address',
-      'oneToMany',
-      'api::legal.legal'
-    >;
     locale: Attribute.String;
     localizations: Attribute.Relation<
       'api::address.address',
@@ -895,66 +880,6 @@ export interface ApiAreaArea extends Schema.CollectionType {
       Attribute.Private;
     userGroup: Attribute.Relation<
       'api::area.area',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-  };
-}
-
-export interface ApiAssetAsset extends Schema.CollectionType {
-  collectionName: 'assets';
-  info: {
-    description: '';
-    displayName: 'Asset';
-    pluralName: 'assets';
-    singularName: 'asset';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::asset.asset',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::asset.asset',
-      'oneToMany',
-      'api::asset.asset'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    publishedAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::asset.asset',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::asset.asset',
       'manyToOne',
       'plugin::multi-tenant.user-group'
     > &
@@ -1731,97 +1656,6 @@ export interface ApiAutoAuto extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlockBlock extends Schema.CollectionType {
-  collectionName: 'blocks';
-  info: {
-    description: '';
-    displayName: 'Block';
-    pluralName: 'blocks';
-    singularName: 'block';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    addresses: Attribute.Relation<
-      'api::block.block',
-      'oneToMany',
-      'api::address.address'
-    >;
-    block: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
-    block_type: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 10;
-      }>;
-    block_type_full: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::block.block',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::block.block',
-      'oneToMany',
-      'api::block.block'
-    >;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::block.block',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::block.block',
-      'oneToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-  };
-}
-
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -2547,55 +2381,6 @@ export interface ApiCityCity extends Schema.CollectionType {
   };
 }
 
-export interface ApiCoachingCoaching extends Schema.CollectionType {
-  collectionName: 'coachings';
-  info: {
-    description: '';
-    displayName: 'Coaching';
-    pluralName: 'coachings';
-    singularName: 'coaching';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::coaching.coaching',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::coaching.coaching',
-      'oneToMany',
-      'api::coaching.coaching'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::coaching.coaching',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCountryCountry extends Schema.CollectionType {
   collectionName: 'countries';
   info: {
@@ -2903,16 +2688,6 @@ export interface ApiHotelFeatureHotelFeature extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    hotels: Attribute.Relation<
-      'api::hotel-feature.hotel-feature',
-      'manyToMany',
-      'api::hotel.hotel'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     locale: Attribute.String;
     localizations: Attribute.Relation<
       'api::hotel-feature.hotel-feature',
@@ -2935,75 +2710,6 @@ export interface ApiHotelFeatureHotelFeature extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiHotelHotel extends Schema.CollectionType {
-  collectionName: 'hotels';
-  info: {
-    description: '';
-    displayName: 'Hotel';
-    pluralName: 'hotels';
-    singularName: 'hotel';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    hotel_features: Attribute.Relation<
-      'api::hotel.hotel',
-      'manyToMany',
-      'api::hotel-feature.hotel-feature'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToMany',
-      'api::hotel.hotel'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::hotel.hotel',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
   };
 }
 
@@ -3122,428 +2828,6 @@ export interface ApiHouseHouse extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
-        };
-      }>;
-  };
-}
-
-export interface ApiInventoryInventory extends Schema.CollectionType {
-  collectionName: 'inventories';
-  info: {
-    description: '';
-    displayName: 'Inventory';
-    pluralName: 'inventories';
-    singularName: 'inventory';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::inventory.inventory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::inventory.inventory',
-      'oneToMany',
-      'api::inventory.inventory'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::inventory.inventory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::inventory.inventory',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-  };
-}
-
-export interface ApiLegalDirectoryLegalDirectory extends Schema.CollectionType {
-  collectionName: 'legal_directories';
-  info: {
-    description: '';
-    displayName: 'LegalDirectory';
-    pluralName: 'legal-directories';
-    singularName: 'legal-directory';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    child: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'manyToOne',
-      'api::legal-directory.legal-directory'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    legals: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'oneToMany',
-      'api::legal.legal'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'oneToMany',
-      'api::legal-directory.legal-directory'
-    >;
-    parents: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'oneToMany',
-      'api::legal-directory.legal-directory'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::legal-directory.legal-directory',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-  };
-}
-
-export interface ApiLegalLegal extends Schema.CollectionType {
-  collectionName: 'legals';
-  info: {
-    description: '';
-    displayName: 'Legal';
-    pluralName: 'legals';
-    singularName: 'legal';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    address: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    AddressRel: Attribute.Relation<
-      'api::legal.legal',
-      'manyToOne',
-      'api::address.address'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Blocks: Attribute.DynamicZone<
-      ['common.rich-text', 'blocks.cta', 'blocks.faq']
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    canadaprovince: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    categoryid: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Chat: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    city: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    country: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::legal.legal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    Description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Email: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Fax: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    hotel: Attribute.Component<'hotel.hotel'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    legal_directory: Attribute.Relation<
-      'api::legal.legal',
-      'manyToOne',
-      'api::legal-directory.legal-directory'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::legal.legal',
-      'oneToMany',
-      'api::legal.legal'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    OldCode: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    OpeningHours: Attribute.Component<'restaurant.opening-hours', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    Phone: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    pobox: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    postcode: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    restaurant: Attribute.Component<'restaurant.restaurant'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Site: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Slug: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    SocialNetwork: Attribute.Component<'shared.social-network', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    title: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    topic: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::legal.legal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    url: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    usastate: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    userGroup: Attribute.Relation<
-      'api::legal.legal',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    worldregion: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
   };
@@ -4092,16 +3376,6 @@ export interface ApiRestaurantCuisineRestaurantCuisine
           translate: 'translate';
         };
       }>;
-    restaurants: Attribute.Relation<
-      'api::restaurant-cuisine.restaurant-cuisine',
-      'manyToMany',
-      'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::restaurant-cuisine.restaurant-cuisine',
@@ -4152,16 +3426,6 @@ export interface ApiRestaurantDishRestaurantDish extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    restaurants: Attribute.Relation<
-      'api::restaurant-dish.restaurant-dish',
-      'manyToMany',
-      'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::restaurant-dish.restaurant-dish',
@@ -4208,16 +3472,6 @@ export interface ApiRestaurantFeatureRestaurantFeature
         i18n: {
           localized: true;
         };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurants: Attribute.Relation<
-      'api::restaurant-feature.restaurant-feature',
-      'manyToMany',
-      'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
         };
@@ -4278,16 +3532,6 @@ export interface ApiRestaurantPriceRestaurantPrice
           localized: true;
         };
       }>;
-    restaurants: Attribute.Relation<
-      'api::restaurant-price.restaurant-price',
-      'manyToMany',
-      'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::restaurant-price.restaurant-price',
@@ -4338,16 +3582,6 @@ export interface ApiRestaurantTypeRestaurantType extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    restaurants: Attribute.Relation<
-      'api::restaurant-type.restaurant-type',
-      'manyToMany',
-      'api::restaurant.restaurant'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::restaurant-type.restaurant-type',
@@ -4355,168 +3589,6 @@ export interface ApiRestaurantTypeRestaurantType extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiRestaurantRestaurant extends Schema.CollectionType {
-  collectionName: 'restaurants';
-  info: {
-    description: '';
-    displayName: 'Restaurant';
-    pluralName: 'restaurants';
-    singularName: 'restaurant';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Blocks: Attribute.DynamicZone<
-      [
-        'restaurant.dish',
-        'common.rich-text',
-        'blocks.faq',
-        'blocks.cta',
-        'restaurant.related-restaurants'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    Description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    Image: Attribute.Media<'images' | 'files' | 'videos'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    information: Attribute.Component<'restaurant.information'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Attribute.String;
-    localizations: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'oneToMany',
-      'api::restaurant.restaurant'
-    >;
-    Name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant_cuisines: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::restaurant-cuisine.restaurant-cuisine'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant_dishes: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::restaurant-dish.restaurant-dish'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant_features: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::restaurant-feature.restaurant-feature'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant_prices: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::restaurant-price.restaurant-price'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    restaurant_types: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::restaurant-type.restaurant-type'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    slug: Attribute.UID<'api::restaurant.restaurant', 'Name'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    socialNetworks: Attribute.Component<'shared.social-network', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    userGroup: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToOne',
-      'plugin::multi-tenant.user-group'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
   };
 }
 
@@ -5246,11 +4318,6 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'oneToMany',
       'api::area.area'
     >;
-    assets: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::asset.asset'
-    >;
     autos: Attribute.Relation<
       'plugin::multi-tenant.user-group',
       'oneToMany',
@@ -5293,30 +4360,10 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    hotels: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::hotel.hotel'
-    >;
     houses: Attribute.Relation<
       'plugin::multi-tenant.user-group',
       'oneToMany',
       'api::house.house'
-    >;
-    inventories: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::inventory.inventory'
-    >;
-    legal_directories: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::legal-directory.legal-directory'
-    >;
-    legals: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::legal.legal'
     >;
     name: Attribute.String;
     parent: Attribute.Relation<
@@ -5328,11 +4375,6 @@ export interface PluginMultiTenantUserGroup extends Schema.CollectionType {
       'plugin::multi-tenant.user-group',
       'oneToMany',
       'api::realty.realty'
-    >;
-    restaurants: Attribute.Relation<
-      'plugin::multi-tenant.user-group',
-      'oneToMany',
-      'api::restaurant.restaurant'
     >;
     settlements: Attribute.Relation<
       'plugin::multi-tenant.user-group',
@@ -5725,7 +4767,6 @@ declare module '@strapi/types' {
       'api::address.address': ApiAddressAddress;
       'api::animal.animal': ApiAnimalAnimal;
       'api::area.area': ApiAreaArea;
-      'api::asset.asset': ApiAssetAsset;
       'api::auto-color.auto-color': ApiAutoColorAutoColor;
       'api::auto-condition.auto-condition': ApiAutoConditionAutoCondition;
       'api::auto-cylinder.auto-cylinder': ApiAutoCylinderAutoCylinder;
@@ -5736,23 +4777,17 @@ declare module '@strapi/types' {
       'api::auto-transmission.auto-transmission': ApiAutoTransmissionAutoTransmission;
       'api::auto-type.auto-type': ApiAutoTypeAutoType;
       'api::auto.auto': ApiAutoAuto;
-      'api::block.block': ApiBlockBlock;
       'api::blog.blog': ApiBlogBlog;
       'api::business-directory.business-directory': ApiBusinessDirectoryBusinessDirectory;
       'api::business.business': ApiBusinessBusiness;
       'api::city-district.city-district': ApiCityDistrictCityDistrict;
       'api::city.city': ApiCityCity;
-      'api::coaching.coaching': ApiCoachingCoaching;
       'api::country.country': ApiCountryCountry;
       'api::course.course': ApiCourseCourse;
       'api::currency.currency': ApiCurrencyCurrency;
       'api::event.event': ApiEventEvent;
       'api::hotel-feature.hotel-feature': ApiHotelFeatureHotelFeature;
-      'api::hotel.hotel': ApiHotelHotel;
       'api::house.house': ApiHouseHouse;
-      'api::inventory.inventory': ApiInventoryInventory;
-      'api::legal-directory.legal-directory': ApiLegalDirectoryLegalDirectory;
-      'api::legal.legal': ApiLegalLegal;
       'api::menu.menu': ApiMenuMenu;
       'api::person.person': ApiPersonPerson;
       'api::product.product': ApiProductProduct;
@@ -5764,7 +4799,6 @@ declare module '@strapi/types' {
       'api::restaurant-feature.restaurant-feature': ApiRestaurantFeatureRestaurantFeature;
       'api::restaurant-price.restaurant-price': ApiRestaurantPriceRestaurantPrice;
       'api::restaurant-type.restaurant-type': ApiRestaurantTypeRestaurantType;
-      'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'api::service.service': ApiServiceService;
       'api::settlement.settlement': ApiSettlementSettlement;
       'api::stead.stead': ApiSteadStead;

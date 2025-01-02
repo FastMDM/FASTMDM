@@ -137,17 +137,6 @@
       },
       "inversedBy": "addresses"
     },
-    "block": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::block.block",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "addresses"
-    },
     "entrance": {
       "pluginOptions": {
         "i18n": {
@@ -359,12 +348,6 @@
       },
       "type": "string",
       "maxLength": 12
-    },
-    "legals": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::legal.legal",
-      "mappedBy": "AddressRel"
     },
     "businesses": {
       "type": "relation",

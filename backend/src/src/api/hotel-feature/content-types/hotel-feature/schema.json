@@ -26,17 +26,6 @@
         }
       },
       "type": "string"
-    },
-    "hotels": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::hotel.hotel",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "inversedBy": "hotel_features"
     }
   }
 }
