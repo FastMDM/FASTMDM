@@ -1911,7 +1911,12 @@ export interface ApiBusinessDirectoryBusinessDirectory
       'api::business-directory.business-directory',
       'oneToMany',
       'api::business.business'
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     childs: Attribute.Relation<
       'api::business-directory.business-directory',
       'manyToOne',
@@ -1944,6 +1949,12 @@ export interface ApiBusinessDirectoryBusinessDirectory
           translate: 'translate';
         };
       }>;
+    oldcode: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     parent: Attribute.Relation<
       'api::business-directory.business-directory',
       'oneToMany',
@@ -1952,6 +1963,24 @@ export interface ApiBusinessDirectoryBusinessDirectory
       Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate';
+        };
+      }>;
+    parentid: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    parenttitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    titleen: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     updatedAt: Attribute.DateTime;
