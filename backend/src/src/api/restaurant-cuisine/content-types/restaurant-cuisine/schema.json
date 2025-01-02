@@ -27,17 +27,6 @@
       },
       "type": "string",
       "required": true
-    },
-    "restaurants": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::restaurant.restaurant",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "mappedBy": "restaurant_cuisines"
     }
   }
 }

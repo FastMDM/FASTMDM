@@ -399,11 +399,6 @@ export interface RestaurantRelatedRestaurants extends Schema.Component {
   };
   attributes: {
     Header: Attribute.Component<'shared.header'>;
-    restaurants: Attribute.Relation<
-      'restaurant.related-restaurants',
-      'oneToMany',
-      'api::restaurant.restaurant'
-    >;
   };
 }
 

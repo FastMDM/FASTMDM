@@ -9,11 +9,6 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.header"
-    },
-    "restaurants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::restaurant.restaurant"
     }
   }
 }
