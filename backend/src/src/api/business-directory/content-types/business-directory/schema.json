@@ -102,6 +102,17 @@
         }
       },
       "type": "integer"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "text"
     }
   }
 }

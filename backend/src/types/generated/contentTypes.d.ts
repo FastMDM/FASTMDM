@@ -1977,6 +1977,15 @@ export interface ApiBusinessDirectoryBusinessDirectory
           localized: false;
         };
       }>;
+    title: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     titleen: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
