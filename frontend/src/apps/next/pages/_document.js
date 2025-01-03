@@ -22,11 +22,15 @@ export class Document extends NextDocument{
     return (
       <Html lang={currentLocale}>
         <Head>
+ 
+          {/* Start cookiepal banner */}
+          <script id="cookiepal" type="text/javascript" src="https://cdn.cookiepal.io/client_data/7b7b3eda-7ba3-4a6a-a4ed-63780c5e7eef/script.js"></script> 
+          {/* End cookiepal banner */}
+
           <meta charSet="utf-8" />
         </Head>
         <body suppressHydrationWarning={true}>
           <div className="dark:bg-boxdark-2 dark:text-bodydark">
-
 
             <Main />
             <NextScript />
@@ -54,8 +58,7 @@ export class Document extends NextDocument{
               </div>
             </noscript>  
             {/* Global Site Tag (gtag.js) - Google Analytics */}
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-E26ZRVL06C"
-            />
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-E26ZRVL06C" />
             <script
               dangerouslySetInnerHTML={{
                 __html: `
