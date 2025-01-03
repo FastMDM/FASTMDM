@@ -27,6 +27,14 @@ export class Document extends NextDocument{
           <script id="cookiepal" type="text/javascript" src="https://cdn.cookiepal.io/client_data/7b7b3eda-7ba3-4a6a-a4ed-63780c5e7eef/script.js"></script> 
           {/* End cookiepal banner */}
 
+          {/* Google Adsense Place this code on every page across your site and Google will automatically show ads in all the best places for you */}
+
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6896719612149418"
+            crossorigin="anonymous"></script>
+
+          {/* Google Adsense It can take up to an hour for ads to appear on the page. See our code implementation guide for more details.
+            https://support.google.com/adsense/answer/9274019?hl=en  */}
+
           <meta charSet="utf-8" />
         </Head>
         <body suppressHydrationWarning={true}>
