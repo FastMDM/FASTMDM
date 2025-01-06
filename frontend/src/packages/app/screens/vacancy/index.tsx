@@ -6,7 +6,7 @@ import { MotiLink } from 'solito/moti'
 
 import { useTranslation } from '../../utils/localization'
 
-import { useLegalList } from "app/hooks/use-legal-list";   
+import { useBusinessList } from "app/hooks/use-business-list";
 import { setAccessToken } from "app/lib/access-token"; 
 
 import Image from "next/image";
@@ -17,9 +17,9 @@ import Link from "next/link";
 export function VacancyScreen() {
   const { t } = useTranslation('common')
   setAccessToken ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NjQ0OTkzLCJleHAiOjE3MTIyMzY5OTN9.FoeVqLaXdD5vhOOg5gfsmTj0alETcxh08tjrIaQj9SY');
-  const legalListState = useLegalList();  
+  const businessListState = useBusinessList();  
   console.log('x1'); 
-  console.log (JSON.stringify(legalListState));
+  console.log (JSON.stringify(businessListState));
 
   return (
     <>
