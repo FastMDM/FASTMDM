@@ -63,6 +63,17 @@ export const useInfiniteListQuerySWR = <T>(
       revalidateIfStale: config?.revalidateIfStale ?? true,
     });
 
+  console.log('x3'); 
+  console.log (JSON.stringify(urlFunction));
+  console.log (JSON.stringify(fetcher));
+  console.log (JSON.stringify(data));
+  console.log (JSON.stringify(error));
+  console.log (JSON.stringify(mutate));
+  console.log (JSON.stringify(size));
+  console.log (JSON.stringify(setSize));
+  console.log (JSON.stringify(isValidating));
+  console.log (JSON.stringify(isLoading));
+
   const isRefreshingSWR = isValidating && data && data.length === size;
   const isLoadingInitialData = !data && !error;
   const isLoadingMore =

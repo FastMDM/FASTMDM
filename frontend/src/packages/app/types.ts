@@ -1,7 +1,7 @@
 
 
 
-export type LegalList = {
+export type BusinessList = {
   data: Array<{
     id: number;
     attributes: {
