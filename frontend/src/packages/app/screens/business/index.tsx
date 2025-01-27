@@ -23,6 +23,7 @@ export function BusinessScreen() {
 
   return (
     <>
+          { JSON.stringify(businessListState) }
       <Breadcrumb pageName="Business (List and Filter)" />
 
       <div className="flex flex-row gap-7.5  " >
