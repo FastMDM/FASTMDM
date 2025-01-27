@@ -778,19 +778,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
               {/* <!-- Menu Item Equipment --> */}
 
-              {/* <!-- Menu Item Animals --> */}
+              {/* <!-- Menu Item Animal --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/animals" || pathname.includes("animals")
+                  pathname === "/animal" || pathname.includes("animal")
                 }
               >
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/animals"
+                        href="/animal"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-white duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 hover:text-white ${
-                          (pathname === "/animals" ||
+                          (pathname === "/animal" ||
                             pathname.includes("master")) &&
                           "bg-graydark dark:bg-meta-4 text-white"
                         }`}
@@ -831,7 +831,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/animals"
+                              href="/animal"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -842,7 +842,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/animals"
+                              href="/animal"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -853,7 +853,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                           <li>
                             <Link
-                              href="/animals"
+                              href="/animal"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-black dark:text-white duration-300 ease-in-out hover:text-black ${
                                 pathname === "/" && "text-black"
                               }`}
@@ -869,7 +869,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Menu Item Animals --> */}
+              {/* <!-- Menu Item Animal --> */}
 
               {/* <!-- Menu Item Projects --> */}
               <SidebarLinkGroup

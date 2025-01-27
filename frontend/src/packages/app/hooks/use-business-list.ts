@@ -29,6 +29,7 @@ export const useBusinessList = () => {
 
   console.log('x2'); 
   console.log (JSON.stringify(queryState));
+
   
   const newData = useMemo(() => {
     let newData: BusinessList[] = [];
