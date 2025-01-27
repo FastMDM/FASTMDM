@@ -10,8 +10,8 @@ import { useBusinessList } from "app/hooks/use-business-list";
 import { setAccessToken } from "app/lib/access-token"; 
 
 import Image from "next/image";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
+import Breadcrumb from "app/components/Breadcrumbs/Breadcrumb";
+import CheckboxTwo from "app/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
 
 export function BusinessScreen() {

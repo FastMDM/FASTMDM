@@ -64,13 +64,7 @@ export default function Layout() {
       <Drawer screenOptions={{ headerShown: true, swipeEdgeWidth : 100 }} drawerContent={(props) => <CustomDrawerContent {...props}/>} >
         {/* screens */}
         <Drawer.Screen name="index" options={{ drawerLabel: 'Home', title: 'Home'}}/>
-        <Drawer.Screen name="legal/index" options={{drawerLabel: 'Legal',title: 'Legal'}} />
-        <Drawer.Screen name="database/index" options={{drawerLabel: 'Database',title: 'Database'}} />
-        <Drawer.Screen name="database/specialist/index" options={{drawerLabel: 'Specialists',title: 'Specialists'}} />
-        <Drawer.Screen name="database/product/index" options={{drawerLabel: 'Products',title: 'Products'}} />
-        <Drawer.Screen name="database/organization/index" options={{drawerLabel: 'Organizations',title: 'Organizations'}} />
-        <Drawer.Screen name="database/problem/index" options={{drawerLabel: 'Problem',title: 'Problem'}} />
-        <Drawer.Screen name="database/role/index" options={{drawerLabel: 'Role',title: 'Role'}} />
+        <Drawer.Screen name="business/index" options={{drawerLabel: 'Business',title: 'Legal'}} />
         <Drawer.Screen name="about/index" options={{drawerLabel: 'About',title: 'About'}} />  
         <Drawer.Screen name="restaurants/index" options={{drawerLabel: 'Restaurant',title: 'Restaurant'}} />  
         <Drawer.Screen name="diagnostics/index" options={{drawerLabel: 'Diagnostics processing statuses',title: 'Diagnostics processing statuses'}} />

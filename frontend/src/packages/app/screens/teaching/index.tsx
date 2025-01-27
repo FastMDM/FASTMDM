@@ -4,8 +4,8 @@ import { View } from 'app/design/view'
 
 import { MotiLink } from 'solito/moti'
 
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
+import Breadcrumb from "app/components/Breadcrumbs/Breadcrumb";
+import CheckboxTwo from "app/components/Checkboxes/CheckboxTwo";
 import Link from "next/link";
 
 export function TeachingScreen() {

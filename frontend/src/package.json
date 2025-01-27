@@ -22,7 +22,8 @@
     "web": "cd apps/next && yarn dev",
     "web2": "cd apps/next && yarn start",
     "build:next": "cd apps/next && yarn build",
-    "resetcache": "yarn start --reset-cache"
+    "resetcache": "yarn start --reset-cache",
+    "native": "cd apps/expo && yarn start"
   },
   "resolutions": {
     "metro": "~0.76.7",

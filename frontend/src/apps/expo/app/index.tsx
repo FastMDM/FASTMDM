@@ -6,6 +6,6 @@ export default function Home() {
 }
 */
 
-import { LegalScreen } from 'app/screens/legal'
+import { AboutScreen } from 'app/screens/about'
 
-export default LegalScreen
+export default AboutScreen

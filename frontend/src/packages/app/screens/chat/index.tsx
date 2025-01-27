@@ -6,7 +6,7 @@ import { MotiLink } from 'solito/moti'
 
 import Link from "next/link";
 import Image from "next/image";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+// import Breadcrumb from "app/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,31 +17,38 @@ export const metadata: Metadata = {
 export function ChatScreen() {
   return (
     <>
-      <Breadcrumb pageName="Chat" />
+     {/* <Breadcrumb pageName="Chat" /> */ }
 
       <div className="rounded-sm border border-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
         <div className="flex flex-col gap-7.5">
 
-          <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-            Chat here 
-          </h2>
+          <H1 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
+            <Text>
+              Chat here 
+            </Text>
+          </H1>
 
-          <span className="mb-1.5 block font-medium">
-            Welcome! I'm Leopard. I'm speaking English, French, German and Russian. Ask questions.<br/>
-            Input: Hello<br/>
-            Response: Hi there!<br/>
-            Input: How are you?<br/>
-            Response: My logic and cognitive functions are normal.<br/>
-            Input: What is your name?<br/>
-            Response: My name is Program E.<br/>
-          </span>
+          {/* <span className="mb-1.5 block font-medium"> */}
+            <Text className="mb-1.5 block font-medium">
+              Welcome! I'm Leopard. I'm speaking English, French, German and Russian. Ask questions.{"\n"}
+              Input: Hello{"\n"}
+              Response: Hi there!{"\n"}
+              Input: How are you?{"\n"}
+              Response: My logic and cognitive functions are normal.{"\n"}
+              Input: What is your name?{"\n"}
+              Response: My name is Program E.{"\n"}
+            </Text>
+
+          {/* </span> */}
 
 
           <form>
               <div className="mb-4">
-                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                {/* <label className="mb-2.5 block font-medium text-black dark:text-white"> */}
+                <Text>
                   Your message
-                </label>
+                </Text>
+                {/* </label> */} 
                 <div className="relative">
                   <input
                     type="input"

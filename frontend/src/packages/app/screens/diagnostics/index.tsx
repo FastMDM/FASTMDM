@@ -6,7 +6,7 @@ import { MotiLink } from 'solito/moti'
 
 import Link from "next/link";
 import Image from "next/image";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "app/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
