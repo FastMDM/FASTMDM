@@ -1,26 +1,27 @@
-const { withExpo } = require('@expo/next-adapter')
+import { withPayload } from '@payloadcms/next/withPayload'
 
-const { i18n } = require('./next-i18next.config')
+import redirects from './redirects.js'
+
+const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : undefined || process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // reanimated (and thus, Moti) doesn't work with strict mode currently...
-  // https://github.com/nandorojo/moti/issues/224
-  // https://github.com/necolas/react-native-web/pull/2330
-  // https://github.com/nandorojo/moti/issues/224
-  // once that gets fixed, set this back to true
-  reactStrictMode: false,
-  transpilePackages: [
-    'react-native',
-    'react-native-web',
-    'solito',
-    'moti',
-    'app',
-    'react-native-reanimated',
-    'nativewind',
-    'react-native-gesture-handler',
-  ],
-  i18n,
+  images: {
+    remotePatterns: [
+      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
+        const url = new URL(item)
+
+        return {
+          hostname: url.hostname,
+          protocol: url.protocol.replace(':', ''),
+        }
+      }),
+    ],
+  },
+  reactStrictMode: true,
+  redirects,
 }
 
-module.exports = withExpo(nextConfig)
+export default withPayload(nextConfig)
