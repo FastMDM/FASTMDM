@@ -12,12 +12,18 @@ import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
+
 import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { Businesses } from './collections/Businesses'
 import { BusinessDirectories } from './collections/BusinessDirectories'
+import { Tenants } from './collections/Tenants'
+import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
+import { isSuperAdmin } from './access/isSuperAdmin'
+import type { Config } from './payload-types'
+import { getUserTenantIDs } from './utilities/getUserTenantIDs'    
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -66,10 +72,30 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users, Businesses, BusinessDirectories],
+  collections: [Pages, Posts, Media, Categories, Users, Businesses, BusinessDirectories, Tenants],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
+    multiTenantPlugin<Config>({
+      collections: {
+        pages: {},
+      },
+      tenantField: {
+        access: {
+          read: () => true,
+          update: ({ req }) => {
+            if (isSuperAdmin(req.user)) {
+              return true
+            }
+            return getUserTenantIDs(req.user).length > 0
+          },
+        },
+      },
+      tenantsArrayField: {
+        includeDefaultField: false,
+      },
+      userHasAccessToAllTenants: (user) => isSuperAdmin(user),
+    }),
     ...plugins,
     // storage-adapter-placeholder
   ],

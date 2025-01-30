@@ -5207,6 +5207,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@payloadcms/plugin-multi-tenant@npm:3.19.0":
+  version: 3.19.0
+  resolution: "@payloadcms/plugin-multi-tenant@npm:3.19.0"
+  peerDependencies:
+    "@payloadcms/ui": 3.19.0
+    next: ^15.0.3
+    payload: 3.19.0
+  checksum: 1aff966dbe47c837b7d69def391a0671c17ec2fc4b51a96ed8d303d3ea447ffd998464fe72640d74bb19c0e08dc946dc78c5a04057f03f6b06859069161c313a
+  languageName: node
+  linkType: hard
+
 "@payloadcms/plugin-nested-docs@npm:latest":
   version: 3.19.0
   resolution: "@payloadcms/plugin-nested-docs@npm:3.19.0"
@@ -16387,7 +16398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^15.1.5":
+"next@npm:15.1.6":
   version: 15.1.6
   resolution: "next@npm:15.1.6"
   dependencies:
@@ -17231,6 +17242,7 @@ __metadata:
     "@payloadcms/next": latest
     "@payloadcms/payload-cloud": latest
     "@payloadcms/plugin-form-builder": latest
+    "@payloadcms/plugin-multi-tenant": 3.19.0
     "@payloadcms/plugin-nested-docs": latest
     "@payloadcms/plugin-redirects": latest
     "@payloadcms/plugin-search": latest
@@ -17256,7 +17268,7 @@ __metadata:
     geist: ^1.3.0
     graphql: ^16.8.2
     lucide-react: ^0.378.0
-    next: ^15.1.5
+    next: 15.1.6
     next-sitemap: ^4.2.3
     payload: latest
     payload-admin-bar: ^1.0.6
