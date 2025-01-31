@@ -54,17 +54,17 @@ export const Posts: CollectionConfig<'posts'> = {
         const path = generatePreviewPath({
           slug: typeof data?.slug === 'string' ? data.slug : '',
           collection: 'posts',
-          req,
+          locale: locale.code,  
         })
 
-        return path
+        return `${process.env.NEXT_PUBLIC_SERVER_URL}${path}`   
       },
     },
     preview: (data, { req }) =>
       generatePreviewPath({
         slug: typeof data?.slug === 'string' ? data.slug : '',
         collection: 'posts',
-        req,
+        locale,     
       }),
     useAsTitle: 'title',
   },
@@ -72,6 +72,7 @@ export const Posts: CollectionConfig<'posts'> = {
     {
       name: 'title',
       type: 'text',
+      localized: true,   
       required: true,
     },
     {
@@ -87,6 +88,7 @@ export const Posts: CollectionConfig<'posts'> = {
             {
               name: 'content',
               type: 'richText',
+              localized: true, 
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [

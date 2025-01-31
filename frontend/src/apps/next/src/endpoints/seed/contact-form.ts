@@ -1,6 +1,6 @@
 import type { Form } from '@/payload-types'
 
-export const contactForm: Partial<Form> = {
+export const contactForm = (locale: 'en' | 'es'): Partial<Form> => ({
   confirmationMessage: {
     root: {
       type: 'root',
@@ -14,7 +14,10 @@ export const contactForm: Partial<Form> = {
               format: 0,
               mode: 'normal',
               style: '',
-              text: 'The contact form has been submitted successfully.',
+              text:
+                locale === 'en'
+                  ? 'The contact form has been submitted successfully.'
+                  : 'El formulario de contacto ha sido enviado con éxito.',
               version: 1,
             },
           ],
@@ -50,7 +53,10 @@ export const contactForm: Partial<Form> = {
                   format: 0,
                   mode: 'normal',
                   style: '',
-                  text: 'Your contact form submission was successfully received.',
+                  text:
+                    locale === 'en'
+                      ? 'Your contact form submission was successfully received.'
+                      : 'Su envío de formulario de contacto se recibió con éxito.',
                   version: 1,
                 },
               ],
@@ -67,7 +73,7 @@ export const contactForm: Partial<Form> = {
           version: 1,
         },
       },
-      subject: "You've received a new message.",
+      subject: locale === 'en' ? "You've received a new message." : 'Ha recibido un nuevo mensaje.',
     },
   ],
   fields: [
@@ -75,7 +81,7 @@ export const contactForm: Partial<Form> = {
       name: 'full-name',
       blockName: 'full-name',
       blockType: 'text',
-      label: 'Full Name',
+      label: locale === 'en' ? 'Full Name' : 'Nombre completo',
       required: true,
       width: 100,
     },
@@ -91,7 +97,7 @@ export const contactForm: Partial<Form> = {
       name: 'phone',
       blockName: 'phone',
       blockType: 'number',
-      label: 'Phone',
+      label: locale === 'en' ? 'Phone' : 'Teléfono',
       required: false,
       width: 100,
     },
@@ -99,13 +105,13 @@ export const contactForm: Partial<Form> = {
       name: 'message',
       blockName: 'message',
       blockType: 'textarea',
-      label: 'Message',
+      label: locale === 'en' ? 'Message' : 'Mensaje',
       required: true,
       width: 100,
     },
   ],
   redirect: undefined,
-  submitButtonLabel: 'Submit',
-  title: 'Contact Form',
+  submitButtonLabel: locale === 'en' ? 'Submit' : 'Enviar',
+  title: locale === 'en' ? 'Contact Form' : 'Formulario de contacto',
   updatedAt: '2023-01-12T21:47:41.374Z',
-}
+})

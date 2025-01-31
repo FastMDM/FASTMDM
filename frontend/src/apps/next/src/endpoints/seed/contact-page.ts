@@ -1,7 +1,8 @@
 import type { Page } from '@/payload-types'
 
-export const contact: Partial<Page> = {
+export const contact = (locale: 'en' | 'es'): Partial<Page> => ({
   slug: 'contact',
+  slugLock: false,
   _status: 'published',
   hero: {
     type: 'none',
@@ -10,6 +11,7 @@ export const contact: Partial<Page> = {
     {
       blockType: 'formBlock',
       enableIntro: true,
+      // @ts-ignore
       form: '{{CONTACT_FORM_ID}}',
       introContent: {
         root: {
@@ -24,7 +26,10 @@ export const contact: Partial<Page> = {
                   format: 0,
                   mode: 'normal',
                   style: '',
-                  text: 'Example contact form:',
+                  text:
+                    locale === 'en'
+                      ? 'Example contact form:'
+                      : 'Formulario de contacto de ejemplo:',
                   version: 1,
                 },
               ],
@@ -43,5 +48,5 @@ export const contact: Partial<Page> = {
       },
     },
   ],
-  title: 'Contact',
-}
+  title: locale === 'en' ? 'Contact' : 'Contacto',
+})

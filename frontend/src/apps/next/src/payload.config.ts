@@ -1,7 +1,21 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
+import { redirectsPlugin } from '@payloadcms/plugin-redirects'
+import { seoPlugin } from '@payloadcms/plugin-seo'
+import { searchPlugin } from '@payloadcms/plugin-search'    
+import {
+  BoldFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  ItalicFeature,
+  LinkFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical' 
 
 import sharp from 'sharp' // sharp-import
+import { UnderlineFeature } from '@payloadcms/richtext-lexical'  
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
@@ -11,9 +25,9 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
-import { Footer } from './Footer/config'
+import { Footer } from './globals/Footer/config'
 
-import { Header } from './Header/config'
+import { Header } from './globals/Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -24,9 +38,28 @@ import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { isSuperAdmin } from './access/isSuperAdmin'
 import type { Config } from './payload-types'
 import { getUserTenantIDs } from './utilities/getUserTenantIDs'    
+import { revalidateRedirects } from './hooks/revalidateRedirects'  
+import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'   
+import { Page, Post } from 'src/payload-types' 
+
+import { searchFields } from '@/search/fieldOverrides'
+import { beforeSyncWithSearch } from '@/search/beforeSync'
+import localization from './i18n/localization'   
+
+import { seedHandler } from './endpoints/seedHandler'  
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
+  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+}
+
+const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
+  return doc?.slug
+    ? `${process.env.NEXT_PUBLIC_SERVER_URL!}/${doc.slug}`
+    : process.env.NEXT_PUBLIC_SERVER_URL!
+}  
 
 export default buildConfig({
   admin: {
@@ -66,7 +99,43 @@ export default buildConfig({
     },
   },
   // This config helps us configure global or default features that the other editors can inherit
-  editor: defaultLexical,
+  editor: lexicalEditor({
+    features: () => {
+      return [
+        UnderlineFeature(),
+        BoldFeature(),
+        ItalicFeature(),
+        LinkFeature({
+          enabledCollections: ['pages', 'posts'],
+          fields: ({ defaultFields }) => {
+            const defaultFieldsWithoutUrl = defaultFields.filter((field) => {
+              if ('name' in field && field.name === 'url') return false
+              return true
+            })
+
+            return [
+              ...defaultFieldsWithoutUrl,
+              {
+                name: 'url',
+                type: 'text',
+                admin: {
+                  condition: ({ linkType }) => linkType !== 'internal',
+                },
+                label: ({ t }) => t('fields:enterURL'),
+                required: true,
+                validate: (value: any, options: any) => {
+                  if (options?.siblingData?.linkType === 'internal') {
+                    return true // no validation needed, as no url should exist for internal links
+                  }
+                  return value ? true : 'URL is required'
+                },
+              },
+            ]
+          },
+        }),
+      ]
+    },
+  }),
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
@@ -74,6 +143,16 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Media, Categories, Users, Businesses, BusinessDirectories, Tenants],
   cors: [getServerSideURL()].filter(Boolean),
+  csrf: [getServerSideURL()].filter(Boolean),  
+  endpoints: [
+    // The seed endpoint is used to populate the database with some example data
+    // You should delete this endpoint before deploying your site to production
+    {
+      handler: seedHandler,
+      method: 'get',
+      path: '/seed',
+    },
+  ],   
   globals: [Header, Footer],
   plugins: [
     multiTenantPlugin<Config>({
@@ -99,6 +178,7 @@ export default buildConfig({
     ...plugins,
     // storage-adapter-placeholder
   ],
+  localization, 
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
