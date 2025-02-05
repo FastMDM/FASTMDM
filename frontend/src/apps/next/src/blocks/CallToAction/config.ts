@@ -16,6 +16,7 @@ export const CallToAction: Block = {
     {
       name: 'richText',
       type: 'richText',
+      localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [

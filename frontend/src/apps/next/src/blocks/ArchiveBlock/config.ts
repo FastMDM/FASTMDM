@@ -14,6 +14,7 @@ export const Archive: Block = {
     {
       name: 'introContent',
       type: 'richText',
+      localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [

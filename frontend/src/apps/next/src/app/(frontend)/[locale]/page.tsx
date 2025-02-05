@@ -45,11 +45,15 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   return (
     <article className="pt-16 pb-24">
-      <PageClient />
+       <PageClient /> 
       <PayloadRedirects disableNotFound url={url} />
 
-      <RenderHero {...hero} />
+      <RenderHero {...hero} />    
+     
+
       <RenderBlocks blocks={layout} locale={locale} />
+      
+       
     </article>
   )
 }

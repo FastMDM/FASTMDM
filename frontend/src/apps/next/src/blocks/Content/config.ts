@@ -36,6 +36,7 @@ const columnFields: Field[] = [
   {
     name: 'richText',
     type: 'richText',
+    localized: true,
     editor: lexicalEditor({
       features: ({ rootFeatures }) => {
         return [
@@ -68,9 +69,6 @@ export const Content: Block = {
     {
       name: 'columns',
       type: 'array',
-      admin: {
-        initCollapsed: true,
-      },
       fields: columnFields,
     },
   ],

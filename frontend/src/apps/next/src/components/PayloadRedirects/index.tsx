@@ -12,9 +12,11 @@ interface Props {
 
 /* This component helps us with SSR based dynamic redirects */
 export const PayloadRedirects: React.FC<Props> = async ({ disableNotFound, url }) => {
+  const slug = url.startsWith('/') ? url : `${url}`
+
   const redirects = await getCachedRedirects()()
 
-  const redirectItem = redirects.find((redirect) => redirect.from === url)
+  const redirectItem = redirects.find((redirect) => redirect.from === slug)
 
   if (redirectItem) {
     if (redirectItem.to?.url) {

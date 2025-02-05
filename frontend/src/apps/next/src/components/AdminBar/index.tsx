@@ -1,6 +1,6 @@
 'use client'
 
-import type { PayloadAdminBarProps, PayloadMeUser } from 'payload-admin-bar'
+import type { PayloadAdminBarProps } from 'payload-admin-bar'
 
 import { cn } from '@/utilities/ui'
 import { useSelectedLayoutSegments } from 'next/navigation'
@@ -9,8 +9,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import './index.scss'
-
-import { getClientSideURL } from '@/utilities/getURL'
+import { useTranslations } from 'next-intl'
 
 const baseClass = 'admin-bar'
 
@@ -29,21 +28,18 @@ const collectionLabels = {
   },
 }
 
-const Title: React.FC = () => <span>Dashboard</span>
-
 export const AdminBar: React.FC<{
   adminBarProps?: PayloadAdminBarProps
 }> = (props) => {
   const { adminBarProps } = props || {}
   const segments = useSelectedLayoutSegments()
   const [show, setShow] = useState(false)
-  const collection = (
-    collectionLabels[segments?.[1] as keyof typeof collectionLabels] ? segments[1] : 'pages'
-  ) as keyof typeof collectionLabels
+  const collection = collectionLabels?.[segments?.[1]] ? segments?.[1] : 'pages'
   const router = useRouter()
+  const t = useTranslations()
 
-  const onAuthChange = React.useCallback((user: PayloadMeUser) => {
-    setShow(Boolean(user?.id))
+  const onAuthChange = React.useCallback((user) => {
+    setShow(user?.id)
   }, [])
 
   return (
@@ -62,13 +58,13 @@ export const AdminBar: React.FC<{
             logo: 'text-white',
             user: 'text-white',
           }}
-          cmsURL={getClientSideURL()}
+          cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
           collection={collection}
           collectionLabels={{
             plural: collectionLabels[collection]?.plural || 'Pages',
             singular: collectionLabels[collection]?.singular || 'Page',
           }}
-          logo={<Title />}
+          logo={<span>{t('dashboard')}</span>}
           onAuthChange={onAuthChange}
           onPreviewExit={() => {
             fetch('/next/exit-preview').then(() => {

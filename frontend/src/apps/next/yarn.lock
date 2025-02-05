@@ -2663,7 +2663,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/plugin-multi-tenant@npm:3.20.0":
+"@payloadcms/plugin-multi-tenant@npm:latest":
   version: 3.20.0
   resolution: "@payloadcms/plugin-multi-tenant@npm:3.20.0"
   peerDependencies:
@@ -8795,7 +8795,7 @@ __metadata:
     "@payloadcms/next": latest
     "@payloadcms/payload-cloud": latest
     "@payloadcms/plugin-form-builder": latest
-    "@payloadcms/plugin-multi-tenant": 3.20.0
+    "@payloadcms/plugin-multi-tenant": latest
     "@payloadcms/plugin-nested-docs": latest
     "@payloadcms/plugin-redirects": latest
     "@payloadcms/plugin-search": latest

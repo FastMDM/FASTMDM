@@ -6,9 +6,9 @@ import { notFound, redirect } from 'next/navigation'
 import { getPayload } from 'payload'
 import React from 'react'
 
-import { RenderPage } from '../../../../components/RenderPage'
+import { RenderPage } from '@/components/RenderPage'
 
-// eslint-disable-next-line no-restricted-exports
+ 
 export default async function Page({
   params: paramsPromise,
 }: {
@@ -42,8 +42,8 @@ export default async function Page({
     // Show the login view
     if (tenantsQuery.docs.length === 0) {
       redirect(
-        `/tenant-domains/login?redirect=${encodeURIComponent(
-          `/tenant-domains${slug ? `/${slug.join('/')}` : ''}`,
+        `/en/tenant-domains/login?redirect=${encodeURIComponent(
+          `/en/tenant-domains${slug ? `/${slug.join('/')}` : ''}`,
         )}`,
       )
     }

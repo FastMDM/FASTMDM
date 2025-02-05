@@ -16,6 +16,7 @@ import PageClient from './page.client'
 import { TypedLocale } from 'payload'
 
 export async function generateStaticParams() {
+  if (process.env.NODE_ENV === 'development') return [];
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
     collection: 'pages',
@@ -76,11 +77,11 @@ export default async function Page({ params: paramsPromise }: Args) {
   )
 }
 
-export async function generateMetadata({ params: paramsPromise }): Promise<Metadata> {
-  const { slug = 'home', locale = 'en' } = await paramsPromise
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { locale = 'en', slug = 'home' } = await params
   const page = await queryPage({
-    slug,
     locale,
+    slug,
   })
 
   return generateMeta({ doc: page })
