@@ -156,6 +156,7 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     multiTenantPlugin<Config>({
+      debug: true,
       collections: {
         pages: {},
       },
