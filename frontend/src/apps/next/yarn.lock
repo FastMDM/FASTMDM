@@ -2664,14 +2664,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/plugin-multi-tenant@npm:3.20.0":
-  version: 3.20.0
-  resolution: "@payloadcms/plugin-multi-tenant@npm:3.20.0"
+"@payloadcms/plugin-multi-tenant@npm:3.21.0":
+  version: 3.21.0
+  resolution: "@payloadcms/plugin-multi-tenant@npm:3.21.0"
   peerDependencies:
-    "@payloadcms/ui": 3.20.0
+    "@payloadcms/ui": 3.21.0
     next: ^15.0.3
-    payload: 3.20.0
-  checksum: c2d03c6ab898f610dfa01c6732a01682f9c0b755e2b2bbbdc02b68c0458c7df6b10f7a91fcc2522511d875affe9232dd5654bb898d879b58fbccc63566349fcf
+    payload: 3.21.0
+  checksum: 8efe22304ec47f13fef1ce7566694299a25c675555267fc2920da588167451218c18d9e12ee9a9f35728cd45f92ee025461c375c3f35bc930fff116713d76fef
   languageName: node
   linkType: hard
 
@@ -8795,7 +8795,7 @@ __metadata:
     "@payloadcms/next": ^3.21.0
     "@payloadcms/payload-cloud": ^3.21.0
     "@payloadcms/plugin-form-builder": ^3.21.0
-    "@payloadcms/plugin-multi-tenant": 3.20.0
+    "@payloadcms/plugin-multi-tenant": 3.21.0
     "@payloadcms/plugin-nested-docs": ^3.21.0
     "@payloadcms/plugin-redirects": ^3.21.0
     "@payloadcms/plugin-search": ^3.21.0
