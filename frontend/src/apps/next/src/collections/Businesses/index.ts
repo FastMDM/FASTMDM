@@ -73,12 +73,14 @@ export const Businesses: CollectionConfig<'businesses'> = {
       name: 'title',
       type: 'text',
       required: true,
-      index: true
+      index: true,
+      localized: true
     },
     {
       name: 'description',
       type: 'text',
       required: false,
+      localized: true
     },
     {
       name: 'phone',

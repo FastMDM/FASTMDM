@@ -23,6 +23,7 @@ export const BusinessDirectories: CollectionConfig = {
       type: 'text',
       required: true,
       index: true,
+      localized: true,
     },
     {
       name: 'titleen',

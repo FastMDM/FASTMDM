@@ -1,5 +1,7 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { index, integer } from '@payloadcms/db-postgres/drizzle/pg-core'
+
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
@@ -17,7 +19,7 @@ import {
 import sharp from 'sharp' // sharp-import
 import { UnderlineFeature } from '@payloadcms/richtext-lexical'  
 import path from 'path'
-import { buildConfig, PayloadRequest } from 'payload'
+import { buildConfig, PayloadRequest, Payload } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
@@ -47,6 +49,7 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 import localization from './i18n/localization'   
 
 import { seedHandler } from './endpoints/seedHandler'  
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -140,6 +143,23 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    afterSchemaInit: [
+      ({ schema, extendTable, adapter }) => {
+        extendTable({
+          table: schema.tables._businesses_v,
+          columns: {},
+          extraConfig: (table) => ({
+            latest_tenant_id_composite_index: index('_businesses_v_latest_tenant_id_idx').on(
+              table.latest,
+              table.version_tenant,
+            ),
+          }),
+        })
+
+        return schema
+      },
+    ],
+
   }),
   collections: [Pages, Posts, Media, Categories, Users, Businesses, BusinessDirectories, Tenants],
   cors: [getServerSideURL()].filter(Boolean),
@@ -158,7 +178,7 @@ export default buildConfig({
     multiTenantPlugin<Config>({
       debug: true,
       collections: {
-        pages: {},
+        pages: {}, businesses: {}, "business-directories": {}
       },
       tenantField: {
         access: {

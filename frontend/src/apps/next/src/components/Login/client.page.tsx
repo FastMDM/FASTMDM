@@ -48,9 +48,9 @@ export const Login = ({ tenantSlug, tenantDomain }: Props) => {
         return
       } else {
         if (tenantDomain) {
-          router.push('/tenant-domains')
+          router.push('/en/tenant-domains')
         } else {
-          router.push(`/tenant-slugs/${tenantSlug}`)
+          router.push(`/en/tenant-slugs/${tenantSlug}`)
         }
       }
     } else if (actionRes.status === 400 && json?.errors?.[0]?.message) {

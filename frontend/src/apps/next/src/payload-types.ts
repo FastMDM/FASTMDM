@@ -714,6 +714,7 @@ export interface Form {
  */
 export interface Business {
   id: number;
+  tenant?: (number | null) | Tenant;
   title: string;
   description?: string | null;
   phone?: string | null;
@@ -783,6 +784,7 @@ export interface Business {
  */
 export interface BusinessDirectory {
   id: number;
+  tenant?: (number | null) | Tenant;
   title: string;
   titleen?: string | null;
   parenttitle?: string | null;
@@ -1375,6 +1377,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "businesses_select".
  */
 export interface BusinessesSelect<T extends boolean = true> {
+  tenant?: T;
   title?: T;
   description?: T;
   phone?: T;
@@ -1428,6 +1431,7 @@ export interface BusinessesSelect<T extends boolean = true> {
  * via the `definition` "business-directories_select".
  */
 export interface BusinessDirectoriesSelect<T extends boolean = true> {
+  tenant?: T;
   title?: T;
   titleen?: T;
   parenttitle?: T;
