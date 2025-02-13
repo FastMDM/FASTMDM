@@ -1447,25 +1447,6 @@ export const users = pgTable(
   }),
 )
 
-export const businesses_populated_authors = pgTable(
-  'businesses_populated_authors',
-  {
-    _order: integer('_order').notNull(),
-    _parentID: integer('_parent_id').notNull(),
-    id: varchar('id').primaryKey(),
-    name: varchar('name'),
-  },
-  (columns) => ({
-    _orderIdx: index('businesses_populated_authors_order_idx').on(columns._order),
-    _parentIDIdx: index('businesses_populated_authors_parent_id_idx').on(columns._parentID),
-    _parentIDFk: foreignKey({
-      columns: [columns['_parentID']],
-      foreignColumns: [businesses.id],
-      name: 'businesses_populated_authors_parent_id_fk',
-    }).onDelete('cascade'),
-  }),
-)
-
 export const businesses = pgTable(
   'businesses',
   {
@@ -1473,8 +1454,6 @@ export const businesses = pgTable(
     tenant: integer('tenant_id').references(() => tenants.id, {
       onDelete: 'set null',
     }),
-    title: varchar('title'),
-    description: varchar('description'),
     phone: varchar('phone'),
     fax: varchar('fax'),
     email: varchar('email'),
@@ -1520,7 +1499,6 @@ export const businesses = pgTable(
   },
   (columns) => ({
     businesses_tenant_idx: index('businesses_tenant_idx').on(columns.tenant),
-    businesses_title_idx: index('businesses_title_idx').on(columns.title),
     businesses_hero_image_idx: index('businesses_hero_image_idx').on(columns.heroImage),
     businesses_slug_idx: index('businesses_slug_idx').on(columns.slug),
     businesses_updated_at_idx: index('businesses_updated_at_idx').on(columns.updatedAt),
@@ -1532,6 +1510,8 @@ export const businesses = pgTable(
 export const businesses_locales = pgTable(
   'businesses_locales',
   {
+    title: varchar('title'),
+    description: varchar('description'),
     meta_title: varchar('meta_title'),
     meta_image: integer('meta_image_id').references(() => media.id, {
       onDelete: 'set null',
@@ -1542,6 +1522,7 @@ export const businesses_locales = pgTable(
     _parentID: integer('_parent_id').notNull(),
   },
   (columns) => ({
+    businesses_title_idx: index('businesses_title_idx').on(columns.title, columns._locale),
     businesses_meta_meta_image_idx: index('businesses_meta_meta_image_idx').on(
       columns.meta_image,
       columns._locale,
@@ -1565,71 +1546,24 @@ export const businesses_rels = pgTable(
     order: integer('order'),
     parent: integer('parent_id').notNull(),
     path: varchar('path').notNull(),
-    businessesID: integer('businesses_id'),
-    categoriesID: integer('categories_id'),
     'business-directoriesID': integer('business_directories_id'),
-    usersID: integer('users_id'),
   },
   (columns) => ({
     order: index('businesses_rels_order_idx').on(columns.order),
     parentIdx: index('businesses_rels_parent_idx').on(columns.parent),
     pathIdx: index('businesses_rels_path_idx').on(columns.path),
-    businesses_rels_businesses_id_idx: index('businesses_rels_businesses_id_idx').on(
-      columns.businessesID,
-    ),
-    businesses_rels_categories_id_idx: index('businesses_rels_categories_id_idx').on(
-      columns.categoriesID,
-    ),
     businesses_rels_business_directories_id_idx: index(
       'businesses_rels_business_directories_id_idx',
     ).on(columns['business-directoriesID']),
-    businesses_rels_users_id_idx: index('businesses_rels_users_id_idx').on(columns.usersID),
     parentFk: foreignKey({
       columns: [columns['parent']],
       foreignColumns: [businesses.id],
       name: 'businesses_rels_parent_fk',
     }).onDelete('cascade'),
-    businessesIdFk: foreignKey({
-      columns: [columns['businessesID']],
-      foreignColumns: [businesses.id],
-      name: 'businesses_rels_businesses_fk',
-    }).onDelete('cascade'),
-    categoriesIdFk: foreignKey({
-      columns: [columns['categoriesID']],
-      foreignColumns: [categories.id],
-      name: 'businesses_rels_categories_fk',
-    }).onDelete('cascade'),
     'business-directoriesIdFk': foreignKey({
       columns: [columns['business-directoriesID']],
       foreignColumns: [business_directories.id],
       name: 'businesses_rels_business_directories_fk',
-    }).onDelete('cascade'),
-    usersIdFk: foreignKey({
-      columns: [columns['usersID']],
-      foreignColumns: [users.id],
-      name: 'businesses_rels_users_fk',
-    }).onDelete('cascade'),
-  }),
-)
-
-export const _businesses_v_version_populated_authors = pgTable(
-  '_businesses_v_version_populated_authors',
-  {
-    _order: integer('_order').notNull(),
-    _parentID: integer('_parent_id').notNull(),
-    id: serial('id').primaryKey(),
-    _uuid: varchar('_uuid'),
-    name: varchar('name'),
-  },
-  (columns) => ({
-    _orderIdx: index('_businesses_v_version_populated_authors_order_idx').on(columns._order),
-    _parentIDIdx: index('_businesses_v_version_populated_authors_parent_id_idx').on(
-      columns._parentID,
-    ),
-    _parentIDFk: foreignKey({
-      columns: [columns['_parentID']],
-      foreignColumns: [_businesses_v.id],
-      name: '_businesses_v_version_populated_authors_parent_id_fk',
     }).onDelete('cascade'),
   }),
 )
@@ -1644,8 +1578,6 @@ export const _businesses_v = pgTable(
     version_tenant: integer('version_tenant_id').references(() => tenants.id, {
       onDelete: 'set null',
     }),
-    version_title: varchar('version_title'),
-    version_description: varchar('version_description'),
     version_phone: varchar('version_phone'),
     version_fax: varchar('version_fax'),
     version_email: varchar('version_email'),
@@ -1712,9 +1644,6 @@ export const _businesses_v = pgTable(
     _businesses_v_version_version_tenant_idx: index('_businesses_v_version_version_tenant_idx').on(
       columns.version_tenant,
     ),
-    _businesses_v_version_version_title_idx: index('_businesses_v_version_version_title_idx').on(
-      columns.version_title,
-    ),
     _businesses_v_version_version_hero_image_idx: index(
       '_businesses_v_version_version_hero_image_idx',
     ).on(columns.version_heroImage),
@@ -1744,6 +1673,8 @@ export const _businesses_v = pgTable(
 export const _businesses_v_locales = pgTable(
   '_businesses_v_locales',
   {
+    version_title: varchar('version_title'),
+    version_description: varchar('version_description'),
     version_meta_title: varchar('version_meta_title'),
     version_meta_image: integer('version_meta_image_id').references(() => media.id, {
       onDelete: 'set null',
@@ -1754,6 +1685,10 @@ export const _businesses_v_locales = pgTable(
     _parentID: integer('_parent_id').notNull(),
   },
   (columns) => ({
+    _businesses_v_version_version_title_idx: index('_businesses_v_version_version_title_idx').on(
+      columns.version_title,
+      columns._locale,
+    ),
     _businesses_v_version_meta_version_meta_image_idx: index(
       '_businesses_v_version_meta_version_meta_image_idx',
     ).on(columns.version_meta_image, columns._locale),
@@ -1776,49 +1711,24 @@ export const _businesses_v_rels = pgTable(
     order: integer('order'),
     parent: integer('parent_id').notNull(),
     path: varchar('path').notNull(),
-    businessesID: integer('businesses_id'),
-    categoriesID: integer('categories_id'),
     'business-directoriesID': integer('business_directories_id'),
-    usersID: integer('users_id'),
   },
   (columns) => ({
     order: index('_businesses_v_rels_order_idx').on(columns.order),
     parentIdx: index('_businesses_v_rels_parent_idx').on(columns.parent),
     pathIdx: index('_businesses_v_rels_path_idx').on(columns.path),
-    _businesses_v_rels_businesses_id_idx: index('_businesses_v_rels_businesses_id_idx').on(
-      columns.businessesID,
-    ),
-    _businesses_v_rels_categories_id_idx: index('_businesses_v_rels_categories_id_idx').on(
-      columns.categoriesID,
-    ),
     _businesses_v_rels_business_directories_id_idx: index(
       '_businesses_v_rels_business_directories_id_idx',
     ).on(columns['business-directoriesID']),
-    _businesses_v_rels_users_id_idx: index('_businesses_v_rels_users_id_idx').on(columns.usersID),
     parentFk: foreignKey({
       columns: [columns['parent']],
       foreignColumns: [_businesses_v.id],
       name: '_businesses_v_rels_parent_fk',
     }).onDelete('cascade'),
-    businessesIdFk: foreignKey({
-      columns: [columns['businessesID']],
-      foreignColumns: [businesses.id],
-      name: '_businesses_v_rels_businesses_fk',
-    }).onDelete('cascade'),
-    categoriesIdFk: foreignKey({
-      columns: [columns['categoriesID']],
-      foreignColumns: [categories.id],
-      name: '_businesses_v_rels_categories_fk',
-    }).onDelete('cascade'),
     'business-directoriesIdFk': foreignKey({
       columns: [columns['business-directoriesID']],
       foreignColumns: [business_directories.id],
       name: '_businesses_v_rels_business_directories_fk',
-    }).onDelete('cascade'),
-    usersIdFk: foreignKey({
-      columns: [columns['usersID']],
-      foreignColumns: [users.id],
-      name: '_businesses_v_rels_users_fk',
     }).onDelete('cascade'),
   }),
 )
@@ -1830,7 +1740,6 @@ export const business_directories = pgTable(
     tenant: integer('tenant_id').references(() => tenants.id, {
       onDelete: 'set null',
     }),
-    title: varchar('title'),
     titleen: varchar('titleen'),
     parenttitle: varchar('parenttitle'),
     parentid: numeric('parentid'),
@@ -1860,7 +1769,6 @@ export const business_directories = pgTable(
   },
   (columns) => ({
     business_directories_tenant_idx: index('business_directories_tenant_idx').on(columns.tenant),
-    business_directories_title_idx: index('business_directories_title_idx').on(columns.title),
     business_directories_slug_idx: index('business_directories_slug_idx').on(columns.slug),
     business_directories_updated_at_idx: index('business_directories_updated_at_idx').on(
       columns.updatedAt,
@@ -1869,6 +1777,31 @@ export const business_directories = pgTable(
       columns.createdAt,
     ),
     business_directories__status_idx: index('business_directories__status_idx').on(columns._status),
+  }),
+)
+
+export const business_directories_locales = pgTable(
+  'business_directories_locales',
+  {
+    title: varchar('title'),
+    id: serial('id').primaryKey(),
+    _locale: enum__locales('_locale').notNull(),
+    _parentID: integer('_parent_id').notNull(),
+  },
+  (columns) => ({
+    business_directories_title_idx: index('business_directories_title_idx').on(
+      columns.title,
+      columns._locale,
+    ),
+    _localeParent: uniqueIndex('business_directories_locales_locale_parent_id_unique').on(
+      columns._locale,
+      columns._parentID,
+    ),
+    _parentIdFk: foreignKey({
+      columns: [columns['_parentID']],
+      foreignColumns: [business_directories.id],
+      name: 'business_directories_locales_parent_id_fk',
+    }).onDelete('cascade'),
   }),
 )
 
@@ -1882,7 +1815,6 @@ export const _business_directories_v = pgTable(
     version_tenant: integer('version_tenant_id').references(() => tenants.id, {
       onDelete: 'set null',
     }),
-    version_title: varchar('version_title'),
     version_titleen: varchar('version_titleen'),
     version_parenttitle: varchar('version_parenttitle'),
     version_parentid: numeric('version_parentid'),
@@ -1932,9 +1864,6 @@ export const _business_directories_v = pgTable(
     _business_directories_v_version_version_tenant_idx: index(
       '_business_directories_v_version_version_tenant_idx',
     ).on(columns.version_tenant),
-    _business_directories_v_version_version_title_idx: index(
-      '_business_directories_v_version_version_title_idx',
-    ).on(columns.version_title),
     _business_directories_v_version_version_slug_idx: index(
       '_business_directories_v_version_version_slug_idx',
     ).on(columns.version_slug),
@@ -1965,6 +1894,30 @@ export const _business_directories_v = pgTable(
     _business_directories_v_autosave_idx: index('_business_directories_v_autosave_idx').on(
       columns.autosave,
     ),
+  }),
+)
+
+export const _business_directories_v_locales = pgTable(
+  '_business_directories_v_locales',
+  {
+    version_title: varchar('version_title'),
+    id: serial('id').primaryKey(),
+    _locale: enum__locales('_locale').notNull(),
+    _parentID: integer('_parent_id').notNull(),
+  },
+  (columns) => ({
+    _business_directories_v_version_version_title_idx: index(
+      '_business_directories_v_version_version_title_idx',
+    ).on(columns.version_title, columns._locale),
+    _localeParent: uniqueIndex('_business_directories_v_locales_locale_parent_id_unique').on(
+      columns._locale,
+      columns._parentID,
+    ),
+    _parentIdFk: foreignKey({
+      columns: [columns['_parentID']],
+      foreignColumns: [_business_directories_v.id],
+      name: '_business_directories_v_locales_parent_id_fk',
+    }).onDelete('cascade'),
   }),
 )
 
@@ -3664,16 +3617,6 @@ export const relations_users = relations(users, ({ many }) => ({
     relationName: 'tenants',
   }),
 }))
-export const relations_businesses_populated_authors = relations(
-  businesses_populated_authors,
-  ({ one }) => ({
-    _parentID: one(businesses, {
-      fields: [businesses_populated_authors._parentID],
-      references: [businesses.id],
-      relationName: 'populatedAuthors',
-    }),
-  }),
-)
 export const relations_businesses_locales = relations(businesses_locales, ({ one }) => ({
   _parentID: one(businesses, {
     fields: [businesses_locales._parentID],
@@ -3692,25 +3635,10 @@ export const relations_businesses_rels = relations(businesses_rels, ({ one }) =>
     references: [businesses.id],
     relationName: '_rels',
   }),
-  businessesID: one(businesses, {
-    fields: [businesses_rels.businessesID],
-    references: [businesses.id],
-    relationName: 'businesses',
-  }),
-  categoriesID: one(categories, {
-    fields: [businesses_rels.categoriesID],
-    references: [categories.id],
-    relationName: 'categories',
-  }),
   'business-directoriesID': one(business_directories, {
     fields: [businesses_rels['business-directoriesID']],
     references: [business_directories.id],
     relationName: 'business-directories',
-  }),
-  usersID: one(users, {
-    fields: [businesses_rels.usersID],
-    references: [users.id],
-    relationName: 'users',
   }),
 }))
 export const relations_businesses = relations(businesses, ({ one, many }) => ({
@@ -3724,9 +3652,6 @@ export const relations_businesses = relations(businesses, ({ one, many }) => ({
     references: [media.id],
     relationName: 'heroImage',
   }),
-  populatedAuthors: many(businesses_populated_authors, {
-    relationName: 'populatedAuthors',
-  }),
   _locales: many(businesses_locales, {
     relationName: '_locales',
   }),
@@ -3734,16 +3659,6 @@ export const relations_businesses = relations(businesses, ({ one, many }) => ({
     relationName: '_rels',
   }),
 }))
-export const relations__businesses_v_version_populated_authors = relations(
-  _businesses_v_version_populated_authors,
-  ({ one }) => ({
-    _parentID: one(_businesses_v, {
-      fields: [_businesses_v_version_populated_authors._parentID],
-      references: [_businesses_v.id],
-      relationName: 'version_populatedAuthors',
-    }),
-  }),
-)
 export const relations__businesses_v_locales = relations(_businesses_v_locales, ({ one }) => ({
   _parentID: one(_businesses_v, {
     fields: [_businesses_v_locales._parentID],
@@ -3762,25 +3677,10 @@ export const relations__businesses_v_rels = relations(_businesses_v_rels, ({ one
     references: [_businesses_v.id],
     relationName: '_rels',
   }),
-  businessesID: one(businesses, {
-    fields: [_businesses_v_rels.businessesID],
-    references: [businesses.id],
-    relationName: 'businesses',
-  }),
-  categoriesID: one(categories, {
-    fields: [_businesses_v_rels.categoriesID],
-    references: [categories.id],
-    relationName: 'categories',
-  }),
   'business-directoriesID': one(business_directories, {
     fields: [_businesses_v_rels['business-directoriesID']],
     references: [business_directories.id],
     relationName: 'business-directories',
-  }),
-  usersID: one(users, {
-    fields: [_businesses_v_rels.usersID],
-    references: [users.id],
-    relationName: 'users',
   }),
 }))
 export const relations__businesses_v = relations(_businesses_v, ({ one, many }) => ({
@@ -3799,9 +3699,6 @@ export const relations__businesses_v = relations(_businesses_v, ({ one, many }) 
     references: [media.id],
     relationName: 'version_heroImage',
   }),
-  version_populatedAuthors: many(_businesses_v_version_populated_authors, {
-    relationName: 'version_populatedAuthors',
-  }),
   _locales: many(_businesses_v_locales, {
     relationName: '_locales',
   }),
@@ -3809,25 +3706,54 @@ export const relations__businesses_v = relations(_businesses_v, ({ one, many }) 
     relationName: '_rels',
   }),
 }))
-export const relations_business_directories = relations(business_directories, ({ one }) => ({
+export const relations_business_directories_locales = relations(
+  business_directories_locales,
+  ({ one }) => ({
+    _parentID: one(business_directories, {
+      fields: [business_directories_locales._parentID],
+      references: [business_directories.id],
+      relationName: '_locales',
+    }),
+  }),
+)
+export const relations_business_directories = relations(business_directories, ({ one, many }) => ({
   tenant: one(tenants, {
     fields: [business_directories.tenant],
     references: [tenants.id],
     relationName: 'tenant',
   }),
-}))
-export const relations__business_directories_v = relations(_business_directories_v, ({ one }) => ({
-  parent: one(business_directories, {
-    fields: [_business_directories_v.parent],
-    references: [business_directories.id],
-    relationName: 'parent',
-  }),
-  version_tenant: one(tenants, {
-    fields: [_business_directories_v.version_tenant],
-    references: [tenants.id],
-    relationName: 'version_tenant',
+  _locales: many(business_directories_locales, {
+    relationName: '_locales',
   }),
 }))
+export const relations__business_directories_v_locales = relations(
+  _business_directories_v_locales,
+  ({ one }) => ({
+    _parentID: one(_business_directories_v, {
+      fields: [_business_directories_v_locales._parentID],
+      references: [_business_directories_v.id],
+      relationName: '_locales',
+    }),
+  }),
+)
+export const relations__business_directories_v = relations(
+  _business_directories_v,
+  ({ one, many }) => ({
+    parent: one(business_directories, {
+      fields: [_business_directories_v.parent],
+      references: [business_directories.id],
+      relationName: 'parent',
+    }),
+    version_tenant: one(tenants, {
+      fields: [_business_directories_v.version_tenant],
+      references: [tenants.id],
+      relationName: 'version_tenant',
+    }),
+    _locales: many(_business_directories_v_locales, {
+      relationName: '_locales',
+    }),
+  }),
+)
 export const relations_tenants = relations(tenants, () => ({}))
 export const relations_redirects_rels = relations(redirects_rels, ({ one }) => ({
   parent: one(redirects, {
@@ -4449,16 +4375,16 @@ type DatabaseSchema = {
   users_tenants_roles: typeof users_tenants_roles
   users_tenants: typeof users_tenants
   users: typeof users
-  businesses_populated_authors: typeof businesses_populated_authors
   businesses: typeof businesses
   businesses_locales: typeof businesses_locales
   businesses_rels: typeof businesses_rels
-  _businesses_v_version_populated_authors: typeof _businesses_v_version_populated_authors
   _businesses_v: typeof _businesses_v
   _businesses_v_locales: typeof _businesses_v_locales
   _businesses_v_rels: typeof _businesses_v_rels
   business_directories: typeof business_directories
+  business_directories_locales: typeof business_directories_locales
   _business_directories_v: typeof _business_directories_v
+  _business_directories_v_locales: typeof _business_directories_v_locales
   tenants: typeof tenants
   redirects: typeof redirects
   redirects_rels: typeof redirects_rels
@@ -4544,15 +4470,15 @@ type DatabaseSchema = {
   relations_users_tenants_roles: typeof relations_users_tenants_roles
   relations_users_tenants: typeof relations_users_tenants
   relations_users: typeof relations_users
-  relations_businesses_populated_authors: typeof relations_businesses_populated_authors
   relations_businesses_locales: typeof relations_businesses_locales
   relations_businesses_rels: typeof relations_businesses_rels
   relations_businesses: typeof relations_businesses
-  relations__businesses_v_version_populated_authors: typeof relations__businesses_v_version_populated_authors
   relations__businesses_v_locales: typeof relations__businesses_v_locales
   relations__businesses_v_rels: typeof relations__businesses_v_rels
   relations__businesses_v: typeof relations__businesses_v
+  relations_business_directories_locales: typeof relations_business_directories_locales
   relations_business_directories: typeof relations_business_directories
+  relations__business_directories_v_locales: typeof relations__business_directories_v_locales
   relations__business_directories_v: typeof relations__business_directories_v
   relations_tenants: typeof relations_tenants
   relations_redirects_rels: typeof relations_redirects_rels

@@ -144,6 +144,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
     afterSchemaInit: [
+      
       ({ schema, extendTable, adapter }) => {
         extendTable({
           table: schema.tables._businesses_v,
@@ -155,9 +156,22 @@ export default buildConfig({
             ),
           }),
         })
-
         return schema
       },
+      
+      ({ schema, extendTable, adapter }) => {
+        extendTable({
+          table: schema.tables._businesses_v_locales,
+          columns: {},
+          extraConfig: (table) => ({
+            parent_id_index: index('_businesses_v_locales_parent_id_idx').on(
+              table._parentID,
+            ),
+          }),
+        })
+        return schema
+      },
+      
     ],
 
   }),

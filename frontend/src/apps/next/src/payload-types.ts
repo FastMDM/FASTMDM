@@ -753,8 +753,6 @@ export interface Business {
     };
     [k: string]: unknown;
   } | null;
-  relatedBusinesses?: (number | Business)[] | null;
-  categories?: (number | Category)[] | null;
   'business-directories'?: (number | BusinessDirectory)[] | null;
   meta?: {
     title?: string | null;
@@ -765,13 +763,6 @@ export interface Business {
     description?: string | null;
   };
   publishedAt?: string | null;
-  authors?: (number | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -1402,8 +1393,6 @@ export interface BusinessesSelect<T extends boolean = true> {
   locale?: T;
   heroImage?: T;
   content?: T;
-  relatedBusinesses?: T;
-  categories?: T;
   'business-directories'?: T;
   meta?:
     | T
@@ -1413,13 +1402,6 @@ export interface BusinessesSelect<T extends boolean = true> {
         description?: T;
       };
   publishedAt?: T;
-  authors?: T;
-  populatedAuthors?:
-    | T
-    | {
-        id?: T;
-        name?: T;
-      };
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
